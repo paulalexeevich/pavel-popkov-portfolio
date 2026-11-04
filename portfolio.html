@@ -1,0 +1,377 @@
+<title>Pavel Popkov Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Onest:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single 880px column; each project is a case file with a metadata rail on the left and content on the right */
+:root{
+  --bg:#F2F5F6; --surface:#FFFFFF; --fg:#13202A; --muted:#5B6B76; --line:#D6DEE2;
+  --accent:#0B7A6B; --accent-soft:#DDF0EC; --warn:#B4531A; --warn-soft:#F8E6D9;
+  --f-display:'Bricolage Grotesque','Onest',system-ui,sans-serif;
+  --f-body:'Onest',system-ui,sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E1519; --surface:#151F25; --fg:#E6EEF1; --muted:#8FA2AD; --line:#27363F;
+  --accent:#4FD1B8; --accent-soft:#12302B; --warn:#F0A26B; --warn-soft:#3A2517; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1519; --surface:#151F25; --fg:#E6EEF1; --muted:#8FA2AD; --line:#27363F;
+  --accent:#4FD1B8; --accent-soft:#12302B; --warn:#F0A26B; --warn-soft:#3A2517; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:400 16px/1.6 var(--f-body);
+  padding-block:48px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.1}
+.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+header{display:flex;flex-direction:column;gap:16px}
+h1{font-size:clamp(34px,6vw,56px);font-weight:700;letter-spacing:-.02em}
+.lead{font-size:19px;max-width:62ch;margin:0;color:var(--muted)}
+.lead b{color:var(--fg);font-weight:500}
+nav{display:flex;gap:8px;flex-wrap:wrap}
+nav a{font:500 14px var(--f-body);color:var(--fg);text-decoration:none;border:1px solid var(--line);padding:8px 14px;border-radius:6px;background:var(--surface)}
+nav a:hover,nav a:focus-visible{border-color:var(--accent);outline:none}
+.case,.about{display:grid;grid-template-columns:200px minmax(0,1fr);gap:32px;border-top:2px solid var(--fg);padding-top:24px}
+.meta{display:flex;flex-direction:column;gap:14px;font-size:14px;min-width:0}
+.meta dl{margin:0;display:flex;flex-direction:column;gap:2px}
+.meta dt{font:400 11px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.meta dd{margin:0}
+.body{display:flex;flex-direction:column;gap:28px;min-width:0}
+h2{font-size:clamp(26px,4vw,36px);font-weight:700;letter-spacing:-.01em}
+.body p{margin:0;max-width:65ch}
+h3{font-size:18px;font-weight:700;margin-bottom:8px}
+.sec{display:flex;flex-direction:column;gap:8px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.tile b{font-family:var(--f-display);font-size:16px}
+.tile span{font-size:14px;color:var(--muted)}
+.stat{display:flex;gap:16px;flex-wrap:wrap}
+.stat div{flex:1 1 200px;border-left:3px solid var(--accent);padding-left:14px}
+.stat strong{display:block;font:700 36px/1.1 var(--f-display);color:var(--accent);font-variant-numeric:tabular-nums}
+.stat span{font-size:14px;color:var(--muted)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.facts div{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px}
+.facts strong{display:block;font:700 26px/1.1 var(--f-display);color:var(--accent);font-variant-numeric:tabular-nums}
+.facts span{font-size:13.5px;color:var(--muted)}
+figure{margin:0;display:flex;flex-direction:column;gap:8px}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+.scroll svg{display:block;width:100%;min-width:640px;height:auto}
+figcaption{font-size:13px;color:var(--muted)}
+svg text{font-family:var(--f-body);fill:var(--fg);font-size:13px}
+svg .t-m{fill:var(--muted);font-size:11.5px}
+svg .t-h{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;fill:var(--muted)}
+svg .t-b{font-weight:600}
+svg .t-a{fill:var(--accent);font-weight:600}
+svg .t-w{fill:var(--warn);font-weight:600}
+svg .bx{fill:var(--bg);stroke:var(--line);stroke-width:1.2}
+svg .bx-a{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.2}
+svg .bx-w{fill:var(--warn-soft);stroke:var(--warn);stroke-width:1.2}
+svg .bx-d{fill:var(--surface);stroke:var(--fg);stroke-width:1.6}
+svg .ln{stroke:var(--muted);stroke-width:1.4;fill:none}
+svg .bar{fill:var(--accent)}
+svg .bar2{fill:var(--accent);opacity:.45}
+svg .s0{fill:var(--accent)}
+svg .s1{fill:var(--accent);opacity:.5}
+svg .s2{fill:var(--warn)}
+svg .s3{fill:var(--muted);opacity:.55}
+svg .gap{fill:none;stroke:var(--warn);stroke-width:1.2;stroke-dasharray:3 3}
+svg .shelf{stroke:var(--bg);stroke-width:1.5}
+/* cause trees */
+svg .te{stroke:var(--line);fill:none;stroke-width:1.2}
+svg .te.hot{stroke:var(--accent);stroke-width:2.2}
+svg .tn{fill:var(--bg);stroke:var(--muted);stroke-width:1.2}
+svg .tn.hot{fill:var(--accent);stroke:var(--accent)}
+svg .tn.mid{fill:var(--accent-soft);stroke:var(--accent)}
+svg .tn.root{fill:var(--fg);stroke:var(--fg)}
+.grid9{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.cut{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 8px 6px;min-width:0;display:flex;flex-direction:column;gap:2px}
+.cut svg{width:100%;height:auto;display:block}
+.cut .cap{font:500 10.5px var(--f-mono);letter-spacing:.04em;color:var(--muted);display:flex;justify-content:space-between;gap:6px;flex-wrap:wrap}
+.cut .cap b{color:var(--accent);font-weight:500}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.contact{border-top:2px solid var(--fg);padding-top:24px;display:flex;flex-direction:column;gap:12px}
+.contact h2{font-size:28px}
+.mail{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.mail code{font:500 16px var(--f-mono);background:var(--surface);border:1px solid var(--line);padding:8px 12px;border-radius:6px;user-select:all}
+button{font:500 14px var(--f-body);cursor:pointer;background:var(--accent);color:var(--bg);border:0;border-radius:6px;padding:9px 14px}
+button:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+@media (max-width:720px){.case,.about{grid-template-columns:1fr;gap:20px}.meta{flex-direction:row;flex-wrap:wrap;gap:16px 28px}}
+</style>
+
+<div class="wrap">
+<header>
+  <span class="mono">Portfolio · Pavel Popkov</span>
+  <h1>AI agents that make retail and CPG numbers trustworthy</h1>
+  <p class="lead">I build agents that check assortment master data and diagnose why targets are missed, and adapt planograms to each store. <b>Less manual reconciliation for KAMs, field teams and analysts, and more trust in the reports.</b></p>
+  <nav><a href="#about">About</a><a href="#oos">1 · Data QA agent</a><a href="#diag">2 · Diagnostic agent</a><a href="#plano">3 · Planogram agent</a><a href="#contact">Contact</a></nav>
+</header>
+
+<section class="about" id="about">
+  <div class="meta">
+    <dl><dt>Who</dt><dd>Pavel Popkov</dd></dl>
+    <dl><dt>Based in</dt><dd>Budapest</dd></dl>
+    <dl><dt>Projects in</dt><dd>US, Europe, Middle East, LatAm</dd></dl>
+    <dl><dt>Experience</dt><dd>10 years in CPG, 8 years in Tech, 2 years with AI agents</dd></dl>
+  </div>
+  <div class="body">
+    <h2>Retail expert who knows retail data from both sides and has built 0-to-1 products</h2>
+    <p>I started as a commercial analyst at The Coca-Cola Company, then spent seven years at Coca-Cola HBC, where I rolled out computer vision to 4,000 sales reps. I moved into B2B SaaS for retail and went from sales director to director of product strategy. I know how a report looks to a KAM, a field rep and a product team.</p>
+    <div class="facts">
+      <div><strong>$6M+</strong><span>annual revenue from a new product I led from zero</span></div>
+      <div><strong>15% → 5%</strong><span>OOS in two years at Coca-Cola HBC</span></div>
+      <div><strong>−90%</strong><span>manual image annotation after launching internal agents</span></div>
+      <div><strong>2 wks → 2 days</strong><span>time-to-value from data</span></div>
+    </div>
+    <p>I like rapid prototypes that validate a hypothesis with limited time and resources, and AI adoption where it makes people more productive.</p>
+  </div>
+</section>
+
+<section class="case" id="oos">
+  <div class="meta">
+    <dl><dt>Project</dt><dd>01 · Data QA agent</dd></dl>
+    <dl><dt>For</dt><dd>CPG manufacturers and retailers with field teams and KAMs</dd></dl>
+    <dl><dt>Data</dt><dd>Shelf recognition data by product and by store</dd></dl>
+    <dl><dt>Metric</dt><dd>OOS accuracy and OOS level</dd></dl>
+  </div>
+  <div class="body">
+    <h2>Data QA agent: keeps each store's assortment targets correct</h2>
+    <p>An OOS report is only as accurate as the list of products that should be on the shelf. That list is updated by hand, so it goes stale. The agent does the updating.</p>
+
+    <figure>
+      <div class="scroll"><svg viewBox="0 0 760 270" role="img" aria-label="Assortment agent flow: recognition data, three patterns, three decisions, accurate OOS report">
+        <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--muted)"/></marker></defs>
+        <text class="t-h" x="10" y="16">INPUT</text><text class="t-h" x="190" y="16">WHAT THE AGENT SPOTS</text><text class="t-h" x="430" y="16">WHAT IT DOES</text><text class="t-h" x="630" y="16">RESULT</text>
+        <rect class="bx-d" x="10" y="30" width="130" height="210" rx="8"/>
+        <text class="t-b" x="75" y="112" text-anchor="middle">Shelf</text><text class="t-b" x="75" y="130" text-anchor="middle">recognition</text>
+        <text class="t-m" x="75" y="152" text-anchor="middle">product × store</text>
+        <path class="ln" d="M140 58H190" marker-end="url(#ar)"/><path class="ln" d="M140 135H190" marker-end="url(#ar)"/><path class="ln" d="M140 212H190" marker-end="url(#ar)"/>
+        <rect class="bx-a" x="190" y="30" width="190" height="56" rx="8"/><text class="t-a" x="205" y="54">+ New product appears</text><text class="t-m" x="205" y="72">on shelf, missing from targets</text>
+        <rect class="bx-w" x="190" y="107" width="190" height="56" rx="8"/><text class="t-w" x="205" y="131">− Product disappears</text><text class="t-m" x="205" y="149">retailer delisted it</text>
+        <rect class="bx" x="190" y="184" width="190" height="56" rx="8"/><text class="t-b" x="205" y="208">⇄ Store reclassified</text><text class="t-m" x="205" y="226">shelves and racks changed</text>
+        <path class="ln" d="M380 58H430" marker-end="url(#ar)"/><path class="ln" d="M380 135H430" marker-end="url(#ar)"/><path class="ln" d="M380 212H430" marker-end="url(#ar)"/>
+        <rect class="bx-d" x="430" y="30" width="160" height="56" rx="8"/><text class="t-b" x="445" y="63">Add to targets</text>
+        <rect class="bx-d" x="430" y="107" width="160" height="56" rx="8"/><text class="t-b" x="445" y="140">Remove from targets</text>
+        <rect class="bx-d" x="430" y="184" width="160" height="56" rx="8"/><text class="t-b" x="445" y="217">Recalculate targets</text>
+        <path class="ln" d="M590 58L630 120" marker-end="url(#ar)"/><path class="ln" d="M590 135H630" marker-end="url(#ar)"/><path class="ln" d="M590 212L630 150" marker-end="url(#ar)"/>
+        <rect class="bx-a" x="630" y="30" width="120" height="210" rx="8"/>
+        <text class="t-a" x="690" y="106" text-anchor="middle">Accurate</text><text class="t-a" x="690" y="124" text-anchor="middle">OOS report</text>
+        <text class="t-m" x="690" y="150" text-anchor="middle">no missed gaps,</text><text class="t-m" x="690" y="166" text-anchor="middle">no phantom reasons</text>
+      </svg></div>
+      <figcaption>The agent compares targets with what the shelf actually shows, then updates them itself.</figcaption>
+    </figure>
+
+    <div class="sec">
+      <h3>The problem</h3>
+      <div class="cols">
+        <div class="tile"><b>New product missing from targets</b><span>The KAM forgot to add it. If it is not on the shelf, it never shows up in the OOS report.</span></div>
+        <div class="tile"><b>Delisted product still in targets</b><span>The retailer decided to drop it, but the KAM did not know or did not tell the team. Field reps keep logging reasons for a product that should not be there.</span></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h3>Impact</h3>
+      <div class="stat">
+        <div><strong>8–12%</strong><span>approximate OOS reduction from correct targets</span></div>
+        <div><strong>+5–8%</strong><span>approximate further reduction from trust in the data, faster OOS detection and quick diagnosis, especially for new launches</span></div>
+        <div><strong>~40%</strong><span>of time spent entering out-of-stock reasons went to products the retailer had already delisted (two projects)</span></div>
+        <div><strong>up to 5 min</strong><span>saved by the field team on every visit</span></div>
+      </div>
+      <p>KAMs start using the data because the OOS report stops disagreeing with reality. Trust grows, and so does usage.</p>
+    </div>
+  </div>
+</section>
+
+<section class="case" id="diag">
+  <div class="meta">
+    <dl><dt>Project</dt><dd>02 · Diagnostic agent</dd></dl>
+    <dl><dt>For</dt><dd>Analysts and managers in small and mid-sized teams</dd></dl>
+    <dl><dt>Job</dt><dd>Diagnose why a KPI missed its target</dd></dl>
+    <dl><dt>Scale</dt><dd>Many brands, SKUs, channels and customers</dd></dl>
+  </div>
+  <div class="body">
+    <h2>Diagnostic agent: works through the whole portfolio at once</h2>
+    <p>When a plan is missed, an analyst walks a chain of related metrics. On a large portfolio, going through every combination of brand, product, channel and customer by hand is not realistic. The agent follows the same logic, in parallel.</p>
+
+    <div class="sec">
+      <h3>One cause tree, using the analyst's own rules</h3>
+      <figure>
+        <div class="scroll"><svg id="big" viewBox="0 0 760 290" role="img" aria-label="Cause tree for a missed sales plan: price, distribution, activation and demand branches with their checks"></svg></div>
+        <figcaption>The agent checks the metrics linked to the KPI, branch by branch. Highlighted path: the cause it found in this cut.</figcaption>
+      </figure>
+    </div>
+
+    <div class="sec">
+      <h3>Many cuts by product and customer, one tree each</h3>
+      <p>The same tree is built for every product × customer cut. Up to 100 copies of the agent run in parallel, and the findings merge into one document with a ranking of causes.</p>
+      <figure>
+        <div class="grid9" id="g9"></div>
+        <div class="legend"><span><i style="background:var(--accent)"></i>root cause found</span><span><i style="background:var(--accent-soft);border:1px solid var(--accent)"></i>branch contributes</span><span><i style="background:var(--bg);border:1px solid var(--muted)"></i>checked, no issue</span></div>
+        <figcaption>Illustration: a small sample of the many cuts. In each one the cause sits in a different place, which is what a manual review misses.</figcaption>
+      </figure>
+    </div>
+
+    <div class="sec">
+      <h3>Consolidated ranking</h3>
+      <figure>
+        <div class="scroll"><svg viewBox="0 0 760 170" role="img" aria-label="Ranked causes of missed targets, illustrative">
+          <text class="t-h" x="10" y="16">CAUSES BY CONTRIBUTION · ILLUSTRATIVE</text>
+          <text x="10" y="50">Distribution</text><rect class="bar" x="200" y="38" width="480" height="16" rx="3"/>
+          <text x="10" y="80">Price vs competitors</text><rect class="bar" x="200" y="68" width="330" height="16" rx="3"/>
+          <text x="10" y="110">In-store activation</text><rect class="bar2" x="200" y="98" width="210" height="16" rx="3"/>
+          <text x="10" y="140">Demand and traffic</text><rect class="bar2" x="200" y="128" width="110" height="16" rx="3"/>
+        </svg></div>
+        <figcaption>Illustrative values. The real output ranks causes by their contribution to the miss.</figcaption>
+      </figure>
+    </div>
+
+    <div class="sec">
+      <h3>Impact</h3>
+      <div class="stat">
+        <div><strong>5–8 h</strong><span>saved per week on diagnostics</span></div>
+        <div><strong>Faster</strong><span>decisions: attention goes to fixing problems, not finding them</span></div>
+      </div>
+      <p>Large consulting teams work this way. The same approach works for a small team. The main effort is calibrating the logic in the first stages and adapting the agent when the data structure changes.</p>
+    </div>
+  </div>
+</section>
+
+<section class="case" id="plano">
+  <div class="meta">
+    <dl><dt>Project</dt><dd>03 · Planogram agent</dd></dl>
+    <dl><dt>For</dt><dd>Retailers and CPG category teams</dd></dl>
+    <dl><dt>Data</dt><dd>Shelf photos combined with sales data</dd></dl>
+    <dl><dt>Metric</dt><dd>Planogram compliance</dd></dl>
+  </div>
+  <div class="body">
+    <h2>Planogram agent: the best assortment and layout for every store and category</h2>
+    <p>A planogram is drawn for an ideal store. Real stores have a different number of shelves and racks. The agent looks at the actual photos, joins them with sales data, and builds an optimal assortment and layout for each store and each category.</p>
+
+    <figure>
+      <div class="scroll"><svg viewBox="0 0 760 250" role="img" aria-label="Planogram agent inputs: photos, sales, customer decision tree, retailer priorities, CPG agreements, store equipment; output: adapted planogram for each store and category">
+        <defs><marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--muted)"/></marker></defs>
+        <text class="t-h" x="10" y="16">WHAT THE AGENT COMBINES</text><text class="t-h" x="330" y="16">AGENT</text><text class="t-h" x="520" y="16">OUTPUT</text>
+        <rect class="bx" x="10" y="30" width="270" height="34" rx="6"/><text x="24" y="52">Shelf photos of the actual store</text>
+        <rect class="bx" x="10" y="72" width="270" height="34" rx="6"/><text x="24" y="94">Sales data by product and store</text>
+        <rect class="bx" x="10" y="114" width="270" height="34" rx="6"/><text x="24" y="136">Shopper decision tree of the category</text>
+        <rect class="bx" x="10" y="156" width="270" height="34" rx="6"/><text x="24" y="178">Retailer priorities and strategy</text>
+        <rect class="bx" x="10" y="198" width="270" height="34" rx="6"/><text x="24" y="220">Agreements with CPG suppliers</text>
+        <path class="ln" d="M280 130H330" marker-end="url(#ar3)"/>
+        <rect class="bx-d" x="330" y="70" width="150" height="120" rx="8"/>
+        <text class="t-b" x="405" y="122" text-anchor="middle">Planogram</text><text class="t-b" x="405" y="140" text-anchor="middle">agent</text>
+        <text class="t-m" x="405" y="162" text-anchor="middle">+ real shelf and</text><text class="t-m" x="405" y="177" text-anchor="middle">rack count</text>
+        <path class="ln" d="M480 130H520" marker-end="url(#ar3)"/>
+        <rect class="bx-a" x="520" y="30" width="230" height="202" rx="8"/>
+        <text class="t-a" x="535" y="104">Adapted planogram</text>
+        <text class="t-m" x="535" y="128">for each store</text><text class="t-m" x="535" y="144">and each category</text>
+        <text class="t-m" x="535" y="170">optimal assortment and layout</text><text class="t-m" x="535" y="186">for the equipment on site</text>
+      </svg></div>
+      <figcaption>Photos show what the store really has. Sales, shopper logic and commercial agreements decide what belongs on it.</figcaption>
+    </figure>
+
+    <div class="sec">
+      <h3>Ideal planogram vs. real store</h3>
+      <figure>
+        <div class="scroll"><svg id="shelves" viewBox="0 0 760 200" role="img" aria-label="Three shelf diagrams: ideal planogram, real store with fewer shelves and racks, adapted planogram"></svg></div>
+        <figcaption>Illustration. The real store has fewer shelves and racks than the ideal. The agent re-plans the layout instead of forcing the original to fit.</figcaption>
+      </figure>
+    </div>
+
+    <div class="sec">
+      <h3>The problem</h3>
+      <div class="cols">
+        <div class="tile"><b>Equipment differs from the ideal</b><span>Most planogram problems are deviations in the number of shelves and racks.</span></div>
+        <div class="tile"><b>The error compounds</b><span>One deviation sets off a chain reaction. Staff lose understanding of the layout, and shelf execution in that store becomes less accurate.</span></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h3>Impact</h3>
+      <div class="stat">
+        <div><strong>30–40% → 70–80%</strong><span>planogram compliance for management</span></div>
+        <div><strong>Ready to use</strong><span>retail staff get a planogram adapted to their store, not a generic one</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Let's look at your case</h2>
+  <p style="margin:0;max-width:60ch;color:var(--muted)">Tell me where the numbers in your reports do not add up, or what your analysts spend days on. I will tell you whether an agent can take it over.</p>
+  <div class="mail"><code id="m">paulalexeevich@gmail.com</code><button id="cp" type="button">Copy</button></div>
+</section>
+</div>
+
+<script>
+/* Cause tree builder. big=true draws labels; otherwise a small unlabeled tree. hot=[branchIndex, leafIndex(0|1)] */
+var BR=['Price','Distribution','Activation','Demand'];
+var LF=[['Own price','vs competitors'],['Listing','Out of stock'],['Display','Promo'],['Traffic','Category trend']];
+function tree(w,h,hot,mids,big){
+  var s='',rx=w/2,ry=big?26:8,by=big?130:36,ly=big?225:68,r=big?9:3.2,rr=big?12:4.2;
+  var bx=[],lx=[];
+  for(var i=0;i<4;i++){bx.push(w*(i*2+1)/8);lx.push([bx[i]-(big?w*0.06:w*0.07),bx[i]+(big?w*0.06:w*0.07)])}
+  for(i=0;i<4;i++){
+    var hb=hot[0]===i, mb=hb||mids.indexOf(i)>-1;
+    s+='<path class="te'+(hb?' hot':'')+'" d="M'+rx+' '+ry+'C'+rx+' '+(ry+by)/2+' '+bx[i]+' '+(ry+by)/2+' '+bx[i]+' '+by+'"/>';
+    for(var j=0;j<2;j++){
+      var hl=hb&&hot[1]===j;
+      s+='<path class="te'+(hl?' hot':'')+'" d="M'+bx[i]+' '+by+'C'+bx[i]+' '+(by+ly)/2+' '+lx[i][j]+' '+(by+ly)/2+' '+lx[i][j]+' '+ly+'"/>';
+    }
+  }
+  s+='<circle class="tn root" cx="'+rx+'" cy="'+ry+'" r="'+rr+'"/>';
+  for(i=0;i<4;i++){
+    hb=hot[0]===i; mb=hb||mids.indexOf(i)>-1;
+    s+='<circle class="tn'+(hb?' hot':mb?' mid':'')+'" cx="'+bx[i]+'" cy="'+by+'" r="'+r+'"/>';
+    for(j=0;j<2;j++){
+      hl=hb&&hot[1]===j;
+      s+='<circle class="tn'+(hl?' hot':'')+'" cx="'+lx[i][j]+'" cy="'+ly+'" r="'+(r*0.8)+'"/>';
+      if(big)s+='<text class="'+(hl?'t-a':'t-m')+'" x="'+lx[i][j]+'" y="'+(ly+28)+'" text-anchor="middle">'+LF[i][j]+'</text>';
+    }
+    if(big)s+='<text class="'+(hb?'t-a':'t-b')+'" x="'+bx[i]+'" y="'+(by-18)+'" text-anchor="middle">'+BR[i]+'</text>';
+  }
+  if(big)s+='<text class="t-b" x="'+rx+'" y="'+(ry-10)+'" text-anchor="middle" style="font-size:13px">Sales below plan</text>';
+  return s;
+}
+document.getElementById('big').innerHTML=tree(760,290,[1,1],[2],true);
+var cuts=[
+ ['Product A × Cust. 1',[1,1],[2]],['Product A × Cust. 2',[0,1],[]],['Product A × Cust. 3',[3,0],[0]],
+ ['Product B × Cust. 1',[2,0],[1]],['Product B × Cust. 2',[1,0],[0,2]],['Product B × Cust. 3',[0,0],[]],
+ ['Product C × Cust. 1',[1,1],[]],['Product C × Cust. 2',[2,1],[3]],['Product C × Cust. 3',[3,1],[1]]];
+var h='';
+cuts.forEach(function(c){
+  h+='<div class="cut"><svg viewBox="0 0 120 80" aria-hidden="true">'+tree(120,80,c[1],c[2],false)+'</svg><div class="cap"><span>'+c[0]+'</span><b>'+BR[c[1][0]]+'</b></div></div>';
+});
+document.getElementById('g9').innerHTML=h;
+(function(){
+  var CW=17,CH=22;
+  function block(x,y,rows,t){
+    var s='';
+    rows.forEach(function(row,r){
+      var cx=0;
+      row.forEach(function(seg){
+        s+='<rect class="shelf s'+seg[0]+'" x="'+(x+cx*CW)+'" y="'+(y+r*CH)+'" width="'+(seg[1]*CW)+'" height="'+(CH-2)+'" rx="2"/>';
+        cx+=seg[1];
+      });
+    });
+    return s;
+  }
+  var ideal=[[[0,4],[1,4],[2,4]],[[0,3],[1,3],[2,3],[3,3]],[[1,4],[2,4],[3,4]],[[0,3],[3,3],[2,3],[1,3]],[[3,6],[2,6]]];
+  var adapt=[[[0,3],[1,3],[2,2]],[[0,2],[1,2],[2,2],[3,2]],[[1,3],[2,3],[3,2]],[[0,2],[3,3],[2,3]]];
+  var s='';
+  s+='<text class="t-h" x="20" y="16">IDEAL PLANOGRAM</text>'+block(20,30,ideal);
+  s+='<text class="t-b" x="20" y="164">5 shelves × 12 facings</text>';
+  s+='<text class="t-h" x="270" y="16">REAL STORE</text>';
+  s+='<rect class="gap" x="270" y="30" width="'+(12*CW-2)+'" height="'+(5*CH-2)+'" rx="2"/>';
+  for(var r=0;r<4;r++)s+='<rect class="bx" x="270" y="'+(30+r*CH)+'" width="'+(8*CW-2)+'" height="'+(CH-2)+'" rx="2"/>';
+  s+='<text class="t-w" x="270" y="164">4 shelves × 8 facings</text>';
+  s+='<text class="t-m" x="270" y="181">missing space shown dashed</text>';
+  s+='<text class="t-h" x="520" y="16">ADAPTED PLANOGRAM</text>'+block(520,30,adapt);
+  s+='<text class="t-a" x="520" y="164">fits the real equipment</text>';
+  s+='<text class="t-m" x="520" y="181">priority products keep their space</text>';
+  document.getElementById('shelves').innerHTML=s;
+})();
+document.getElementById('cp').addEventListener('click',function(){
+  var t=document.getElementById('m'),b=this;
+  function ok(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1600)}
+  function sel(){var r=document.createRange();r.selectNodeContents(t);var s=getSelection();s.removeAllRanges();s.addRange(r)}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.textContent).then(ok,sel)}else sel();
+});
+</script>
