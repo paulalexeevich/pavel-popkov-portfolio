@@ -1,0 +1,622 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Портфолио Павла Попкова</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Unbounded:wght@500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one 880px column; sticky top bar; start page -> three sections (About, Cases, AI agents); every case and every agent is its own page, routed by hash. */
+:root {
+  --bg: #F2F4F5;
+  --surface: #FFFFFF;
+  --ink: #0F1A1F;
+  --muted: #55656D;
+  --line: #D8DEE1;
+  --accent: #1B4DFF;
+  --accent-soft: #E6ECFF;
+  --signal: #E8890C;
+  --signal-soft: #FBEBD3;
+  --ok: #1E8A5A;
+  --risk: #C4452F;
+  --violet: #7A4DFF;
+  --font-display: "Unbounded", "Onest", system-ui, sans-serif;
+  --font-body: "Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0D1316; --surface: #151D21; --ink: #E8EEF0; --muted: #93A3AB; --line: #25323A;
+    --accent: #7B9BFF; --accent-soft: #1A2542; --signal: #F5A63A; --signal-soft: #3A2A12; --ok: #4FD39A; --risk: #E8806C; --violet: #A58BFF; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0D1316; --surface: #151D21; --ink: #E8EEF0; --muted: #93A3AB; --line: #25323A;
+  --accent: #7B9BFF; --accent-soft: #1A2542; --signal: #F5A63A; --signal-soft: #3A2A12; --ok: #4FD39A; --risk: #E8806C; --violet: #A58BFF; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 64px;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.wrap { max-width: 880px; margin: 0 auto; }
+.mono { font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(28px, 6.5vw, 44px); line-height: 1.12; letter-spacing: -.01em; }
+h2 { font-size: clamp(18px, 3.6vw, 22px); line-height: 1.25; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* top bar */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: var(--bg); border-bottom: 1px solid var(--line); }
+.bar .in { max-width: 880px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 8px 20px; flex-wrap: wrap; padding: 12px 0; }
+.brand { font-family: var(--font-display); font-weight: 600; font-size: 15px; text-decoration: none; }
+.bar nav { display: flex; gap: 4px; flex-wrap: wrap; }
+.bar nav a { font-size: 14px; font-weight: 500; text-decoration: none; padding: 6px 12px; border-radius: 6px; color: var(--muted); }
+.bar nav a:hover { color: var(--ink); background: var(--surface); }
+.bar nav a[aria-current="page"] { color: var(--accent); background: var(--accent-soft); }
+
+.hero.top { display: grid; grid-template-columns: minmax(0, 1fr) 180px; gap: 24px 32px; align-items: center; }
+.hero-text { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.portrait { width: 180px; aspect-ratio: 4 / 5; background: var(--accent-soft); border: 1px solid var(--line); border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+.portrait span { font-family: var(--font-display); font-weight: 600; font-size: 40px; color: var(--accent); }
+.portrait img { width: 100%; height: 100%; object-fit: cover; border-radius: 6px; display: block; }
+@media (max-width: 620px) { .hero.top { grid-template-columns: minmax(0, 1fr); } .portrait { width: 120px; order: -1; } }
+h1.long { font-size: clamp(22px, 4.6vw, 32px); line-height: 1.2; }
+.index.four { grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); }
+@media (max-width: 480px) { .index.four { grid-template-columns: minmax(0, 1fr); } }
+.view { display: flex; flex-direction: column; gap: 48px; padding-top: 40px; }
+.view[hidden] { display: none !important; }
+.section { display: flex; flex-direction: column; gap: 16px; }
+.lead { font-size: 18px; line-height: 1.5; max-width: 62ch; }
+.hero { display: flex; flex-direction: column; gap: 20px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font-size: 13px; padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--muted); }
+.chip b { color: var(--ink); font-weight: 500; }
+.crumbs { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.crumbs a, .next a { font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); text-decoration: none; }
+.crumbs a:hover, .next a:hover { text-decoration: underline; }
+.next { border-top: 2px solid var(--ink); padding-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+.next b { font-family: var(--font-display); font-weight: 600; font-size: 18px; line-height: 1.3; }
+
+/* facts / metrics */
+.metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+.metric { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.metric .n { font-family: var(--font-display); font-weight: 600; font-size: 26px; line-height: 1.1; color: var(--accent); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.metric .l { font-size: 13px; color: var(--muted); line-height: 1.4; }
+
+/* section cards on start page and indexes */
+.index { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; }
+.index a { text-decoration: none; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.index a:hover { border-color: var(--accent); }
+.index b { font-family: var(--font-display); font-weight: 600; font-size: 16px; line-height: 1.3; }
+.index .d { color: var(--muted); font-size: 14px; line-height: 1.45; }
+.go { color: var(--accent); font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; margin-top: auto; padding-top: 4px; }
+
+/* agent cards */
+.acards { display: flex; flex-direction: column; gap: 14px; }
+.acard { text-decoration: none; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 20px; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.acard:hover { border-color: var(--accent); }
+.acard h3 { font-size: 18px; line-height: 1.3; }
+.acard.stub { border-style: dashed; }
+.acard.stub .trio dd:not(.res) { font-style: italic; color: var(--muted); }
+.trio { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px 24px; }
+.trio dl { margin: 0; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.trio dt { font: 400 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.trio dd { margin: 0; font-size: 14px; line-height: 1.5; }
+.hero .trio { padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+.trio dd.res { color: var(--ink); font-weight: 500; }
+
+/* about */
+.pillars { display: flex; flex-direction: column; border-top: 2px solid var(--ink); }
+.pillar { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+.pillar h3 { font-size: 18px; line-height: 1.3; }
+.pillar ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; color: var(--muted); max-width: 64ch; }
+.pillar ul b { color: var(--ink); font-weight: 500; }
+.pillar .proof { font-size: 13px; color: var(--muted); }
+.pillar .proof a { color: var(--accent); }
+@media (min-width: 720px) {
+  .pillar { grid-template-columns: 200px minmax(0, 1fr); gap: 8px 32px; }
+  .pillar .mono { grid-row: span 3; padding-top: 4px; }
+}
+.timeline { display: flex; flex-direction: column; }
+.tl { display: grid; grid-template-columns: 28px 1fr; gap: 12px; padding-bottom: 14px; position: relative; }
+.tl::before { content: ""; position: absolute; left: 13px; top: 28px; bottom: 0; width: 2px; background: var(--line); }
+.tl:last-child::before { display: none; }
+.tl .dot { width: 28px; height: 28px; border-radius: 50%; background: var(--accent-soft); border: 2px solid var(--accent); }
+.tl b { display: block; font-weight: 600; }
+.tl span { color: var(--muted); font-size: 14px; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.tile b { font-family: var(--font-display); font-size: 15px; font-weight: 600; line-height: 1.3; }
+.tile span { font-size: 14px; color: var(--muted); }
+.tile.todo { border-style: dashed; }
+.tile.todo span { font-style: italic; }
+
+/* story blocks (cases) */
+.story { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.beat { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.beat h3 { margin: 0; font-family: var(--font-body); font-size: 18px; font-weight: 600; line-height: 1.3; text-wrap: balance; }
+.beat p { color: var(--muted); max-width: 64ch; }
+.beat p b { color: var(--ink); font-weight: 500; }
+@media (min-width: 640px) {
+  .beat { grid-template-columns: 150px minmax(0, 1fr); gap: 4px 24px; }
+  .beat .mono { grid-row: span 3; padding-top: 4px; }
+}
+.flow { display: flex; flex-direction: column; }
+.step { display: grid; grid-template-columns: 28px 1fr; gap: 12px; padding-bottom: 14px; position: relative; }
+.step::before { content: ""; position: absolute; left: 13px; top: 28px; bottom: 0; width: 2px; background: var(--line); }
+.step:last-child::before { display: none; }
+.dot { width: 28px; height: 28px; border-radius: 50%; background: var(--accent-soft); border: 2px solid var(--accent); }
+.dot.sig { border-color: var(--signal); background: transparent; }
+.step b { display: block; font-weight: 600; }
+.step span { color: var(--muted); font-size: 14px; }
+.step ul { margin: 6px 0 0; padding-left: 18px; color: var(--muted); font-size: 14px; display: flex; flex-direction: column; gap: 2px; }
+.branch { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-left: 40px; }
+.branch > div { border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px; background: var(--surface); font-size: 14px; }
+.branch .tag { color: var(--signal); font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; display: block; margin-bottom: 4px; }
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.compare > div { border: 1px solid var(--line); border-radius: 6px; padding: 16px; background: var(--surface); display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.compare .pick { border-color: var(--accent); }
+.compare ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 14px; display: flex; flex-direction: column; gap: 4px; }
+.compare p { color: var(--muted); font-size: 14px; }
+.compare .mono.on { color: var(--accent); }
+.zones { display: flex; border-radius: 4px; overflow: hidden; height: 10px; }
+.zones i { flex: 1; }
+.zones .r { background: var(--risk); } .zones .y { background: var(--signal); } .zones .g { background: var(--ok); }
+.chart { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.chart svg { width: 100%; height: auto; display: block; }
+.chart .grid { stroke: var(--line); stroke-width: 1; }
+.chart .axis { fill: var(--muted); font-family: var(--font-mono); font-size: 12px; }
+.chart .line { stroke: var(--accent); stroke-width: 3; fill: none; stroke-linejoin: round; stroke-linecap: round; }
+.chart .area { fill: var(--accent-soft); }
+.chart .pt { fill: var(--surface); stroke: var(--accent); stroke-width: 3; }
+.chart .pt.last { fill: var(--accent); }
+.chart .val { fill: var(--ink); font-family: var(--font-display); font-weight: 600; font-size: 14px; }
+.chart .zone { fill: var(--signal); opacity: .18; }
+.legend { font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
+.more { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+details { border-bottom: 1px solid var(--line); }
+summary { cursor: pointer; list-style: none; padding: 16px 0; display: flex; justify-content: space-between; gap: 16px; align-items: baseline; font-weight: 500; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; font-family: var(--font-mono); color: var(--accent); font-size: 20px; line-height: 1; }
+details[open] summary::after { content: "\2212"; }
+details .body { padding: 0 0 20px; color: var(--muted); display: flex; flex-direction: column; gap: 10px; max-width: 64ch; }
+details .body b { color: var(--ink); font-weight: 500; }
+.foot { font-size: 13px; color: var(--muted); }
+.note { color: var(--muted); max-width: 64ch; }
+
+/* agent pages */
+.stat { display: flex; gap: 16px; flex-wrap: wrap; }
+.stat div { flex: 1 1 200px; border-left: 3px solid var(--accent); padding-left: 14px; min-width: 0; }
+.stat strong { display: block; font: 600 28px/1.15 var(--font-display); color: var(--accent); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.stat span { font-size: 14px; color: var(--muted); }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px 24px; padding: 16px 0; border-block: 1px solid var(--line); }
+.meta dl { margin: 0; display: flex; flex-direction: column; gap: 2px; font-size: 14px; min-width: 0; }
+.meta dt { font: 400 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.meta dd { margin: 0; }
+figure { margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+.scroll svg { display: block; width: 100%; min-width: 640px; height: auto; }
+figcaption { font-size: 13px; color: var(--muted); }
+svg text { font-family: var(--font-body); fill: var(--ink); font-size: 13px; }
+svg .t-m { fill: var(--muted); font-size: 11.5px; }
+svg .t-h { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em; fill: var(--muted); }
+svg .t-b { font-weight: 600; }
+svg .t-a { fill: var(--accent); font-weight: 600; }
+svg .t-w { fill: var(--signal); font-weight: 600; }
+svg .bx { fill: var(--bg); stroke: var(--line); stroke-width: 1.2; }
+svg .bx-a { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1.2; }
+svg .bx-w { fill: var(--signal-soft); stroke: var(--signal); stroke-width: 1.2; }
+svg .bx-d { fill: var(--surface); stroke: var(--ink); stroke-width: 1.6; }
+svg .ln { stroke: var(--muted); stroke-width: 1.4; fill: none; }
+svg .bar { fill: var(--accent); }
+svg .bar2 { fill: var(--accent); opacity: .45; }
+svg .s0 { fill: var(--accent); }
+svg .s1 { fill: var(--accent); opacity: .5; }
+svg .s2 { fill: var(--signal); }
+svg .s3 { fill: var(--muted); opacity: .55; }
+svg .gap { fill: none; stroke: var(--signal); stroke-width: 1.2; stroke-dasharray: 3 3; }
+svg .shelf { stroke: var(--bg); stroke-width: 1.5; }
+svg .te { stroke: var(--line); fill: none; stroke-width: 1.2; }
+svg .te.hot { stroke: var(--accent); stroke-width: 2.2; }
+svg .tn { fill: var(--bg); stroke: var(--muted); stroke-width: 1.2; }
+svg .tn.hot { fill: var(--accent); stroke: var(--accent); }
+svg .tn.mid { fill: var(--accent-soft); stroke: var(--accent); }
+svg .tn.root { fill: var(--ink); stroke: var(--ink); }
+.grid9 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.cut { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 8px 8px 6px; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.cut svg { width: 100%; height: auto; display: block; }
+.cut .cap { font: 500 10.5px var(--font-mono); letter-spacing: .04em; color: var(--muted); display: flex; justify-content: space-between; gap: 6px; flex-wrap: wrap; }
+.cut .cap b { color: var(--accent); font-weight: 500; }
+
+
+/* venn */
+.venn { display: grid; grid-template-columns: minmax(0, 460px) minmax(0, 1fr); gap: 24px 32px; align-items: start; }
+@media (max-width: 820px) { .venn { grid-template-columns: minmax(0, 1fr); } #vsvg { max-width: 460px; margin: 0 auto; } }
+#vsvg { width: 100%; height: auto; display: block; touch-action: manipulation; }
+.vc circle { stroke-width: 2; transition: fill-opacity .15s, stroke-width .15s; fill-opacity: .16; }
+.vc.c-p circle { fill: var(--accent); stroke: var(--accent); }
+.vc.c-s circle { fill: var(--signal); stroke: var(--signal); }
+.vc.c-d circle { fill: var(--ok); stroke: var(--ok); }
+.vc.c-a circle { fill: var(--violet); stroke: var(--violet); }
+.vc.active circle { fill-opacity: .36; stroke-width: 3.5; }
+.vlabel { pointer-events: none; }
+.vlabel .vt { font-family: var(--font-display); font-weight: 600; font-size: 15px; fill: var(--ink); }
+.vlabel .vs { font-size: 11px; fill: var(--muted); }
+.vcenter { cursor: pointer; }
+.vcenter circle { fill: var(--surface); stroke: var(--ink); stroke-width: 2; transition: fill .15s; }
+.vcenter.active circle, .vcenter:hover circle { fill: var(--accent-soft); stroke: var(--accent); }
+.vcenter text { pointer-events: none; text-anchor: middle; }
+.vcenter .vc1 { font-family: var(--font-display); font-weight: 600; font-size: 16px; fill: var(--ink); }
+.vcenter .vc2 { font-family: var(--font-display); font-weight: 600; font-size: 12px; fill: var(--accent); }
+.vcenter:focus-visible circle { stroke: var(--accent); stroke-width: 4; }
+.vside { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.vtabs { display: flex; flex-wrap: wrap; gap: 6px; }
+.vtabs button { background: var(--surface); color: var(--muted); border: 1px solid var(--line); padding: 6px 12px; font-size: 13px; }
+.vtabs button[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+.vcard { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 20px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.vcard[hidden] { display: none; }
+.vcard h3 { font-family: var(--font-body); font-size: 18px; font-weight: 600; line-height: 1.3; }
+.vcard ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; color: var(--muted); font-size: 14.5px; }
+.vcard ul b { color: var(--ink); font-weight: 500; }
+.vcard .vtext { color: var(--muted); font-size: 14.5px; }
+.vcard .proof { font-size: 13px; color: var(--muted); }
+.vcard .proof a { color: var(--accent); }
+
+/* arc + case cards */
+.arc { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
+.arc a { text-decoration: none; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.arc a:hover { border-color: var(--accent); }
+.arc b { font-family: var(--font-display); font-weight: 600; font-size: 15px; line-height: 1.3; }
+.arc .d { font-size: 14px; color: var(--muted); line-height: 1.45; }
+.arc .res { font-size: 13px; color: var(--accent); font-weight: 500; margin-top: auto; padding-top: 6px; }
+.arcline { max-width: 64ch; color: var(--muted); }
+.arcline b { color: var(--ink); font-weight: 500; }
+.index .cm { display: flex; gap: 8px 24px; flex-wrap: wrap; margin-top: 4px; }
+.index .cm span { display: flex; flex-direction: column; }
+.index .cm strong { font-family: var(--font-display); font-weight: 600; font-size: 22px; line-height: 1.15; color: var(--accent); }
+.index .cm em { font-style: normal; font-size: 12px; color: var(--muted); }
+.index div.cc { border: 1px dashed var(--line); border-radius: 6px; padding: 18px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.index div.cc b { color: var(--muted); }
+h1.name { font-size: clamp(36px, 8vw, 56px); line-height: 1.05; }
+.btns { display: flex; gap: 8px; flex-wrap: wrap; }
+a.btn { font: 500 14px var(--font-body); text-decoration: none; padding: 9px 14px; border-radius: 6px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
+a.btn.pri { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+
+/* footer */
+.contact { margin-top: 64px; border-top: 2px solid var(--ink); padding-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+.contact h2 { font-size: 22px; }
+.contact p { color: var(--muted); max-width: 60ch; }
+.mail { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.mail code { font: 500 15px var(--font-mono); background: var(--surface); border: 1px solid var(--line); padding: 8px 12px; border-radius: 6px; user-select: all; overflow-wrap: anywhere; }
+button { font: 500 14px var(--font-body); cursor: pointer; background: var(--accent); color: var(--bg); border: 0; border-radius: 6px; padding: 9px 14px; }
+@media (max-width: 520px) { .grid9 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .branch { margin-left: 0; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+
+<div class="wrap">
+
+<!-- ============ HOME ============ -->
+<main class="view" id="home" data-title="Павел Попков — Product Lead, B2B">
+  <header class="hero">
+    <span class="mono">Портфолио · Product Lead · B2B</span>
+    <h1 class="name">Павел Попков</h1>
+    <p class="lead" style="font-weight:600">Запускаю B2B-продукты с нуля и довожу их до миллионов выручки.</p>
+    <p class="lead" style="color:var(--muted)">18 лет в ритейле и CPG: от операций в Coca-Cola до собственного продукта на $6M в Trax. Сейчас строю аналитику и AI-агентов.</p>
+    <div class="btns"><a class="btn pri" href="#contact">Написать мне</a><a class="btn" href="#" data-todo="linkedin">LinkedIn</a><a class="btn" href="#" data-todo="cv">CV, PDF</a><a class="btn" href="#about">Обо мне</a></div>
+  </header>
+
+  <section class="section" aria-label="Траектория">
+    <span class="mono">Траектория</span>
+    <nav class="arc">
+      <a href="#about"><span class="mono">01</span><b>Операции</b><span class="d">Coca-Cola: полевая команда, эффективность визитов</span></a>
+      <a href="#case-1"><span class="mono">02</span><b>Продукт 0→1</b><span class="d">Trax: от гипотезы до $6M выручки</span></a>
+      <a href="#case-3"><span class="mono">03</span><b>Аналитика</b><span class="d">Trax: клиенты оценили сквозную диагностику больше визитов</span></a>
+      <a href="#case-4"><span class="mono">04</span><b>AI-агенты</b><span class="d">Агенты забрали рутину и сократили OOS на 10%</span></a>
+    </nav>
+  </section>
+
+  <section class="section" aria-label="Кейсы">
+    <span class="mono">Кейсы</span>
+    <nav class="index four" aria-label="Кейсы">
+      <a href="#case-1"><span class="mono">Кейс 01 · Продукт с нуля</span><b>Продукт с нуля до $6M за 2,5 года</b><span class="d">Мерчандайзер едет в магазин, только когда там реальная проблема. Сигнал дают фото обычных покупателей.</span><span class="cm"><span><strong>$6M</strong><em>выручка в год</em></span><span><strong>57%</strong><em>маржа</em></span></span><span class="go">Читать →</span></a>
+      <a href="#case-2"><span class="mono">Кейс 02 · Продуктизация</span><b>Из 3 недовольных клиентов в 12 и $4M</b><span class="d">Как разовый запрос клиента стал премиальным пакетом, который потом купили Diageo, P&amp;G и Coca-Cola Japan.</span><span class="cm"><span><strong>3 → 12</strong><em>клиентов</em></span><span><strong>NPS 70+</strong><em>при среднем ниже 30</em></span></span><span class="go">Читать →</span></a>
+      <a href="#case-3"><span class="mono">Кейс 03 · Аналитика</span><b>Как аналитика стала главной ценностью продукта</b><span class="d">Клиенты ценили данные больше визитов. Я построил DataHub и AI-агентов, которые свели ~1 млн записей о товарах из разных систем.</span><span class="cm"><span><strong>97% / 92%</strong><em>precision / recall сопоставления</em></span><span><strong>~1 млн</strong><em>записей о товарах</em></span></span><span class="go">Читать →</span></a>
+      <a href="#case-4"><span class="mono">Кейс 04 · AI-агенты</span><b>Агент корректировки целей: чистые цели вместо ответов «товар выведен»</b><span class="d">Для аналитиков и полевых команд CPG. Точность проверена на 5 000 магазинах: принято 9 из 10 рекомендаций.</span><span class="cm"><span><strong>90%</strong><em>рекомендаций приняты</em></span><span><strong>3–5 мин</strong><em>экономии на визите</em></span></span><span class="go">Читать →</span></a>
+    </nav>
+  </section>
+</main>
+
+<!-- ============ ABOUT ============ -->
+<main class="view" id="about" data-title="Обо мне — Павел Попков" hidden>
+  <div class="crumbs"><a href="#home">← На главную</a></div>
+  <header class="hero">
+    <span class="mono">Обо мне</span>
+    <h1>Запускаю новые продукты и строю системы и процессы с нуля</h1>
+    <p class="lead">Начинал аналитиком в The Coca-Cola Company, семь лет проработал в Coca-Cola HBC, затем перешёл в B2B SaaS для ритейла: от директора по продажам до директора по стратегии продукта. Сейчас строю AI-агентов.</p>
+    <div class="chips">
+      <span class="chip">Живу в: <b>Будапешт</b></span>
+      <span class="chip">Проекты: <b>США, Европа, Ближний Восток, Латинская Америка</b></span>
+      <span class="chip">Опыт: <b>10 лет CPG · 8 лет Tech · 2 года AI-агенты</b></span>
+    </div>
+  </header>
+
+  
+
+  <section class="metrics" aria-label="Ключевые цифры">
+    <div class="metric"><span class="n">15% → 5%</span><span class="l">доля пустых полок за два года в Coca-Cola HBC</span></div>
+    <div class="metric"><span class="n">$6M</span><span class="l">годовая выручка нового продукта, который я вёл с нуля</span></div>
+    <div class="metric"><span class="n">3 → 12</span><span class="l">клиентов в российском юните Trax, выручка $4M</span></div>
+    <div class="metric"><span class="n">90%</span><span class="l">рекомендаций AI-агента приняты на тесте из 5 000 магазинов</span></div>
+  </section>
+
+  <section class="section">
+    <span class="mono">Из Coca-Cola в продукт</span>
+    <h2>Как руководитель из корпорации стал строить продукты с нуля</h2>
+    <div class="story">
+      <div class="beat"><span class="mono">До</span><h3>Компания с готовыми процессами</h3><p>В Coca-Cola я руководил департаментом по сейлз бизнес-процессам: обучение, мониторинг, эффективность полевых команд. В 2013 году наш процесс признали лучшим в Coca-Cola в мире. У меня были выстроенные процессы и поддержка на каждом шаге.</p></div>
+      <div class="beat"><span class="mono">Почему позвали</span><h3>Я знал проблему клиента изнутри</h3><p>В Coca-Cola я сам измерял, сколько визитов мерчандайзеров проходит впустую. Trax искал человека, который видел эту проблему со стороны заказчика.</p></div>
+      <div class="beat"><span class="mono">После</span><h3>Стартап, где нет ни процессов, ни системы</h3><p>В Trax были только задачи роста и бюджет как единственное ограничение. Это давало возможность строить процессы с нуля и собирать команду. <b>Сначала пришлось перестроить себя:</b> вместо готовых правил нужно было выяснять, что клиенту нужно на самом деле. Сначала я возглавил российский офис, затем стал директором по стратегии продукта.</p></div>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Четыре зоны экспертизы">
+    <span class="mono">Четыре зоны экспертизы · наведите на круг</span>
+    <div class="venn">
+      <svg id="vsvg" viewBox="0 0 460 440" role="group" aria-label="Четыре пересекающихся круга: продукт, продажи, данные, AI-tech. В центре: продукт с нуля и 15 миллионов долларов выручки">
+        <g class="vc c-p" data-k="product"><circle cx="180" cy="185" r="125"/></g>
+        <g class="vc c-s" data-k="sales"><circle cx="280" cy="185" r="125"/></g>
+        <g class="vc c-d" data-k="data"><circle cx="180" cy="285" r="125"/></g>
+        <g class="vc c-a" data-k="ai"><circle cx="280" cy="285" r="125"/></g>
+        <g class="vlabel">
+          <text class="vt" x="118" y="130" text-anchor="middle">Продукт</text><text class="vs" x="118" y="148" text-anchor="middle">стратегия, интервью</text>
+          <text class="vt" x="342" y="130" text-anchor="middle">Продажи</text><text class="vs" x="342" y="148" text-anchor="middle">переговоры, клиенты</text>
+          <text class="vt" x="118" y="350" text-anchor="middle">Данные</text><text class="vs" x="118" y="368" text-anchor="middle">аналитика, математика</text>
+          <text class="vt" x="342" y="350" text-anchor="middle">AI-tech</text><text class="vs" x="342" y="368" text-anchor="middle">архитектура, агенты</text>
+        </g>
+        <a class="vcenter" href="#home" data-k="center" aria-label="Продукт с нуля, плюс 15 миллионов долларов выручки. Перейти к кейсам">
+          <circle cx="230" cy="235" r="42"/>
+          <text class="vc1" x="230" y="231" text-anchor="middle">0→1</text>
+          <text class="vc2" x="230" y="250" text-anchor="middle">+$15M</text>
+        </a>
+      </svg>
+      <div class="vside">
+        <div class="vtabs" role="group" aria-label="Выбрать круг">
+          <button type="button" data-k="product">Продукт</button>
+          <button type="button" data-k="sales">Продажи</button>
+          <button type="button" data-k="data">Данные</button>
+          <button type="button" data-k="ai">AI-tech</button>
+          <button type="button" data-k="center">0→1</button>
+        </div>
+        <article class="vcard" id="vc-product">
+          <h3>Слышу реальную потребность клиента и превращаю её в стратегию</h3>
+          <ul>
+            <li><b>Интервью с клиентами.</b> Сегмент для Signal Based Merchandising выбрал после 2–3 интервью, ещё до разработки.</li>
+            <li><b>Вопрос вместо фичи.</b> У BAT спросил не «что доработать», а «зачем вы купили продукт». Ответ превратился в премиальный пакет, который купили ещё четыре клиента.</li>
+            <li><b>Стратегический выбор.</b> Отказался от крупных брендов в пользу тех, у кого нет полевой команды, потому что юнит-экономика не сходилась.</li>
+          </ul>
+          <p class="proof">Подробнее: <a href="#case-1">Signal Based Merchandising</a>, <a href="#case-2">Trax Retail Россия</a></p>
+        </article>
+        <article class="vcard" id="vc-sales" hidden>
+          <h3>Продаю, веду переговоры и возвращаю недовольных клиентов</h3>
+          <ul>
+            <li><b>От жалоб к рекомендациям.</b> В 2018 российские клиенты жаловались на сервис. Через 12 месяцев NPS держался выше 70 при среднем ниже 30 по другим юнитам.</li>
+            <li><b>Продажи.</b> Лично привлёк Beiersdorf и GSK (Haleon), контракты которых выросли из России до 40+ стран.</li>
+            <li><b>Обучение продавцов.</b> Подключался к звонкам, и у всех трёх продавцов продажи пошли после одной сделки с моей поддержкой.</li>
+          </ul>
+          <p class="proof">Подробнее: <a href="#case-2">Trax Retail Россия</a></p>
+        </article>
+        <article class="vcard" id="vc-data" hidden>
+          <h3>Работаю с данными, знаю математику, делаю data-продукты</h3>
+          <ul>
+            <li><b>Прогноз покрытия.</b> Построил расчёт вероятности получить фото из нужного магазина в нужную неделю. Расчёт дал 85% магазинов с данными 2 раза в неделю, тест на 10 тыс. магазинов подтвердил покрытие.</li>
+            <li><b>Data-продукт.</b> Аналитика поверх сервиса оказалась самой ценной частью продукта для клиентов.</li>
+            <li><b>Математика.</b> Базу дал МФТИ.</li>
+          </ul>
+          <p class="proof">Подробнее: <a href="#case-1">Signal Based Merchandising</a>, <a href="#agent-2">Диагностический агент</a></p>
+        </article>
+        <article class="vcard" id="vc-ai" hidden>
+          <h3>Проектирую архитектуру решений, создаю и деплою агентов</h3>
+          <ul>
+            <li><b>Системный дизайн.</b> Собрал продукт из трёх частей с разной скоростью разработки: фото покупателей, распознавание изображений, платформа исполнителей.</li>
+            <li><b>Агенты в работе.</b> Агент диагностики запускает до 100 параллельных копий и сводит выводы в один документ с рейтингом причин.</li>
+            <li><b>Evals и harness.</b> Строю контур проверки качества агентов и среду, в которой они работают.</li>
+          </ul>
+          <p class="proof">Подробнее: <a href="#agents">AI-агенты</a>, <a href="#case-4">Агент корректировки целей</a></p>
+        </article>
+        <article class="vcard" id="vc-center" hidden>
+          <h3>Продукт с нуля, который приносит деньги</h3>
+          <p class="vtext">Там, где сходятся все четыре мышления, получается продукт «с нуля до выручки»: от гипотезы без бюджета до миллионов долларов в год.</p>
+          <ul>
+            <li><b>Продукт на $6M</b> годовой выручки за 2,5 года.</li>
+            <li><b>Рост с 3 клиентов до 12</b> и $4M выручки в российском юните.</li>
+          </ul>
+          <p class="proof"><a class="vgo" href="#home">Смотреть кейсы →</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <span class="mono">Образование</span>
+    <div class="tiles">
+      <div class="tile todo"><b>МФТИ</b><span>Добавьте факультет, кафедру и годы обучения.</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <span class="mono">Семья</span>
+    <div class="tiles">
+      <div class="tile todo"><b>Семья</b><span>Добавьте пару предложений о семье.</span></div>
+      <div class="tile todo"><b>Дети</b><span>Добавьте, сколько детей и сколько им лет, если хотите это показать.</span></div>
+    </div>
+  </section>
+</main>
+
+<!--{{CASES}}-->
+
+<!-- ============ LAUNCH ============ -->
+<main class="view" id="launch" data-title="Как запускать продукты — Павел Попков" hidden>
+  <div class="crumbs"><a href="#home">← На главную</a></div>
+  <header class="hero">
+    <span class="mono">Как запускать продукты</span>
+    <h1>Пять правил запуска продукта из моего опыта</h1>
+    <p class="lead">От гипотезы без бюджета до команды и процессов, которые приносят миллионы выручки. Каждое правило подтверждено примером из моих кейсов.</p>
+  </header>
+  <section class="section"><span class="mono">Принцип 1</span><h2>Как настраивать себя</h2><p class="note">Новый продукт начинается с человека, который готов работать без готовых правил и смотреть на проблему глазами клиента.</p><div class="story"><div class="beat"><span class="mono">Кейс 02</span><h3>Перестроить себя под стартап</h3><p>Из Coca-Cola, где были процессы и поддержка, я пришёл в Trax, где не было ни того, ни другого. <b>Из ограничений был только бюджет.</b> Это давало возможность строить процессы с нуля, но сначала пришлось перестроить себя.</p></div><div class="beat"><span class="mono">Кейс 01</span><h3>Идти к клиенту самому</h3><p>Я просил отдел продаж направлять мне все новые лиды, ходил на звонки и сам презентовал новое решение. Так я выбрал клиента, которому важна скорость и который готов к небольшому риску.</p></div><div class="beat"><span class="mono">Кейс 01</span><h3>Говорить о рисках прямо</h3><p>Расчёт показывал 85% магазинов с данными, но гарантировать это мы не могли. Клиенту обещали 70%, получили 73%. <b>Честное обещание дороже красивой цифры.</b></p></div></div></section>
+    <section class="section"><span class="mono">Принцип 2</span><h2>Как проверять гипотезы до значительных инвестиций</h2><p class="note">Сначала дешёвая проверка самого рискованного допущения, и только потом клиенты, команда и бюджет.</p><div class="story"><div class="beat"><span class="mono">Кейс 01</span><h3>Расчёт до теста</h3><p>Главный риск был в том, что покупатели не обеспечат достаточно фотографий. Я построил расчёт вероятности получить фото из нужного магазина в нужную неделю.</p></div><div class="beat"><span class="mono">Кейс 01</span><h3>Тест без клиентов</h3><p><b>2 недели, 10 тыс. магазинов, 3 ритейлера, ни одного клиента.</b> Только после этого мы пошли искать первых клиентов.</p></div><div class="beat"><span class="mono">Кейс 01</span><h3>Сегмент до разработки</h3><p>Сегмент выбрали после 2–3 интервью ещё до разработки. Продукт собрали из трёх готовых активов компании, без отдельного бюджета и небольшой командой.</p></div><div class="beat"><span class="mono">Кейс 01</span><h3>Пилот с честной целью</h3><p>Первый клиент на $100 тыс. получил 73% магазинов с данными за 2 недели. Это снизило риск следующих инвестиций.</p></div><div class="beat"><span class="mono">Кейс 04</span><h3>Паттерн на истории и перекрёстная проверка</h3><p>Прежде чем строить агента, я проверил паттерн «товар ушёл из 80% магазинов» на исторических данных и исключил фрод: <b>90% ответов подтвердились.</b> Потом проверил агента на 5 000 магазинов и разобрал спорные случаи. Так нашлось недостающее правило сопоставления товаров по UPC/EAN и весу.</p></div></div></section>
+    <section class="section"><span class="mono">Принцип 3</span><h2>Почему так важна команда</h2><p class="note">Продукт растёт на людях, которые отвечают за результат клиента, а не за свой участок.</p><div class="story"><div class="beat"><span class="mono">Кейс 02</span><h3>Первый найм: ответственные за клиента</h3><p>В России я сначала нанял проектных менеджеров, которые отвечают за результат у клиента, и только потом строил продажи. Команда выросла с 2 до 10 человек и закрыла весь цикл: привлечение, внедрение, развитие клиентов, HR.</p></div><div class="beat"><span class="mono">Кейс 01</span><h3>Научить продавать новое</h3><p>Отдел продаж не знал, как продавать продукт, которого раньше не было. Я подготовил обучение, ввёл еженедельные разборы и ходил на звонки. <b>У всех трёх продавцов продажи пошли после одной успешной сделки с моей поддержкой.</b></p></div><div class="beat"><span class="mono">Кейс 01</span><h3>Команда на шесть стран</h3><p>Продажи в США, аналитики в Пуэрто-Рико, операции в Мексике, разработка в Будапеште, юрист и финансист в Сингапуре и Японии. Для операций было два еженедельных созвона по запускам и исполнению.</p></div></div></section>
+    <section class="section"><span class="mono">Принцип 4</span><h2>Системные процессы</h2><p class="note">Хороший результат один раз превращается в повторяемый процесс, чтобы он не зависел от одного человека.</p><div class="story"><div class="beat"><span class="mono">Кейс 02</span><h3>Порядок важнее скорости</h3><p>Сначала довольные клиенты, потом рост. В первые 30–90 дней я разбирал потребности каждого клиента, и только после этого расширял продажи.</p></div><div class="beat"><span class="mono">Кейс 02</span><h3>Три вопроса к любому запросу</h3><p>Как устроен процесс у клиента, какие требования объективные и как похожий процесс решают другие клиенты. Запросы оформлялись как бизнес-кейсы и складывались в общий список для продуктовой команды.</p></div><div class="beat"><span class="mono">Кейс 02</span><h3>Передача без потерь</h3><p>Потребность BAT потерялась при передаче клиента от продаж к операциям. Я ввёл <b>шаблоны вопросов для продаж и операций,</b> чтобы причина покупки доходила до исполнителя.</p></div><div class="beat"><span class="mono">Кейс 02</span><h3>Измерения вместо ощущений</h3><p>Опрос клиентов два раза в год и еженедельный дашборд: число обращений и выполнение обязательств по скорости и точности.</p></div></div></section>
+    <section class="section"><span class="mono">Принцип 5</span><h2>Скорость итераций</h2><p class="note">Чем быстрее цикл «попробовать, измерить, поправить», тем меньше стоит ошибка.</p><div class="story"><div class="beat"><span class="mono">Кейс 01</span><h3>Одна итерация в день</h3><p>Чтобы получить 73% покрытия в пилоте, мы сделали <b>больше 5 итераций мотивации покупателей за неделю, по одной в день.</b></p></div><div class="beat"><span class="mono">Кейс 02</span><h3>Решение из того, что уже есть</h3><p>Для BAT мы не стали ждать доработки продукта. Дополнительное соглашение и два оператора проверки подняли точность распознавания с 90% до 97%. <b>Менялись процессы, а не код.</b></p></div><div class="beat"><span class="mono">AI-агенты</span><h3>Прототип вместо долгого проекта</h3><p>Сегодня я применяю тот же подход к агентам: быстрый прототип проверяет гипотезу при ограниченных времени и ресурсах. Для следующего продукта я бы сразу собирал платформу с помощью vibecoding.</p></div></div></section>
+    <section class="section">
+    <span class="mono">Чему учиться дальше</span>
+    <div class="index">
+      <a href="https://career.habr.com/courses/4889-avtorskiy-trening-vani-zamesina" target="_blank" rel="noopener"><span class="mono">Курс</span><b>Авторский тренинг Вани Замесина</b><span class="d">Подход к созданию продуктов через Advanced JTBD. Если хотите системно разобрать методологию клиентских интервью и выбора сегмента.</span><span class="go">Открыть курс →</span></a>
+    </div>
+  </section>
+  <div class="next"><span class="mono">Посмотреть в деле</span><b>Кейсы, где я применил эти правила</b><a href="#home">На главную →</a></div>
+</main>
+
+<!--{{AGENTS}}-->
+
+<footer class="contact" id="contact">
+  <h2>Ищу роль Product Lead в B2B</h2>
+  <p>Запускаю продукты с нуля, строю аналитику и AI-агентов. Базируюсь в Будапеште. Напишите, если у вас похожая задача: где цифры не сходятся или на что аналитики тратят дни.</p>
+  <div class="mail"><code id="m">paulalexeevich@gmail.com</code><button id="cp" type="button">Копировать</button></div>
+</footer>
+</div>
+
+<script>
+/* router */
+(function () {
+  var views = Array.prototype.slice.call(document.querySelectorAll('main.view'));
+  var links = Array.prototype.slice.call(document.querySelectorAll('.bar nav a'));
+  function sec(id) { return id.indexOf('case') === 0 ? 'cases' : id.indexOf('agent') === 0 ? 'agents' : id; }
+  function show() {
+    var id = (location.hash || '#home').slice(1);
+    var target = views.filter(function (v) { return v.id === id; })[0] || views[0];
+    views.forEach(function (v) { v.hidden = v !== target; });
+    links.forEach(function (a) {
+      if (a.getAttribute('data-sec') === sec(target.id)) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+    });
+    document.title = target.getAttribute('data-title');
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener('hashchange', show);
+  show();
+})();
+
+/* cause tree */
+var BR = ['Цена', 'Дистрибуция', 'Активация', 'Спрос'];
+var LF = [['Цена SKU', 'К рынку'], ['Листинг', 'Нет на полке'], ['Выкладка', 'Промо'], ['Трафик', 'Тренд']];
+function tree(w, h, hot, mids, big) {
+  var s = '', rx = w / 2, ry = big ? 26 : 8, by = big ? 130 : 36, ly = big ? 225 : 68, r = big ? 9 : 3.2, rr = big ? 12 : 4.2;
+  var bx = [], lx = [], i, j, hb, mb, hl;
+  for (i = 0; i < 4; i++) { bx.push(w * (i * 2 + 1) / 8); lx.push([bx[i] - (big ? w * 0.06 : w * 0.07), bx[i] + (big ? w * 0.06 : w * 0.07)]); }
+  for (i = 0; i < 4; i++) {
+    hb = hot[0] === i;
+    s += '<path class="te' + (hb ? ' hot' : '') + '" d="M' + rx + ' ' + ry + 'C' + rx + ' ' + (ry + by) / 2 + ' ' + bx[i] + ' ' + (ry + by) / 2 + ' ' + bx[i] + ' ' + by + '"/>';
+    for (j = 0; j < 2; j++) {
+      hl = hb && hot[1] === j;
+      s += '<path class="te' + (hl ? ' hot' : '') + '" d="M' + bx[i] + ' ' + by + 'C' + bx[i] + ' ' + (by + ly) / 2 + ' ' + lx[i][j] + ' ' + (by + ly) / 2 + ' ' + lx[i][j] + ' ' + ly + '"/>';
+    }
+  }
+  s += '<circle class="tn root" cx="' + rx + '" cy="' + ry + '" r="' + rr + '"/>';
+  for (i = 0; i < 4; i++) {
+    hb = hot[0] === i; mb = hb || mids.indexOf(i) > -1;
+    s += '<circle class="tn' + (hb ? ' hot' : mb ? ' mid' : '') + '" cx="' + bx[i] + '" cy="' + by + '" r="' + r + '"/>';
+    for (j = 0; j < 2; j++) {
+      hl = hb && hot[1] === j;
+      s += '<circle class="tn' + (hl ? ' hot' : '') + '" cx="' + lx[i][j] + '" cy="' + ly + '" r="' + (r * 0.8) + '"/>';
+      if (big) s += '<text class="' + (hl ? 't-a' : 't-m') + '" x="' + lx[i][j] + '" y="' + (ly + 28) + '" text-anchor="middle">' + LF[i][j] + '</text>';
+    }
+    if (big) s += '<text class="' + (hb ? 't-a' : 't-b') + '" x="' + bx[i] + '" y="' + (by - 18) + '" text-anchor="middle">' + BR[i] + '</text>';
+  }
+  if (big) s += '<text class="t-b" x="' + rx + '" y="' + (ry - 10) + '" text-anchor="middle" style="font-size:13px">Продажи ниже плана</text>';
+  return s;
+}
+document.getElementById('big').innerHTML = tree(760, 290, [1, 1], [2], true);
+var cuts = [
+  ['Товар A × Клиент 1', [1, 1], [2]], ['Товар A × Клиент 2', [0, 1], []], ['Товар A × Клиент 3', [3, 0], [0]],
+  ['Товар B × Клиент 1', [2, 0], [1]], ['Товар B × Клиент 2', [1, 0], [0, 2]], ['Товар B × Клиент 3', [0, 0], []],
+  ['Товар C × Клиент 1', [1, 1], []], ['Товар C × Клиент 2', [2, 1], [3]], ['Товар C × Клиент 3', [3, 1], [1]]];
+var h = '';
+cuts.forEach(function (c) {
+  h += '<div class="cut"><svg viewBox="0 0 120 80" aria-hidden="true">' + tree(120, 80, c[1], c[2], false) + '</svg><div class="cap"><span>' + c[0] + '</span><b>' + BR[c[1][0]] + '</b></div></div>';
+});
+document.getElementById('g9').innerHTML = h;
+
+/* shelves */
+(function () {
+  var CW = 17, CH = 22;
+  function block(x, y, rows) {
+    var s = '';
+    rows.forEach(function (row, r) {
+      var cx = 0;
+      row.forEach(function (seg) {
+        s += '<rect class="shelf s' + seg[0] + '" x="' + (x + cx * CW) + '" y="' + (y + r * CH) + '" width="' + (seg[1] * CW) + '" height="' + (CH - 2) + '" rx="2"/>';
+        cx += seg[1];
+      });
+    });
+    return s;
+  }
+  var ideal = [[[0,4],[1,4],[2,4]],[[0,3],[1,3],[2,3],[3,3]],[[1,4],[2,4],[3,4]],[[0,3],[3,3],[2,3],[1,3]],[[3,6],[2,6]]];
+  var adapt = [[[0,3],[1,3],[2,2]],[[0,2],[1,2],[2,2],[3,2]],[[1,3],[2,3],[3,2]],[[0,2],[3,3],[2,3]]];
+  var s = '';
+  s += '<text class="t-h" x="20" y="16">ИДЕАЛЬНАЯ ПЛАНОГРАММА</text>' + block(20, 30, ideal);
+  s += '<text class="t-b" x="20" y="164">5 полок × 12 фейсингов</text>';
+  s += '<text class="t-h" x="270" y="16">РЕАЛЬНЫЙ МАГАЗИН</text>';
+  s += '<rect class="gap" x="270" y="30" width="' + (12 * CW - 2) + '" height="' + (5 * CH - 2) + '" rx="2"/>';
+  for (var r = 0; r < 4; r++) s += '<rect class="bx" x="270" y="' + (30 + r * CH) + '" width="' + (8 * CW - 2) + '" height="' + (CH - 2) + '" rx="2"/>';
+  s += '<text class="t-w" x="270" y="164">4 полки × 8 фейсингов</text>';
+  s += '<text class="t-m" x="270" y="181">недостающее место пунктиром</text>';
+  s += '<text class="t-h" x="520" y="16">АДАПТИРОВАННАЯ</text>' + block(520, 30, adapt);
+  s += '<text class="t-a" x="520" y="164">вписана в реальное оборудование</text>';
+  s += '<text class="t-m" x="520" y="181">приоритетные товары сохраняют место</text>';
+  document.getElementById('shelves').innerHTML = s;
+})();
+
+
+/* venn */
+(function () {
+  var svg = document.getElementById('vsvg'); if (!svg) return;
+  var C = { product: [180, 185], sales: [280, 185], data: [180, 285], ai: [280, 285] }, R = 125, M = [230, 235];
+  var groups = svg.querySelectorAll('.vc'), center = svg.querySelector('.vcenter');
+  var tabs = document.querySelectorAll('.vtabs button'), cards = document.querySelectorAll('.vcard');
+  function set(k) {
+    cards.forEach(function (c) { c.hidden = c.id !== 'vc-' + k; });
+    tabs.forEach(function (t) { t.setAttribute('aria-pressed', t.getAttribute('data-k') === k ? 'true' : 'false'); });
+    groups.forEach(function (g) { g.classList.toggle('active', g.getAttribute('data-k') === k); });
+    center.classList.toggle('active', k === 'center');
+  }
+  function pick(e) {
+    var r = svg.getBoundingClientRect(), x = (e.clientX - r.left) * 460 / r.width, y = (e.clientY - r.top) * 440 / r.height;
+    if (Math.hypot(x - M[0], y - M[1]) < 44) return 'center';
+    var best = null, bd = 1e9;
+    for (var k in C) { var d = Math.hypot(x - C[k][0], y - C[k][1]); if (d < bd) { bd = d; best = k; } }
+    return bd <= R ? best : null;
+  }
+  svg.addEventListener('pointermove', function (e) { var k = pick(e); if (k) set(k); });
+  svg.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('a')) return; var k = pick(e); if (k) set(k); });
+  tabs.forEach(function (t) { t.addEventListener('click', function () { set(t.getAttribute('data-k')); }); });
+  center.addEventListener('focus', function () { set('center'); });
+  set('product');
+})();
+
+/* copy email */
+document.getElementById('cp').addEventListener('click', function () {
+  var t = document.getElementById('m'), b = this;
+  function ok() { b.textContent = 'Скопировано'; setTimeout(function () { b.textContent = 'Копировать'; }, 1600); }
+  function sel() { var r = document.createRange(); r.selectNodeContents(t); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+  if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(t.textContent).then(ok, sel); } else sel();
+});
+</script>
+
+</body></html>

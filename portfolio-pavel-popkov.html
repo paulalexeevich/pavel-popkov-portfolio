@@ -1,0 +1,1469 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Портфолио Павла Попкова</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Unbounded:wght@500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one 880px column; sticky top bar; start page -> three sections (About, Cases, AI agents); every case and every agent is its own page, routed by hash. */
+:root {
+  --bg: #F2F4F5;
+  --surface: #FFFFFF;
+  --ink: #0F1A1F;
+  --muted: #55656D;
+  --line: #D8DEE1;
+  --accent: #1B4DFF;
+  --accent-soft: #E6ECFF;
+  --signal: #E8890C;
+  --signal-soft: #FBEBD3;
+  --ok: #1E8A5A;
+  --risk: #C4452F;
+  --violet: #7A4DFF;
+  --font-display: "Unbounded", "Onest", system-ui, sans-serif;
+  --font-body: "Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0D1316; --surface: #151D21; --ink: #E8EEF0; --muted: #93A3AB; --line: #25323A;
+    --accent: #7B9BFF; --accent-soft: #1A2542; --signal: #F5A63A; --signal-soft: #3A2A12; --ok: #4FD39A; --risk: #E8806C; --violet: #A58BFF; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0D1316; --surface: #151D21; --ink: #E8EEF0; --muted: #93A3AB; --line: #25323A;
+  --accent: #7B9BFF; --accent-soft: #1A2542; --signal: #F5A63A; --signal-soft: #3A2A12; --ok: #4FD39A; --risk: #E8806C; --violet: #A58BFF; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 64px;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.wrap { max-width: 880px; margin: 0 auto; }
+.mono { font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(28px, 6.5vw, 44px); line-height: 1.12; letter-spacing: -.01em; }
+h2 { font-size: clamp(18px, 3.6vw, 22px); line-height: 1.25; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* top bar */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: var(--bg); border-bottom: 1px solid var(--line); }
+.bar .in { max-width: 880px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 8px 20px; flex-wrap: wrap; padding: 12px 0; }
+.brand { font-family: var(--font-display); font-weight: 600; font-size: 15px; text-decoration: none; }
+.bar nav { display: flex; gap: 4px; flex-wrap: wrap; }
+.bar nav a { font-size: 14px; font-weight: 500; text-decoration: none; padding: 6px 12px; border-radius: 6px; color: var(--muted); }
+.bar nav a:hover { color: var(--ink); background: var(--surface); }
+.bar nav a[aria-current="page"] { color: var(--accent); background: var(--accent-soft); }
+
+.hero.top { display: grid; grid-template-columns: minmax(0, 1fr) 180px; gap: 24px 32px; align-items: center; }
+.hero-text { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.portrait { width: 180px; aspect-ratio: 4 / 5; background: var(--accent-soft); border: 1px solid var(--line); border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+.portrait span { font-family: var(--font-display); font-weight: 600; font-size: 40px; color: var(--accent); }
+.portrait img { width: 100%; height: 100%; object-fit: cover; border-radius: 6px; display: block; }
+@media (max-width: 620px) { .hero.top { grid-template-columns: minmax(0, 1fr); } .portrait { width: 120px; order: -1; } }
+h1.long { font-size: clamp(22px, 4.6vw, 32px); line-height: 1.2; }
+.index.four { grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); }
+@media (max-width: 480px) { .index.four { grid-template-columns: minmax(0, 1fr); } }
+.view { display: flex; flex-direction: column; gap: 48px; padding-top: 40px; }
+.view[hidden] { display: none !important; }
+.section { display: flex; flex-direction: column; gap: 16px; }
+.lead { font-size: 18px; line-height: 1.5; max-width: 62ch; }
+.hero { display: flex; flex-direction: column; gap: 20px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font-size: 13px; padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--muted); }
+.chip b { color: var(--ink); font-weight: 500; }
+.crumbs { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.crumbs a, .next a { font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); text-decoration: none; }
+.crumbs a:hover, .next a:hover { text-decoration: underline; }
+.next { border-top: 2px solid var(--ink); padding-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+.next b { font-family: var(--font-display); font-weight: 600; font-size: 18px; line-height: 1.3; }
+
+/* facts / metrics */
+.metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+.metric { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.metric .n { font-family: var(--font-display); font-weight: 600; font-size: 26px; line-height: 1.1; color: var(--accent); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.metric .l { font-size: 13px; color: var(--muted); line-height: 1.4; }
+
+/* section cards on start page and indexes */
+.index { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; }
+.index a { text-decoration: none; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.index a:hover { border-color: var(--accent); }
+.index b { font-family: var(--font-display); font-weight: 600; font-size: 16px; line-height: 1.3; }
+.index .d { color: var(--muted); font-size: 14px; line-height: 1.45; }
+.go { color: var(--accent); font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; margin-top: auto; padding-top: 4px; }
+
+/* agent cards */
+.acards { display: flex; flex-direction: column; gap: 14px; }
+.acard { text-decoration: none; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 20px; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.acard:hover { border-color: var(--accent); }
+.acard h3 { font-size: 18px; line-height: 1.3; }
+.acard.stub { border-style: dashed; }
+.acard.stub .trio dd:not(.res) { font-style: italic; color: var(--muted); }
+.trio { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px 24px; }
+.trio dl { margin: 0; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.trio dt { font: 400 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.trio dd { margin: 0; font-size: 14px; line-height: 1.5; }
+.hero .trio { padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+.trio dd.res { color: var(--ink); font-weight: 500; }
+
+/* about */
+.pillars { display: flex; flex-direction: column; border-top: 2px solid var(--ink); }
+.pillar { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+.pillar h3 { font-size: 18px; line-height: 1.3; }
+.pillar ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; color: var(--muted); max-width: 64ch; }
+.pillar ul b { color: var(--ink); font-weight: 500; }
+.pillar .proof { font-size: 13px; color: var(--muted); }
+.pillar .proof a { color: var(--accent); }
+@media (min-width: 720px) {
+  .pillar { grid-template-columns: 200px minmax(0, 1fr); gap: 8px 32px; }
+  .pillar .mono { grid-row: span 3; padding-top: 4px; }
+}
+.timeline { display: flex; flex-direction: column; }
+.tl { display: grid; grid-template-columns: 28px 1fr; gap: 12px; padding-bottom: 14px; position: relative; }
+.tl::before { content: ""; position: absolute; left: 13px; top: 28px; bottom: 0; width: 2px; background: var(--line); }
+.tl:last-child::before { display: none; }
+.tl .dot { width: 28px; height: 28px; border-radius: 50%; background: var(--accent-soft); border: 2px solid var(--accent); }
+.tl b { display: block; font-weight: 600; }
+.tl span { color: var(--muted); font-size: 14px; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.tile b { font-family: var(--font-display); font-size: 15px; font-weight: 600; line-height: 1.3; }
+.tile span { font-size: 14px; color: var(--muted); }
+.tile.todo { border-style: dashed; }
+.tile.todo span { font-style: italic; }
+
+/* story blocks (cases) */
+.story { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.beat { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.beat h3 { margin: 0; font-family: var(--font-body); font-size: 18px; font-weight: 600; line-height: 1.3; text-wrap: balance; }
+.beat p { color: var(--muted); max-width: 64ch; }
+.beat p b { color: var(--ink); font-weight: 500; }
+@media (min-width: 640px) {
+  .beat { grid-template-columns: 150px minmax(0, 1fr); gap: 4px 24px; }
+  .beat .mono { grid-row: span 3; padding-top: 4px; }
+}
+.flow { display: flex; flex-direction: column; }
+.step { display: grid; grid-template-columns: 28px 1fr; gap: 12px; padding-bottom: 14px; position: relative; }
+.step::before { content: ""; position: absolute; left: 13px; top: 28px; bottom: 0; width: 2px; background: var(--line); }
+.step:last-child::before { display: none; }
+.dot { width: 28px; height: 28px; border-radius: 50%; background: var(--accent-soft); border: 2px solid var(--accent); }
+.dot.sig { border-color: var(--signal); background: transparent; }
+.step b { display: block; font-weight: 600; }
+.step span { color: var(--muted); font-size: 14px; }
+.step ul { margin: 6px 0 0; padding-left: 18px; color: var(--muted); font-size: 14px; display: flex; flex-direction: column; gap: 2px; }
+.branch { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-left: 40px; }
+.branch > div { border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px; background: var(--surface); font-size: 14px; }
+.branch .tag { color: var(--signal); font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; display: block; margin-bottom: 4px; }
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.compare > div { border: 1px solid var(--line); border-radius: 6px; padding: 16px; background: var(--surface); display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.compare .pick { border-color: var(--accent); }
+.compare ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 14px; display: flex; flex-direction: column; gap: 4px; }
+.compare p { color: var(--muted); font-size: 14px; }
+.compare .mono.on { color: var(--accent); }
+.zones { display: flex; border-radius: 4px; overflow: hidden; height: 10px; }
+.zones i { flex: 1; }
+.zones .r { background: var(--risk); } .zones .y { background: var(--signal); } .zones .g { background: var(--ok); }
+.chart { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.chart svg { width: 100%; height: auto; display: block; }
+.chart .grid { stroke: var(--line); stroke-width: 1; }
+.chart .axis { fill: var(--muted); font-family: var(--font-mono); font-size: 12px; }
+.chart .line { stroke: var(--accent); stroke-width: 3; fill: none; stroke-linejoin: round; stroke-linecap: round; }
+.chart .area { fill: var(--accent-soft); }
+.chart .pt { fill: var(--surface); stroke: var(--accent); stroke-width: 3; }
+.chart .pt.last { fill: var(--accent); }
+.chart .val { fill: var(--ink); font-family: var(--font-display); font-weight: 600; font-size: 14px; }
+.chart .zone { fill: var(--signal); opacity: .18; }
+.legend { font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
+.more { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+details { border-bottom: 1px solid var(--line); }
+summary { cursor: pointer; list-style: none; padding: 16px 0; display: flex; justify-content: space-between; gap: 16px; align-items: baseline; font-weight: 500; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; font-family: var(--font-mono); color: var(--accent); font-size: 20px; line-height: 1; }
+details[open] summary::after { content: "\2212"; }
+details .body { padding: 0 0 20px; color: var(--muted); display: flex; flex-direction: column; gap: 10px; max-width: 64ch; }
+details .body b { color: var(--ink); font-weight: 500; }
+.foot { font-size: 13px; color: var(--muted); }
+.note { color: var(--muted); max-width: 64ch; }
+
+/* agent pages */
+.stat { display: flex; gap: 16px; flex-wrap: wrap; }
+.stat div { flex: 1 1 200px; border-left: 3px solid var(--accent); padding-left: 14px; min-width: 0; }
+.stat strong { display: block; font: 600 28px/1.15 var(--font-display); color: var(--accent); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.stat span { font-size: 14px; color: var(--muted); }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px 24px; padding: 16px 0; border-block: 1px solid var(--line); }
+.meta dl { margin: 0; display: flex; flex-direction: column; gap: 2px; font-size: 14px; min-width: 0; }
+.meta dt { font: 400 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.meta dd { margin: 0; }
+figure { margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+.scroll svg { display: block; width: 100%; min-width: 640px; height: auto; }
+figcaption { font-size: 13px; color: var(--muted); }
+svg text { font-family: var(--font-body); fill: var(--ink); font-size: 13px; }
+svg .t-m { fill: var(--muted); font-size: 11.5px; }
+svg .t-h { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em; fill: var(--muted); }
+svg .t-b { font-weight: 600; }
+svg .t-a { fill: var(--accent); font-weight: 600; }
+svg .t-w { fill: var(--signal); font-weight: 600; }
+svg .bx { fill: var(--bg); stroke: var(--line); stroke-width: 1.2; }
+svg .bx-a { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1.2; }
+svg .bx-w { fill: var(--signal-soft); stroke: var(--signal); stroke-width: 1.2; }
+svg .bx-d { fill: var(--surface); stroke: var(--ink); stroke-width: 1.6; }
+svg .ln { stroke: var(--muted); stroke-width: 1.4; fill: none; }
+svg .bar { fill: var(--accent); }
+svg .bar2 { fill: var(--accent); opacity: .45; }
+svg .s0 { fill: var(--accent); }
+svg .s1 { fill: var(--accent); opacity: .5; }
+svg .s2 { fill: var(--signal); }
+svg .s3 { fill: var(--muted); opacity: .55; }
+svg .gap { fill: none; stroke: var(--signal); stroke-width: 1.2; stroke-dasharray: 3 3; }
+svg .shelf { stroke: var(--bg); stroke-width: 1.5; }
+svg .te { stroke: var(--line); fill: none; stroke-width: 1.2; }
+svg .te.hot { stroke: var(--accent); stroke-width: 2.2; }
+svg .tn { fill: var(--bg); stroke: var(--muted); stroke-width: 1.2; }
+svg .tn.hot { fill: var(--accent); stroke: var(--accent); }
+svg .tn.mid { fill: var(--accent-soft); stroke: var(--accent); }
+svg .tn.root { fill: var(--ink); stroke: var(--ink); }
+.grid9 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.cut { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 8px 8px 6px; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.cut svg { width: 100%; height: auto; display: block; }
+.cut .cap { font: 500 10.5px var(--font-mono); letter-spacing: .04em; color: var(--muted); display: flex; justify-content: space-between; gap: 6px; flex-wrap: wrap; }
+.cut .cap b { color: var(--accent); font-weight: 500; }
+
+
+/* venn */
+.venn { display: grid; grid-template-columns: minmax(0, 460px) minmax(0, 1fr); gap: 24px 32px; align-items: start; }
+@media (max-width: 820px) { .venn { grid-template-columns: minmax(0, 1fr); } #vsvg { max-width: 460px; margin: 0 auto; } }
+#vsvg { width: 100%; height: auto; display: block; touch-action: manipulation; }
+.vc circle { stroke-width: 2; transition: fill-opacity .15s, stroke-width .15s; fill-opacity: .16; }
+.vc.c-p circle { fill: var(--accent); stroke: var(--accent); }
+.vc.c-s circle { fill: var(--signal); stroke: var(--signal); }
+.vc.c-d circle { fill: var(--ok); stroke: var(--ok); }
+.vc.c-a circle { fill: var(--violet); stroke: var(--violet); }
+.vc.active circle { fill-opacity: .36; stroke-width: 3.5; }
+.vlabel { pointer-events: none; }
+.vlabel .vt { font-family: var(--font-display); font-weight: 600; font-size: 15px; fill: var(--ink); }
+.vlabel .vs { font-size: 11px; fill: var(--muted); }
+.vcenter { cursor: pointer; }
+.vcenter circle { fill: var(--surface); stroke: var(--ink); stroke-width: 2; transition: fill .15s; }
+.vcenter.active circle, .vcenter:hover circle { fill: var(--accent-soft); stroke: var(--accent); }
+.vcenter text { pointer-events: none; text-anchor: middle; }
+.vcenter .vc1 { font-family: var(--font-display); font-weight: 600; font-size: 16px; fill: var(--ink); }
+.vcenter .vc2 { font-family: var(--font-display); font-weight: 600; font-size: 12px; fill: var(--accent); }
+.vcenter:focus-visible circle { stroke: var(--accent); stroke-width: 4; }
+.vside { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.vtabs { display: flex; flex-wrap: wrap; gap: 6px; }
+.vtabs button { background: var(--surface); color: var(--muted); border: 1px solid var(--line); padding: 6px 12px; font-size: 13px; }
+.vtabs button[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+.vcard { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 20px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.vcard[hidden] { display: none; }
+.vcard h3 { font-family: var(--font-body); font-size: 18px; font-weight: 600; line-height: 1.3; }
+.vcard ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; color: var(--muted); font-size: 14.5px; }
+.vcard ul b { color: var(--ink); font-weight: 500; }
+.vcard .vtext { color: var(--muted); font-size: 14.5px; }
+.vcard .proof { font-size: 13px; color: var(--muted); }
+.vcard .proof a { color: var(--accent); }
+
+/* arc + case cards */
+.arc { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
+.arc a { text-decoration: none; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.arc a:hover { border-color: var(--accent); }
+.arc b { font-family: var(--font-display); font-weight: 600; font-size: 15px; line-height: 1.3; }
+.arc .d { font-size: 14px; color: var(--muted); line-height: 1.45; }
+.arc .res { font-size: 13px; color: var(--accent); font-weight: 500; margin-top: auto; padding-top: 6px; }
+.arcline { max-width: 64ch; color: var(--muted); }
+.arcline b { color: var(--ink); font-weight: 500; }
+.index .cm { display: flex; gap: 8px 24px; flex-wrap: wrap; margin-top: 4px; }
+.index .cm span { display: flex; flex-direction: column; }
+.index .cm strong { font-family: var(--font-display); font-weight: 600; font-size: 22px; line-height: 1.15; color: var(--accent); }
+.index .cm em { font-style: normal; font-size: 12px; color: var(--muted); }
+.index div.cc { border: 1px dashed var(--line); border-radius: 6px; padding: 18px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.index div.cc b { color: var(--muted); }
+h1.name { font-size: clamp(36px, 8vw, 56px); line-height: 1.05; }
+.btns { display: flex; gap: 8px; flex-wrap: wrap; }
+a.btn { font: 500 14px var(--font-body); text-decoration: none; padding: 9px 14px; border-radius: 6px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
+a.btn.pri { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+
+/* footer */
+.contact { margin-top: 64px; border-top: 2px solid var(--ink); padding-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+.contact h2 { font-size: 22px; }
+.contact p { color: var(--muted); max-width: 60ch; }
+.mail { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.mail code { font: 500 15px var(--font-mono); background: var(--surface); border: 1px solid var(--line); padding: 8px 12px; border-radius: 6px; user-select: all; overflow-wrap: anywhere; }
+button { font: 500 14px var(--font-body); cursor: pointer; background: var(--accent); color: var(--bg); border: 0; border-radius: 6px; padding: 9px 14px; }
+@media (max-width: 520px) { .grid9 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .branch { margin-left: 0; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+
+<div class="wrap">
+
+<!-- ============ HOME ============ -->
+<main class="view" id="home" data-title="Павел Попков — Product Lead, B2B">
+  <header class="hero">
+    <span class="mono">Портфолио · Product Lead · B2B</span>
+    <h1 class="name">Павел Попков</h1>
+    <p class="lead" style="font-weight:600">Запускаю B2B-продукты с нуля и довожу их до миллионов выручки.</p>
+    <p class="lead" style="color:var(--muted)">18 лет в ритейле и CPG: от операций в Coca-Cola до собственного продукта на $6M в Trax. Сейчас строю аналитику и AI-агентов.</p>
+    <div class="btns"><a class="btn pri" href="#contact">Написать мне</a><a class="btn" href="#" data-todo="linkedin">LinkedIn</a><a class="btn" href="#" data-todo="cv">CV, PDF</a><a class="btn" href="#about">Обо мне</a></div>
+  </header>
+
+  <section class="section" aria-label="Траектория">
+    <span class="mono">Траектория</span>
+    <nav class="arc">
+      <a href="#about"><span class="mono">01</span><b>Операции</b><span class="d">Coca-Cola: полевая команда, эффективность визитов</span></a>
+      <a href="#case-1"><span class="mono">02</span><b>Продукт 0→1</b><span class="d">Trax: от гипотезы до $6M выручки</span></a>
+      <a href="#case-3"><span class="mono">03</span><b>Аналитика</b><span class="d">Trax: клиенты оценили сквозную диагностику больше визитов</span></a>
+      <a href="#case-4"><span class="mono">04</span><b>AI-агенты</b><span class="d">Агенты забрали рутину и сократили OOS на 10%</span></a>
+    </nav>
+  </section>
+
+  <section class="section" aria-label="Кейсы">
+    <span class="mono">Кейсы</span>
+    <nav class="index four" aria-label="Кейсы">
+      <a href="#case-1"><span class="mono">Кейс 01 · Продукт с нуля</span><b>Продукт с нуля до $6M за 2,5 года</b><span class="d">Мерчандайзер едет в магазин, только когда там реальная проблема. Сигнал дают фото обычных покупателей.</span><span class="cm"><span><strong>$6M</strong><em>выручка в год</em></span><span><strong>57%</strong><em>маржа</em></span></span><span class="go">Читать →</span></a>
+      <a href="#case-2"><span class="mono">Кейс 02 · Продуктизация</span><b>Из 3 недовольных клиентов в 12 и $4M</b><span class="d">Как разовый запрос клиента стал премиальным пакетом, который потом купили Diageo, P&amp;G и Coca-Cola Japan.</span><span class="cm"><span><strong>3 → 12</strong><em>клиентов</em></span><span><strong>NPS 70+</strong><em>при среднем ниже 30</em></span></span><span class="go">Читать →</span></a>
+      <a href="#case-3"><span class="mono">Кейс 03 · Аналитика</span><b>Как аналитика стала главной ценностью продукта</b><span class="d">Клиенты ценили данные больше визитов. Я построил DataHub и AI-агентов, которые свели ~1 млн записей о товарах из разных систем.</span><span class="cm"><span><strong>97% / 92%</strong><em>precision / recall сопоставления</em></span><span><strong>~1 млн</strong><em>записей о товарах</em></span></span><span class="go">Читать →</span></a>
+      <a href="#case-4"><span class="mono">Кейс 04 · AI-агенты</span><b>Агент корректировки целей: чистые цели вместо ответов «товар выведен»</b><span class="d">Для аналитиков и полевых команд CPG. Точность проверена на 5 000 магазинах: принято 9 из 10 рекомендаций.</span><span class="cm"><span><strong>90%</strong><em>рекомендаций приняты</em></span><span><strong>3–5 мин</strong><em>экономии на визите</em></span></span><span class="go">Читать →</span></a>
+    </nav>
+  </section>
+</main>
+
+<!-- ============ ABOUT ============ -->
+<main class="view" id="about" data-title="Обо мне — Павел Попков" hidden>
+  <div class="crumbs"><a href="#home">← На главную</a></div>
+  <header class="hero">
+    <span class="mono">Обо мне</span>
+    <h1>Запускаю новые продукты и строю системы и процессы с нуля</h1>
+    <p class="lead">Начинал аналитиком в The Coca-Cola Company, семь лет проработал в Coca-Cola HBC, затем перешёл в B2B SaaS для ритейла: от директора по продажам до директора по стратегии продукта. Сейчас строю AI-агентов.</p>
+    <div class="chips">
+      <span class="chip">Живу в: <b>Будапешт</b></span>
+      <span class="chip">Проекты: <b>США, Европа, Ближний Восток, Латинская Америка</b></span>
+      <span class="chip">Опыт: <b>10 лет CPG · 8 лет Tech · 2 года AI-агенты</b></span>
+    </div>
+  </header>
+
+  
+
+  <section class="metrics" aria-label="Ключевые цифры">
+    <div class="metric"><span class="n">15% → 5%</span><span class="l">доля пустых полок за два года в Coca-Cola HBC</span></div>
+    <div class="metric"><span class="n">$6M</span><span class="l">годовая выручка нового продукта, который я вёл с нуля</span></div>
+    <div class="metric"><span class="n">3 → 12</span><span class="l">клиентов в российском юните Trax, выручка $4M</span></div>
+    <div class="metric"><span class="n">90%</span><span class="l">рекомендаций AI-агента приняты на тесте из 5 000 магазинов</span></div>
+  </section>
+
+  <section class="section">
+    <span class="mono">Из Coca-Cola в продукт</span>
+    <h2>Как руководитель из корпорации стал строить продукты с нуля</h2>
+    <div class="story">
+      <div class="beat"><span class="mono">До</span><h3>Компания с готовыми процессами</h3><p>В Coca-Cola я руководил департаментом по сейлз бизнес-процессам: обучение, мониторинг, эффективность полевых команд. В 2013 году наш процесс признали лучшим в Coca-Cola в мире. У меня были выстроенные процессы и поддержка на каждом шаге.</p></div>
+      <div class="beat"><span class="mono">Почему позвали</span><h3>Я знал проблему клиента изнутри</h3><p>В Coca-Cola я сам измерял, сколько визитов мерчандайзеров проходит впустую. Trax искал человека, который видел эту проблему со стороны заказчика.</p></div>
+      <div class="beat"><span class="mono">После</span><h3>Стартап, где нет ни процессов, ни системы</h3><p>В Trax были только задачи роста и бюджет как единственное ограничение. Это давало возможность строить процессы с нуля и собирать команду. <b>Сначала пришлось перестроить себя:</b> вместо готовых правил нужно было выяснять, что клиенту нужно на самом деле. Сначала я возглавил российский офис, затем стал директором по стратегии продукта.</p></div>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Четыре зоны экспертизы">
+    <span class="mono">Четыре зоны экспертизы · наведите на круг</span>
+    <div class="venn">
+      <svg id="vsvg" viewBox="0 0 460 440" role="group" aria-label="Четыре пересекающихся круга: продукт, продажи, данные, AI-tech. В центре: продукт с нуля и 15 миллионов долларов выручки">
+        <g class="vc c-p" data-k="product"><circle cx="180" cy="185" r="125"/></g>
+        <g class="vc c-s" data-k="sales"><circle cx="280" cy="185" r="125"/></g>
+        <g class="vc c-d" data-k="data"><circle cx="180" cy="285" r="125"/></g>
+        <g class="vc c-a" data-k="ai"><circle cx="280" cy="285" r="125"/></g>
+        <g class="vlabel">
+          <text class="vt" x="118" y="130" text-anchor="middle">Продукт</text><text class="vs" x="118" y="148" text-anchor="middle">стратегия, интервью</text>
+          <text class="vt" x="342" y="130" text-anchor="middle">Продажи</text><text class="vs" x="342" y="148" text-anchor="middle">переговоры, клиенты</text>
+          <text class="vt" x="118" y="350" text-anchor="middle">Данные</text><text class="vs" x="118" y="368" text-anchor="middle">аналитика, математика</text>
+          <text class="vt" x="342" y="350" text-anchor="middle">AI-tech</text><text class="vs" x="342" y="368" text-anchor="middle">архитектура, агенты</text>
+        </g>
+        <a class="vcenter" href="#home" data-k="center" aria-label="Продукт с нуля, плюс 15 миллионов долларов выручки. Перейти к кейсам">
+          <circle cx="230" cy="235" r="42"/>
+          <text class="vc1" x="230" y="231" text-anchor="middle">0→1</text>
+          <text class="vc2" x="230" y="250" text-anchor="middle">+$15M</text>
+        </a>
+      </svg>
+      <div class="vside">
+        <div class="vtabs" role="group" aria-label="Выбрать круг">
+          <button type="button" data-k="product">Продукт</button>
+          <button type="button" data-k="sales">Продажи</button>
+          <button type="button" data-k="data">Данные</button>
+          <button type="button" data-k="ai">AI-tech</button>
+          <button type="button" data-k="center">0→1</button>
+        </div>
+        <article class="vcard" id="vc-product">
+          <h3>Слышу реальную потребность клиента и превращаю её в стратегию</h3>
+          <ul>
+            <li><b>Интервью с клиентами.</b> Сегмент для Signal Based Merchandising выбрал после 2–3 интервью, ещё до разработки.</li>
+            <li><b>Вопрос вместо фичи.</b> У BAT спросил не «что доработать», а «зачем вы купили продукт». Ответ превратился в премиальный пакет, который купили ещё четыре клиента.</li>
+            <li><b>Стратегический выбор.</b> Отказался от крупных брендов в пользу тех, у кого нет полевой команды, потому что юнит-экономика не сходилась.</li>
+          </ul>
+          <p class="proof">Подробнее: <a href="#case-1">Signal Based Merchandising</a>, <a href="#case-2">Trax Retail Россия</a></p>
+        </article>
+        <article class="vcard" id="vc-sales" hidden>
+          <h3>Продаю, веду переговоры и возвращаю недовольных клиентов</h3>
+          <ul>
+            <li><b>От жалоб к рекомендациям.</b> В 2018 российские клиенты жаловались на сервис. Через 12 месяцев NPS держался выше 70 при среднем ниже 30 по другим юнитам.</li>
+            <li><b>Продажи.</b> Лично привлёк Beiersdorf и GSK (Haleon), контракты которых выросли из России до 40+ стран.</li>
+            <li><b>Обучение продавцов.</b> Подключался к звонкам, и у всех трёх продавцов продажи пошли после одной сделки с моей поддержкой.</li>
+          </ul>
+          <p class="proof">Подробнее: <a href="#case-2">Trax Retail Россия</a></p>
+        </article>
+        <article class="vcard" id="vc-data" hidden>
+          <h3>Работаю с данными, знаю математику, делаю data-продукты</h3>
+          <ul>
+            <li><b>Прогноз покрытия.</b> Построил расчёт вероятности получить фото из нужного магазина в нужную неделю. Расчёт дал 85% магазинов с данными 2 раза в неделю, тест на 10 тыс. магазинов подтвердил покрытие.</li>
+            <li><b>Data-продукт.</b> Аналитика поверх сервиса оказалась самой ценной частью продукта для клиентов.</li>
+            <li><b>Математика.</b> Базу дал МФТИ.</li>
+          </ul>
+          <p class="proof">Подробнее: <a href="#case-1">Signal Based Merchandising</a>, <a href="#agent-2">Диагностический агент</a></p>
+        </article>
+        <article class="vcard" id="vc-ai" hidden>
+          <h3>Проектирую архитектуру решений, создаю и деплою агентов</h3>
+          <ul>
+            <li><b>Системный дизайн.</b> Собрал продукт из трёх частей с разной скоростью разработки: фото покупателей, распознавание изображений, платформа исполнителей.</li>
+            <li><b>Агенты в работе.</b> Агент диагностики запускает до 100 параллельных копий и сводит выводы в один документ с рейтингом причин.</li>
+            <li><b>Evals и harness.</b> Строю контур проверки качества агентов и среду, в которой они работают.</li>
+          </ul>
+          <p class="proof">Подробнее: <a href="#agents">AI-агенты</a>, <a href="#case-4">Агент корректировки целей</a></p>
+        </article>
+        <article class="vcard" id="vc-center" hidden>
+          <h3>Продукт с нуля, который приносит деньги</h3>
+          <p class="vtext">Там, где сходятся все четыре мышления, получается продукт «с нуля до выручки»: от гипотезы без бюджета до миллионов долларов в год.</p>
+          <ul>
+            <li><b>Продукт на $6M</b> годовой выручки за 2,5 года.</li>
+            <li><b>Рост с 3 клиентов до 12</b> и $4M выручки в российском юните.</li>
+          </ul>
+          <p class="proof"><a class="vgo" href="#home">Смотреть кейсы →</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <span class="mono">Образование</span>
+    <div class="tiles">
+      <div class="tile todo"><b>МФТИ</b><span>Добавьте факультет, кафедру и годы обучения.</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <span class="mono">Семья</span>
+    <div class="tiles">
+      <div class="tile todo"><b>Семья</b><span>Добавьте пару предложений о семье.</span></div>
+      <div class="tile todo"><b>Дети</b><span>Добавьте, сколько детей и сколько им лет, если хотите это показать.</span></div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ CASES INDEX ============ -->
+<main class="view" id="cases" data-title="Кейсы — Павел Попков" hidden>
+  <div class="crumbs"><a href="#home">← На главную</a></div>
+  <header class="hero">
+    <span class="mono">Кейсы</span>
+    <h1>Продукт, масштаб, аналитика, агенты</h1>
+    <p class="lead">От нового продукта в Trax до AI-агента, который чистит цели для полевых команд. В каждом кейсе: проблема, что я сделал и результат в цифрах.</p>
+  </header>
+  <nav class="index four" aria-label="Кейсы">
+      <a href="#case-1"><span class="mono">Кейс 01 · Продукт с нуля</span><b>Продукт с нуля до $6M за 2,5 года</b><span class="d">Мерчандайзер едет в магазин, только когда там реальная проблема. Сигнал дают фото обычных покупателей.</span><span class="cm"><span><strong>$6M</strong><em>выручка в год</em></span><span><strong>57%</strong><em>маржа</em></span></span><span class="go">Читать →</span></a>
+      <a href="#case-2"><span class="mono">Кейс 02 · Продуктизация</span><b>Из 3 недовольных клиентов в 12 и $4M</b><span class="d">Как разовый запрос клиента стал премиальным пакетом, который потом купили Diageo, P&amp;G и Coca-Cola Japan.</span><span class="cm"><span><strong>3 → 12</strong><em>клиентов</em></span><span><strong>NPS 70+</strong><em>при среднем ниже 30</em></span></span><span class="go">Читать →</span></a>
+      <a href="#case-3"><span class="mono">Кейс 03 · Аналитика</span><b>Как аналитика стала главной ценностью продукта</b><span class="d">Клиенты ценили данные больше визитов. Я построил DataHub и AI-агентов, которые свели ~1 млн записей о товарах из разных систем.</span><span class="cm"><span><strong>97% / 92%</strong><em>precision / recall сопоставления</em></span><span><strong>~1 млн</strong><em>записей о товарах</em></span></span><span class="go">Читать →</span></a>
+      <a href="#case-4"><span class="mono">Кейс 04 · AI-агенты · пилот</span><b>Агент корректировки целей: чистые цели вместо ответов «товар выведен»</b><span class="d">Для аналитиков и полевых команд CPG. Точность проверена на 5 000 магазинах: принято 9 из 10 рекомендаций.</span><span class="cm"><span><strong>90%</strong><em>рекомендаций приняты</em></span><span><strong>3–5 мин</strong><em>экономии на визите</em></span></span><span class="go">Читать →</span></a>
+    </nav>
+</main>
+
+<!-- ============ CASE 1 ============ -->
+<main class="view" id="case-1" data-title="Продукт на $6M с нуля — Павел Попков" hidden>
+<div class="crumbs"><a href="#home">← На главную</a><a href="#case-2">Кейс 02 →</a></div>
+<article class="view" style="padding-top:0">
+    <header class="hero">
+      <span class="mono">Кейс 01 · Директор по стратегии продукта, Trax</span>
+      <h1 class="long">Перестали отправлять людей в магазины, где всё в порядке, и сделали на этом продукт на $6M</h1>
+      <div class="trio">
+        <dl><dt>Проблема</dt><dd>Бренды платят людям, которые ходят по магазинам и проверяют полки. Больше 40% таких визитов шли впустую: в магазине всё было в порядке.</dd></dl>
+        <dl><dt>Что сделал</dt><dd>Запустил продукт, где обычные покупатели фотографируют полки за баллы, а специалист едет только туда, где есть проблема.</dd></dl>
+        <dl><dt>Результат</dt><dd class="res">$6M годовой выручки за 2,5 года, маржа 57%. С нуля и без отдельного бюджета.</dd></dl>
+      </div>
+      <div class="chips">
+        <span class="chip">Компания: <b>Trax, распознавание товаров на полках по фото</b></span>
+        <span class="chip">Отрасль: <b>товары повседневного спроса, ритейл</b></span>
+      </div>
+    </header>
+
+    <section class="metrics" aria-label="Ключевые результаты">
+      <div class="metric"><span class="n">$3M → $6M</span><span class="l">годовая выручка: через 1,5 года от старта и к концу 2-го года выделенной команды</span></div>
+      <div class="metric"><span class="n">57%+</span><span class="l">маржа (у привычной модели с визитами 30–40%)</span></div>
+      <div class="metric"><span class="n">73%</span><span class="l">магазинов дали данные в пилоте: 2 тыс. магазинов за 2 недели</span></div>
+      <div class="metric"><span class="n">$100K</span><span class="l">первый контракт, клиент работал с нами 2,5 года</span></div>
+      <div class="metric"><span class="n">+10%</span><span class="l">продаж за квартал у первого клиента</span></div>
+    </section>
+
+    <p class="lead">Бренды вроде Coca-Cola платят мерчандайзерам. Это люди, которые ходят по магазинам и следят, чтобы товар стоял на полке. Больше 40% таких визитов были впустую: проблем в магазине не было. Я запустил продукт, в котором обычные покупатели фотографируют полки за баллы в приложении. Система находит пустые места, и мерчандайзер едет только туда, где бренд реально теряет продажи. За 2,5 года продукт вырос от гипотезы без бюджета до $6M годовой выручки с маржой 57%.</p>
+
+    <section class="section">
+      <span class="mono">Как это было: пять шагов</span>
+      <div class="story">
+        <div class="beat">
+          <span class="mono">1 · Проблема</span>
+          <h3>Больше 40% визитов в магазины были впустую</h3>
+          <p>В Coca-Cola я измерял, насколько эффективны визиты мерчандайзеров. Они ходили по фиксированному маршруту, и значительная часть визитов не меняла ничего: <b>в этих магазинах в это время просто не было проблем.</b> Ту же картину я увидел в Trax. Меня подключили к проекту именно из-за этого опыта.</p>
+        </div>
+        <div class="beat">
+          <span class="mono">2 · Идея</span>
+          <h3>Покупатели фотографируют полки, мерчандайзер едет только на проблему</h3>
+          <p>Trax купил приложение ShopKick: около 500 тыс. покупателей в США получают баллы за фото полок. Система находит на фото пустые места. Если потери продаж дороже стоимости визита, в магазин едет исполнитель. Три готовых актива компании сложились в продукт <b>без отдельного бюджета</b> и с небольшой командой.</p>
+        </div>
+        <div class="beat">
+          <span class="mono">3 · Главный риск и проверка</span>
+          <h3>Хватит ли фотографий, если покупатели ходят в магазин за покупками, а не за заданием</h3>
+          <p>Я построил расчёт вероятности получить фото из нужного магазина в нужную неделю. Он показал данные из 85% магазинов 2 раза в неделю. Потом мы проверили это на деле: <b>2 недели, 10 тыс. магазинов, 3 ритейлера и ни одного клиента.</b> Только после этого мы начали искать клиентов. Отдельная хитрость: если на полке нет нужного товара, фотографировать нечего, поэтому покупателей просили снимать соседние товары.</p>
+        </div>
+        <div class="beat">
+          <span class="mono">4 · Первый клиент</span>
+          <h3>Обещали 70% магазинов за 2 недели, дали 73%</h3>
+          <p>Крупные бренды хотели экономию без потери качества, и экономика с ними не сходилась. Я искал клиента, которому <b>важна скорость и который готов к небольшому риску.</b> Им стал производитель шоколада на $100 тыс. Данные из 73% магазинов собрали покупатели, остальные 27% закрыли профессиональные проверяющие. Клиент проработал с нами 2,5 года.</p>
+        </div>
+        <div class="beat">
+          <span class="mono">5 · Неожиданный результат</span>
+          <h3>Данные оказались ценнее самих визитов</h3>
+          <p>В более чем половине магазинов не было товара для акционной выкладки: система автоматических заказов ритейлера не знала об акции. Бренд получил аргументы, ритейлер поправил заказы, и <b>продажи за квартал выросли более чем на 10%.</b> После этого клиенты стали покупать продукт как диагностику причин потерь.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <span class="mono">Как дошли до $6M</span>
+      <div class="story">
+        <div class="beat">
+          <span class="mono">Команда</span>
+          <h3>Шесть локаций, одна цель</h3>
+          <p>Продажи в США, аналитики в Пуэрто-Рико, операции в Мексике, разработка в Будапеште, юрист и финансист в Сингапуре и Японии.</p>
+        </div>
+        <div class="beat">
+          <span class="mono">Продажи</span>
+          <h3>Научил отдел продаж продавать продукт, которого раньше не было</h3>
+          <p>Я подготовил обучение, ввёл еженедельные разборы клиентов и ходил на звонки. <b>У всех трёх продавцов продажи пошли после одной успешной сделки с моей поддержкой.</b></p>
+        </div>
+        <div class="beat">
+          <span class="mono">Операции</span>
+          <h3>За 3 месяца наладили ритм, и я вернулся к аналитике</h3>
+          <p>После подписания контракта нужно было одновременно собирать фото покупателей и отправлять исполнителей. Через 3 месяца работа вышла в стабильный ритм, и я занялся аналитикой: <b>клиенты называли её самой ценной частью продукта.</b></p>
+        </div>
+        <div class="beat">
+          <span class="mono">Рост</span>
+          <h3>Скачок дали истории успеха и чёткий портрет клиента</h3>
+          <p>После кампании продаж и маркетинга пошли входящие запросы, которые хорошо превращались в сделки.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <span class="mono">Годовая выручка по этапам</span>
+      <div class="chart">
+        <svg viewBox="0 0 420 260" role="img" aria-label="Годовая выручка: около 100 тысяч долларов на 3-м месяце, 1 миллион на 9-м, 3 миллиона на 18-м, 6 миллионов на 30-м">
+          <rect class="zone" x="44" y="30" width="36" height="180"/>
+          <line class="grid" x1="44" y1="210" x2="404" y2="210"/>
+          <line class="grid" x1="44" y1="150" x2="404" y2="150"/>
+          <line class="grid" x1="44" y1="90" x2="404" y2="90"/>
+          <line class="grid" x1="44" y1="30" x2="404" y2="30"/>
+          <text class="axis" x="36" y="214" text-anchor="end">$0</text>
+          <text class="axis" x="36" y="154" text-anchor="end">$2M</text>
+          <text class="axis" x="36" y="94" text-anchor="end">$4M</text>
+          <text class="axis" x="36" y="34" text-anchor="end">$6M</text>
+          <text class="axis" x="44" y="234" text-anchor="middle">0</text>
+          <text class="axis" x="116" y="234" text-anchor="middle">6</text>
+          <text class="axis" x="188" y="234" text-anchor="middle">12</text>
+          <text class="axis" x="260" y="234" text-anchor="middle">18</text>
+          <text class="axis" x="332" y="234" text-anchor="middle">24</text>
+          <text class="axis" x="404" y="234" text-anchor="end">30 мес.</text>
+          <path class="area" d="M80 207 L152 180 L260 120 L404 30 L404 210 L80 210 Z"/>
+          <polyline class="line" points="80,207 152,180 260,120 404,30"/>
+          <circle class="pt" cx="80" cy="207" r="5"/>
+          <circle class="pt" cx="152" cy="180" r="5"/>
+          <circle class="pt" cx="260" cy="120" r="5"/>
+          <circle class="pt last" cx="404" cy="30" r="6"/>
+          <text class="val" x="88" y="196">≈ $100K</text>
+          <text class="val" x="144" y="168" text-anchor="end">$1M</text>
+          <text class="val" x="252" y="108" text-anchor="end">$3M</text>
+          <text class="val" x="396" y="20" text-anchor="end">$6M</text>
+        </svg>
+        <div class="legend">
+          <span>Месяцы 0–3: расчёты и проверка без клиентов</span>
+          <span>Месяц 3: первый клиент (≈$100K). Месяц 9: $1M</span>
+          <span>Затем: ещё двое клиентов, выделенная команда</span>
+          <span>Годовая выручка, оценка автора</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <span class="mono">Детали</span>
+      <div class="more">
+        <details>
+          <summary>Как устроена цена</summary>
+          <div class="body">
+            <p>Клиент платит за обслуживание магазина: сбор данных, диагностика, исправление проблем. Маржа выше, чем у привычной модели с визитами (30–40%), потому что покупатели и так находятся в магазине.</p>
+            <p>Цену считали из <b>продаж, которые бренд терял из-за пустой полки.</b> Предложение и цену пересобирали пару раз по обратной связи.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Что бы я сделал иначе</summary>
+          <div class="body">
+            <p>Продукт зависел от трёх частей, которые развивались с разной скоростью: приложение с покупателями, распознавание фото и исполнители в магазинах. Много ручной работы ограничивало рост и маржу.</p>
+            <p><b>Сейчас я бы сразу согласовал бюджет на отдельную платформу,</b> которую можно собрать быстрее с помощью vibecoding.</p>
+          </div>
+        </details>
+      </div>
+      <p class="foot">Цифры приведены по данным автора. Значения на графике приблизительные.</p>
+    </section>
+</article>
+<div class="next"><span class="mono">Следующий кейс</span><b>Как я превратил 3 недовольных клиентов в 12 и $4M выручки</b><a href="#case-2">Читать →</a></div>
+</main>
+
+<!-- ============ CASE 2 ============ -->
+<main class="view" id="case-2" data-title="3 клиента в 12 и $4M — Павел Попков" hidden>
+<div class="crumbs"><a href="#home">← На главную</a><a href="#case-3">Кейс 03 →</a></div>
+<article class="view" style="padding-top:0">
+    <header class="hero">
+      <span class="mono">Кейс 02 · Глава российского офиса Trax Retail, 2018–2022</span>
+      <h1 class="long">Как я превратил 3 недовольных клиентов в 12 и $4M выручки</h1>
+      <div class="trio">
+        <dl><dt>Проблема</dt><dd>Российские клиенты Trax (Coca-Cola, BAT, Diageo) жаловались на качество сервиса, а это грозило глобальным контрактам. В офисе работали два человека.</dd></dl>
+        <dl><dt>Что сделал</dt><dd>Сначала нанял людей, отвечающих за результат у каждого клиента, и только через 90 дней начал расширять продажи.</dd></dl>
+        <dl><dt>Результат</dt><dd class="res">12 клиентов и $4M выручки к концу 2021 года, NPS 70+ при среднем ниже 30 по другим юнитам Trax.</dd></dl>
+      </div>
+      <div class="chips">
+        <span class="chip">Роль: <b>глава офиса, с конца 2021 также директор по стратегии продукта</b></span>
+        <span class="chip">Компания: <b>Trax Retail, 200–250 человек</b></span>
+      </div>
+    </header>
+
+    <section class="metrics" aria-label="Ключевые результаты">
+      <div class="metric"><span class="n">3 → 12</span><span class="l">клиентов к концу 2021 года</span></div>
+      <div class="metric"><span class="n">$4M</span><span class="l">выручка российского юнита к концу 2021 года</span></div>
+      <div class="metric"><span class="n">NPS 70+</span><span class="l">индекс готовности рекомендовать, стабильно через 12 месяцев. В других юнитах ниже 30</span></div>
+      <div class="metric"><span class="n">90 → 97%</span><span class="l">точность распознавания рекламных материалов в магазинах у BAT Россия</span></div>
+      <div class="metric"><span class="n">2 → 10</span><span class="l">человек в команде, без учёта руководителя</span></div>
+    </section>
+
+    <section class="section">
+      <span class="mono">Откуда взялись 12 клиентов</span>
+      <div class="compare">
+        <div><b>3 клиента на старте</b><p>Coca-Cola, British American Tobacco, Diageo.</p></div>
+        <div class="pick"><b>2 клиента из России</b><p>Beiersdorf и GSK (Haleon), которых я привлёк лично. Их контракты потом выросли до 40+ стран.</p></div>
+        <div><b>7 международных контрактов</b><p>Запуск и поддержка после того, как Trax купил конкурента (Mondelez, JTI и другие).</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <span class="mono">Как это было</span>
+      <div class="story">
+        <div class="beat">
+          <span class="mono">Старт</span>
+          <h3>Сильный продукт, которым российским клиентам было тяжело пользоваться</h3>
+          <p>В 2018 году в России было два сотрудника и три клиента. Контракты заключались через головные офисы, и российские подразделения платили не напрямую. Они жаловались на качество, а это влияло на отношения с клиентами по всему миру. <b>Продукту нужна была сильная локальная настройка</b> и команда, которая переводит задачу бизнеса в настройку продукта.</p>
+        </div>
+        <div class="beat">
+          <span class="mono">Порядок действий</span>
+          <h3>Сначала довольные клиенты, потом рост</h3>
+          <p>Первые 30–90 дней я разбирал потребности каждого клиента. Вывод определил порядок: <b>пока клиенты не довольны и не рекомендуют нас другим, расширять продажи рано.</b> Первым приоритетом найма стали проектные менеджеры, которые отвечают за результат у клиента.</p>
+        </div>
+        <div class="beat">
+          <span class="mono">Как добился своего</span>
+          <h3>Запросы российских клиентов перестали теряться в головном офисе</h3>
+          <p>Продуктовая команда сидела в Тель-Авиве. Я оформлял требования как бизнес-кейсы, чтобы фича делалась не под одного заказчика, и вместе с руководителями других регионов собрал общий список пожеланий. Так мы начали влиять на план разработки, а обещанные функции стали доходить до клиентов.</p>
+        </div>
+        <div class="beat">
+          <span class="mono">Метод</span>
+          <h3>Разбирать не фичу, а процесс клиента</h3>
+          <p>На любой запрос я задавал команде три вопроса: <b>как устроен процесс у клиента, какие требования объективные и как похожий процесс решают другие клиенты.</b></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <span class="mono">Главная развилка: BAT</span>
+      <h2>Отказать клиенту или собрать решение из того, что уже есть</h2>
+      <div class="story">
+        <div class="beat">
+          <span class="mono">Запрос</span>
+          <h3>BAT просит отслеживать рекламные материалы в магазинах, а система не умеет их надёжно распознавать</h3>
+          <p>Для клиента это была главная ценность продукта.</p>
+        </div>
+        <div class="beat">
+          <span class="mono">Разговор</span>
+          <h3>Мы спросили не «что доработать», а «зачем вы купили продукт»</h3>
+          <p>Реклама сигарет во многих странах запрещена, поэтому <b>рекламные материалы в магазинах остаются единственным местом, где можно представить новинку.</b> BAT платит магазинам за их размещение, и ему нужно было качество заметно выше текущего. За это он был готов платить. Этот вопрос потерялся при передаче клиента от продаж к операциям.</p>
+        </div>
+        <div class="beat">
+          <span class="mono">Решение</span>
+          <h3>Дополнительное соглашение вместо стандартных условий сервиса</h3>
+          <p>Доплата клиента пошла на двух операторов, которые проверяют и дообучают распознавание. Без существенных доработок продукта: менялись процессы, а не код. <b>Отказать значило бы, скорее всего, потерять клиента.</b></p>
+        </div>
+        <div class="beat">
+          <span class="mono">Результат</span>
+          <h3>Точность выросла с 90% до 97%, и это принесло $200K дополнительной выручки в год</h3>
+          <p>BAT стал платить магазинам по нашим данным. Решение превратилось в премиальный пакет для клиентов, которым нужна точность выше 95%. Его купили Diageo, BAT в другой стране, Coca-Cola Japan и P&amp;G Japan. Я также ввёл для продаж и операций шаблон вопросов, чтобы потребность клиента выяснялась сразу, а не терялась по пути.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <span class="mono">Что я построил</span>
+      <h2>Три потока работ с понятной очерёдностью</h2>
+      <div class="flow">
+        <div class="step"><span class="dot"></span><div><b>Первые 30–90 дней: довольные клиенты</b>
+          <ul>
+            <li>Глубинный разбор потребностей каждого клиента.</li>
+            <li>Проектные менеджеры, которые отвечают за результат и выводят клиента в «зелёную зону».</li>
+          </ul></div></div>
+        <div class="step"><span class="dot"></span><div><b>Параллельно: офис и юрлицо</b>
+          <ul>
+            <li>Открытие офиса и российского юридического лица.</li>
+            <li>Работа с российскими подразделениями клиентов через локальную компанию.</li>
+          </ul></div></div>
+        <div class="step"><span class="dot"></span><div><b>После 90 дней: рост продаж</b>
+          <ul>
+            <li>Расширение отдела продаж и построение воронки.</li>
+            <li>Личное привлечение крупных клиентов.</li>
+          </ul></div></div>
+        <div class="step"><span class="dot sig"></span><div><b>Постоянно: регулярные процессы</b>
+          <ul>
+            <li>Разбор новых требований клиентов и новых лидов.</li>
+            <li>Согласование приоритетов с продуктовой командой в Тель-Авиве.</li>
+          </ul></div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <span class="mono">Команда</span>
+      <h2>10 человек на весь цикл работы с клиентом</h2>
+      <div class="compare">
+        <div><b>Привлечение</b><p>2 менеджера по продажам и маркетинг.</p></div>
+        <div><b>Внедрение</b><p>3 проектных менеджера и инженер, который переводит задачу бизнеса в настройку продукта.</p></div>
+        <div><b>Развитие клиентов</b><p>2 менеджера по работе с клиентами.</p></div>
+        <div><b>Люди</b><p>HR, чтобы команда росла вместе с портфелем.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <span class="mono">Как мы понимали, что клиент доволен</span>
+      <div class="zones" aria-hidden="true"><i class="r"></i><i class="y"></i><i class="g"></i></div>
+      <div class="compare">
+        <div><b>Опрос клиентов два раза в год</b><p>Готовность рекомендовать нас другим (NPS).</p></div>
+        <div><b>Еженедельный дашборд</b><p>Число обращений и выполнение обязательств по скорости и точности.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <span class="mono">Сложное решение</span>
+      <div class="story">
+        <div class="beat">
+          <span class="mono">2022</span>
+          <h3>Реструктуризация команды</h3>
+          <p>В конце 2021 года я перешёл в продуктовую роль, оставшись руководителем офиса: часть задач взяли на себя функциональные руководители. После начала событий между Россией и Украиной (часть клиентов была на Украине) команду пришлось перестраивать, а офис в России фактически закрылся.</p>
+        </div>
+      </div>
+      <p class="foot">Цифры отражают состояние на конец 2021 года. Клиенты названы по публичным маркетинговым материалам Trax Retail.</p>
+    </section>
+</article>
+<div class="next"><span class="mono">Следующий кейс</span><b>Как аналитика стала главной ценностью продукта</b><a href="#case-3">Читать →</a></div>
+</main>
+
+<!-- ============ CASE 4 ============ -->
+<main class="view" id="case-3" data-title="DataHub и аналитический агент — Павел Попков" hidden>
+<div class="crumbs"><a href="#home">← На главную</a><a href="#case-4">Кейс 04 →</a></div>
+<article class="view" style="padding-top:0">
+    <header class="hero">
+      <span class="mono">Кейс 03 · Аналитика · Директор по стратегии продукта, Trax</span>
+      <h1 class="long">Клиенты ценили данные больше визитов. Я построил DataHub, где данные из разных систем сведены в одну картину</h1>
+      <div class="trio">
+        <dl><dt>Проблема</dt><dd>Данные покупателей, мерчандайзеров и клиентов лежали в разных системах и форматах. Один товар назывался по-разному, аналитику собирали вручную для 5–10 клиентов.</dd></dl>
+        <dl><dt>Что сделал</dt><dd>Собрал DataHub, AI-агентов для сопоставления товаров и семантический слой на open source dbt. Поверх запустил data-агента в Slack.</dd></dl>
+        <dl><dt>Результат</dt><dd class="res">Сопоставление ~1 млн записей о товарах: precision 97%, recall 92%. Аналитика доступна всем клиентам, а не 5–10.</dd></dl>
+      </div>
+      <div class="chips">
+        <span class="chip">Компания: <b>Trax, четвёртое подразделение, объединившее три бизнеса</b></span>
+        <span class="chip">Отрасль: <b>товары повседневного спроса, ритейл</b></span>
+      </div>
+    </header>
+
+    <section class="metrics" aria-label="Ключевые результаты">
+      <div class="metric"><span class="n">~1 млн</span><span class="l">записей о товарах: сотни тысяч товаров, по 5–6 вариантов названия в каждой системе</span></div>
+      <div class="metric"><span class="n">десятки тыс.</span><span class="l">магазинов нужно было сопоставить между системами</span></div>
+      <div class="metric"><span class="n">97%</span><span class="l">precision сопоставления товаров агентами</span></div>
+      <div class="metric"><span class="n">92%</span><span class="l">recall сопоставления товаров агентами</span></div>
+      <div class="metric"><span class="n">~1 год</span><span class="l">ушёл на дедупликацию, которая реально работает</span></div>
+    </section>
+
+    <p class="lead">Когда я запустил четвёртое подразделение Trax, выяснилось, что клиенты ценят не только визиты и исправления в магазинах. Их интересовали системные причины проблем, которые видны по данным. Чтобы показывать это всем клиентам, а не вручную пяти-десяти, нужна была единая платформа с гармонизированными данными. Главная работа оказалась не в хранении, а в качестве: около 90% усилий ушло на то, чтобы данным можно было верить.</p>
+
+    <section class="section">
+      <span class="mono">Как это было: пять шагов</span>
+      <div class="story">
+        <div class="beat">
+          <span class="mono">1 · Находка</span>
+          <h3>Данные позволяют решать системные проблемы, а не точечные</h3>
+          <p>Два примера. <b>Товары периодически уходили в out-of-stock</b>, потому что на системном уровне не был исправлен страховой запас. <b>В начале промо-кампании в части штатов США не хватало остатков:</b> у части ритейлеров коммерческая и логистическая функции обменивались информацией по e-mail, и она терялась. Ценность для клиента в том, что мы проверяем данные покупателей, дополняем их данными мерчандайзеров и накладываем продажи и остатки, которые присылает клиент.</p>
+        </div>
+        <div class="beat">
+          <span class="mono">2 · Задача</span>
+          <h3>Запросы клиентов стандартные, значит нужна одна платформа, а не кастомные дашборды</h3>
+          <p>Даже специфичные запросы классифицировались по типам. Поэтому вместо дашбордов под каждого клиента я поставил задачу сделать <b>единую data-платформу:</b> она собирает данные из разных систем и внешние данные клиентов, обрабатывает их и выдаёт стандартные рекомендации по типам проблем.</p>
+        </div>
+        <div class="beat">
+          <span class="mono">3 · Главная сложность</span>
+          <h3>Сложить данные в одну базу было просто, сопоставить товары нет</h3>
+          <p>Платформа покупателей, мерчандайзеры и каждый клиент заполняют данные о товарах и магазинах в своём формате, и валидация везде неполная. Магазины (десятки тысяч) сопоставили почти стандартными методами. <b>Товары оказались задачей со звёздочкой:</b> сотни тысяч товаров по 5–6 вариантов в каждой системе, около миллиона записей. Нужно было убедиться, что в каждом источнике товар определён одинаково.</p>
+        </div>
+        <div class="beat">
+          <span class="mono">4 · AI-дедупликация</span>
+          <h3>Алгоритмы и люди закрывали часть задач, но долго и дорого</h3>
+          <p>На рабочую дедупликацию ушёл почти год. Прорыв дал AI-агент: он анализирует предгармонизированные данные, сопоставляет товары между источниками и складывает результат в базу. <b>Качество: precision 97%, recall 92%.</b> Ручной работы стало резко меньше, и дашборды с рекомендациями, которые раньше собирали вручную, можно было делать для всех клиентов.</p>
+        </div>
+        <div class="beat">
+          <span class="mono">5 · Агент и семантический слой</span>
+          <h3>Первый агент удивлял, но отвечал по-разному на один и тот же вопрос</h3>
+          <p>Первая версия — LLM, подключённый к DataHub, около года назад. Причины нестабильности: негармонизированные данные (их закрыла дедупликация) и отсутствие семантического слоя. Агенту нужно объяснить термины компании, из каких подметрик собирается метрика и как считается. <b>Платформу уровня Databricks мы отложили:</b> спрос на продукт ещё нужно было подтвердить, а инвестиции были несоразмерны трекшну. Вместо этого с командой собрали семантический слой на open source dbt и задеплоили агента в Slack.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <span class="mono">Как устроена платформа</span>
+      <figure>
+        <div class="scroll"><svg viewBox="0 0 760 250" role="img" aria-label="Схема: данные покупателей, мерчандайзеров и клиентов проходят гармонизацию и AI-дедупликацию, попадают в DataHub с семантическим слоем, откуда их использует data-агент в Slack">
+          <defs><marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--muted)"/></marker></defs>
+          <text class="t-h" x="10" y="16">ИСТОЧНИКИ</text><text class="t-h" x="215" y="16">ПОДГОТОВКА</text><text class="t-h" x="420" y="16">DATAHUB</text><text class="t-h" x="615" y="16">ИСПОЛЬЗОВАНИЕ</text>
+          <rect class="bx" x="10" y="30" width="170" height="56" rx="8"/><text class="t-b" x="24" y="54">Покупатели</text><text class="t-m" x="24" y="72">фото и ответы</text>
+          <rect class="bx" x="10" y="107" width="170" height="56" rx="8"/><text class="t-b" x="24" y="131">Мерчандайзеры</text><text class="t-m" x="24" y="149">данные визитов</text>
+          <rect class="bx" x="10" y="184" width="170" height="56" rx="8"/><text class="t-b" x="24" y="208">Данные клиентов</text><text class="t-m" x="24" y="226">продажи и остатки</text>
+          <path class="ln" d="M180 58H215" marker-end="url(#ar3)"/><path class="ln" d="M180 135H215" marker-end="url(#ar3)"/><path class="ln" d="M180 212H215" marker-end="url(#ar3)"/>
+          <rect class="bx-d" x="215" y="30" width="170" height="210" rx="8"/>
+          <text class="t-b" x="300" y="92" text-anchor="middle">Гармонизация</text>
+          <text class="t-m" x="300" y="116" text-anchor="middle">единые форматы</text><text class="t-m" x="300" y="132" text-anchor="middle">и проверки</text>
+          <text class="t-w" x="300" y="170" text-anchor="middle">AI-дедупликация</text><text class="t-m" x="300" y="190" text-anchor="middle">товар определён</text><text class="t-m" x="300" y="206" text-anchor="middle">одинаково везде</text>
+          <path class="ln" d="M385 85H420" marker-end="url(#ar3)"/><path class="ln" d="M385 185H420" marker-end="url(#ar3)"/>
+          <rect class="bx-a" x="420" y="50" width="160" height="70" rx="8"/><text class="t-a" x="434" y="78">Единая база</text><text class="t-m" x="434" y="96">товары и магазины</text><text class="t-m" x="434" y="110">из всех систем</text>
+          <rect class="bx-a" x="420" y="150" width="160" height="70" rx="8"/><text class="t-a" x="434" y="178">Семантический слой</text><text class="t-m" x="434" y="196">метрики и термины</text><text class="t-m" x="434" y="210">на open source dbt</text>
+          <path class="ln" d="M580 85H615" marker-end="url(#ar3)"/><path class="ln" d="M580 185H615" marker-end="url(#ar3)"/>
+          <rect class="bx-d" x="615" y="30" width="135" height="210" rx="8"/>
+          <text class="t-a" x="682" y="112" text-anchor="middle">Data-агент</text><text class="t-a" x="682" y="130" text-anchor="middle">в Slack</text>
+          <text class="t-m" x="682" y="156" text-anchor="middle">и стандартные</text><text class="t-m" x="682" y="172" text-anchor="middle">рекомендации</text>
+        </svg></div>
+        <figcaption>Сначала гармонизация и дедупликация, потом семантика, и только после этого агент отвечает на вопросы.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section">
+      <span class="mono">Что получилось и чему научился</span>
+      <div class="story">
+        <div class="beat">
+          <span class="mono">Качество</span>
+          <h3>Агент отвечал уверенно, но иногда неверно</h3>
+          <p>Процент неточных ответов оставался высоким. Агент мог уверенно заявить, что данных нет, хотя семантический слой просто пропустил таблицу: он обновлялся вручную. <b>Именно evaluation показал эти пробелы.</b></p>
+        </div>
+        <div class="beat">
+          <span class="mono">Вывод</span>
+          <h3>Около 90% усилий уходит на качество данных</h3>
+          <p>Валидация, гармонизация, актуальный семантический слой. Сами агенты, которые проверяют данные, дедуплицируют и обновляют семантику, это фундамент, на котором другим агентам можно доверять. <b>Дата-агент стал базой для агентов, которые я потом строил для клиентов.</b></p>
+        </div>
+        <div class="beat">
+          <span class="mono">Решение об инвестициях</span>
+          <h3>Дорогую платформу покупают после подтверждения спроса</h3>
+          <p>Мне хотелось перейти на решения уровня Databricks, но это было экономически неоправданно. Я изучал открытые материалы и методологии фронтирных компаний и переносил их в наш роадмап.</p>
+        </div>
+      </div>
+      <p class="foot">Цифры приведены по данным автора. «Около 90% усилий» — оценка автора.</p>
+    </section>
+</article>
+<div class="next"><span class="mono">Следующий кейс</span><b>Агент корректировки целей: чистые цели вместо ответов «товар выведен»</b><a href="#case-4">Читать →</a></div>
+</main>
+
+<main class="view" id="case-4" data-title="Агент корректировки целей — Павел Попков" hidden>
+<div class="crumbs"><a href="#home">← На главную</a><a href="#agent-1">Агент 01 →</a></div>
+<article class="view" style="padding-top:0">
+    <header class="hero">
+      <span class="mono">Кейс 04 · AI-агенты · пилот у нескольких клиентов</span>
+      <h1 class="long">Агент корректировки целей: чистые цели вместо ответов «товар выведен»</h1>
+      <div class="trio">
+        <dl><dt>Проблема</dt><dd>Больше 50% причин отсутствия товара на полке: «заблокирован» или «выведен из матрицы». Сотрудники сообщают то, что система уже знает, а новинок в целях нет.</dd></dl>
+        <dl><dt>Что сделал</dt><dd>Собрал AI-агента, который по графику наличия и ответам сотрудников подтверждает или опровергает статус «выведен» или «новинка». Аналитик только валидирует.</dd></dl>
+        <dl><dt>Результат</dt><dd class="res">Принято 9 из 10 рекомендаций на тесте из 5 000 магазинов. Экономия 3–5 минут на каждом визите.</dd></dl>
+      </div>
+      <div class="chips">
+        <span class="chip">Для кого: <b>производители CPG с полевыми командами</b></span>
+        <span class="chip">Стадия: <b>пилот, аналитик валидирует результат</b></span>
+      </div>
+    </header>
+
+    <section class="metrics" aria-label="Ключевые результаты">
+      <div class="metric"><span class="n">&gt;50%</span><span class="l">причин отсутствия товара: «выведен» или «заблокирован», у клиентов в разных странах</span></div>
+      <div class="metric"><span class="n">10 000</span><span class="l">из 20 000 отсутствий в месяц у одного клиента приходились на уже выведенные товары</span></div>
+      <div class="metric"><span class="n">~100 000 с</span><span class="l">в месяц уходило в поле на такие ответы, около 28 часов</span></div>
+      <div class="metric"><span class="n">90%</span><span class="l">рекомендаций агента приняты на тесте</span></div>
+      <div class="metric"><span class="n">3–5 мин</span><span class="l">экономии на каждом визите</span></div>
+    </section>
+
+    <p class="lead">Я разбирал причины отсутствия товара по сотням товаров и тысячам магазинов и увидел: больше половины ответов полевых сотрудников это «товар выведен» или «заблокирован». Информация уже была в других системах, но до опросников не доходила. Я собрал агента, который по истории данных находит такие товары и новинки, которых нет в целях, и предлагает исправить цели. Аналитик проверяет результат, а полевые сотрудники перестают отвечать на бесполезные вопросы.</p>
+
+    <section class="section">
+      <span class="mono">Как это было: пять шагов</span>
+      <div class="story">
+        <div class="beat">
+          <span class="mono">1 · Находка</span>
+          <h3>Причина №1 одна и та же у разных клиентов и стран</h3>
+          <p>Больше 50% ответов: «заблокирован» или «выведен из матрицы». Я проверил разные рынки и разные компании, и везде один паттерн. Сначала исключил фрод и ошибки: вместе с AI-аналитиком сделали перекрёстную проверку. <b>Около 10% оказались ошибками сотрудников</b> (товар потом появился в магазинах), <b>90% подтвердились.</b></p>
+        </div>
+        <div class="beat">
+          <span class="mono">2 · Цена</span>
+          <h3>10 000 раз в месяц сотрудники сообщали то, что система уже знала</h3>
+          <p>У одного клиента было 20 000 отсутствий в месяц, и половина по уже выведенным товарам. Это около 100 000 секунд работы в поле каждый месяц. Один и тот же товар в одном магазине часто спрашивали несколько визитов подряд. <b>Сотрудники жаловались,</b> что их ответы не учитываются: товар оставался в цели.</p>
+        </div>
+        <div class="beat">
+          <span class="mono">3 · Причина</span>
+          <h3>Процесс обновления целей не работает</h3>
+          <p>Я провёл интервью с компаниями и показал им цифры. По замыслу сеть сообщает о каждом решении по магазину, КАМ передаёт аналитику, а аналитик 2–3 рабочих дня в месяц собирает и загружает новые цели. <b>На практике сети информируют плохо, КАМы передают редко.</b> Источником правды стали полевые сотрудники, но уже постфактум.</p>
+        </div>
+        <div class="beat">
+          <span class="mono">4 · Два паттерна</span>
+          <h3>Выведенный товар уходит из магазинов волной, а новинка не попадает в цели</h3>
+          <p><b>Вывод.</b> Если товар исчез примерно из 80% магазинов ритейлера, остальные 20% тоже выведены: там допродают остатки. Паттерн подтвердился на исторических данных с высокой уверенностью, исключения редки. <b>Новинка.</b> КАМ согласовал товар, он уже виден на фото, но в цели его не внесли. По нему нет ни опроса, ни диагностики, ни сигнала, что его нет на полке, а это самые критичные для бизнеса позиции.</p>
+        </div>
+        <div class="beat">
+          <span class="mono">5 · Решение</span>
+          <h3>Агент ищет, аналитик валидирует</h3>
+          <p>Агент забирает у аналитика поиск. Он выгружает историю визитов и ответы сотрудников (и продажи, если клиент их даёт), находит выведенные товары и новинки и формирует скорректированные цели. <b>Работает как классификатор:</b> график наличия по неделям сравнивается с ответами сотрудников, и статус подтверждается или опровергается.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <span class="mono">Как работает агент</span>
+      <figure>
+        <div class="scroll"><svg viewBox="0 0 760 250" role="img" aria-label="Схема: история наличия, ответы сотрудников и продажи идут в классификатор, который подтверждает или опровергает статус, затем аналитик валидирует и загружает новые цели">
+          <defs><marker id="ar4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--muted)"/></marker></defs>
+          <text class="t-h" x="10" y="16">ВХОД</text><text class="t-h" x="215" y="16">ЧТО ДЕЛАЕТ АГЕНТ</text><text class="t-h" x="420" y="16">ВЕРДИКТ</text><text class="t-h" x="615" y="16">ЧЕЛОВЕК</text>
+          <rect class="bx" x="10" y="30" width="170" height="56" rx="8"/><text class="t-b" x="24" y="54">История наличия</text><text class="t-m" x="24" y="72">по неделям</text>
+          <rect class="bx" x="10" y="107" width="170" height="56" rx="8"/><text class="t-b" x="24" y="131">Ответы сотрудников</text><text class="t-m" x="24" y="149">причины отсутствия</text>
+          <rect class="bx" x="10" y="184" width="170" height="56" rx="8"/><text class="t-b" x="24" y="208">Продажи</text><text class="t-m" x="24" y="226">если клиент делится</text>
+          <path class="ln" d="M180 58H215" marker-end="url(#ar4)"/><path class="ln" d="M180 135H215" marker-end="url(#ar4)"/><path class="ln" d="M180 212H215" marker-end="url(#ar4)"/>
+          <rect class="bx-d" x="215" y="30" width="170" height="210" rx="8"/>
+          <text class="t-b" x="300" y="92" text-anchor="middle">Классификатор</text>
+          <text class="t-m" x="300" y="116" text-anchor="middle">график наличия</text><text class="t-m" x="300" y="132" text-anchor="middle">против ответа</text><text class="t-m" x="300" y="148" text-anchor="middle">сотрудника</text>
+          <text class="t-w" x="300" y="180" text-anchor="middle">+ сопоставление</text><text class="t-m" x="300" y="196" text-anchor="middle">товаров по UPC/EAN</text><text class="t-m" x="300" y="212" text-anchor="middle">и весу</text>
+          <path class="ln" d="M385 85H420" marker-end="url(#ar4)"/><path class="ln" d="M385 185H420" marker-end="url(#ar4)"/>
+          <rect class="bx-a" x="420" y="50" width="160" height="70" rx="8"/><text class="t-a" x="434" y="78">Подтверждает</text><text class="t-m" x="434" y="96">выведен или новинка:</text><text class="t-m" x="434" y="110">цель меняется</text>
+          <rect class="bx" x="420" y="150" width="160" height="70" rx="8"/><text class="t-b" x="434" y="178">Опровергает</text><text class="t-m" x="434" y="196">ошибка ответа:</text><text class="t-m" x="434" y="210">цель остаётся</text>
+          <path class="ln" d="M580 85H615" marker-end="url(#ar4)"/><path class="ln" d="M580 185H615" marker-end="url(#ar4)"/>
+          <rect class="bx-d" x="615" y="30" width="135" height="210" rx="8"/>
+          <text class="t-a" x="682" y="112" text-anchor="middle">Аналитик</text><text class="t-a" x="682" y="130" text-anchor="middle">валидирует</text>
+          <text class="t-m" x="682" y="156" text-anchor="middle">и загружает</text><text class="t-m" x="682" y="172" text-anchor="middle">новые цели</text>
+        </svg></div>
+        <figcaption>Агент делает поиск, аналитик принимает решение. Для выведенных товаров и новинок проверка идёт по одной схеме.</figcaption>
+      </figure>
+      <div class="chart">
+        <svg viewBox="0 0 420 200" role="img" aria-label="Иллюстрация: доля магазинов ритейлера, где виден товар, падает с 98% до 20% и остаётся на этом уровне, пока допродаются остатки">
+          <rect class="zone" x="269" y="20" width="135" height="150"/>
+          <line class="grid" x1="44" y1="170" x2="404" y2="170"/>
+          <line class="grid" x1="44" y1="95" x2="404" y2="95"/>
+          <line class="grid" x1="44" y1="20" x2="404" y2="20"/>
+          <text class="axis" x="36" y="174" text-anchor="end">0%</text>
+          <text class="axis" x="36" y="99" text-anchor="end">50%</text>
+          <text class="axis" x="36" y="24" text-anchor="end">100%</text>
+          <text class="axis" x="44" y="190" text-anchor="middle">нед. 1</text>
+          <text class="axis" x="224" y="190" text-anchor="middle">нед. 5</text>
+          <text class="axis" x="404" y="190" text-anchor="end">нед. 9</text>
+          <path class="area" d="M44 23 L89 24.5 L134 35 L179 72.5 L224 113 L269 134 L314 140 L359 140 L404 141.5 L404 170 L44 170 Z"/>
+          <polyline class="line" points="44,23 89,24.5 134,35 179,72.5 224,113 269,134 314,140 359,140 404,141.5"/>
+          <circle class="pt" cx="44" cy="23" r="5"/><circle class="pt last" cx="404" cy="141.5" r="6"/>
+          <text class="axis" x="404" y="112" text-anchor="end">остатки допродаются</text>
+        </svg>
+        <div class="legend"><span>Доля магазинов ритейлера, где товар виден, по неделям</span><span>Иллюстрация паттерна: когда ушло ~80%, остальные 20% тоже выведены</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <span class="mono">Проверка точности</span>
+      <div class="compare">
+        <div><b>Датасет</b><p>3 компании: 1 рынок в Бразилии и 2 в Европе. По 300 товаров на компанию, Food и Non-food.</p></div>
+        <div><b>Охват</b><p>5 ритейлеров и 5 000 магазинов.</p></div>
+        <div class="pick"><b>Результат</b><p>9 из 10 рекомендаций приняты. Остальные я разобрал вручную.</p></div>
+      </div>
+      <div class="story">
+        <div class="beat">
+          <span class="mono">Что нашли</span>
+          <h3>Старый и новый товар оказались одним продуктом</h3>
+          <p>Разбор спорных товаров показал новое требование: нужно сопоставлять выведенный и новый товар. Часто это <b>один и тот же продукт с новым UPC/EAN и новым весом.</b> После добавления этого правила ошибок в рекомендациях не найдено.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <span class="mono">Где настоящий эффект</span>
+      <div class="story">
+        <div class="beat">
+          <span class="mono">Не аналитик</span>
+          <h3>Не 2–3 дня аналитика, а визиты полевых сотрудников</h3>
+          <p>Аналитик освободит 2–3 рабочих дня в месяц, но компания не получит из этого прямой выгоды: он займётся другой задачей. <b>Выгода в поле.</b> Сотрудники перестают отвечать на вопросы по выведенным товарам и экономят 3–5 минут на каждом визите. Это время идёт на выкладку и продажи, а новинки попадают в опросы. Сотрудники видят, что их ответы учитываются.</p>
+        </div>
+        <div class="beat">
+          <span class="mono">Масштаб</span>
+          <h3>От 100 000 секунд в месяц у одного клиента до миллионов</h3>
+          <p>Для одного клиента в одной стране это около 100 000 секунд в месяц. Агентом уже заинтересовались несколько компаний в нескольких странах, поэтому суммарная экономия считается в миллионах секунд.</p>
+        </div>
+        <div class="beat">
+          <span class="mono">Стадия</span>
+          <h3>Пилот: агент готовит, аналитик валидирует</h3>
+          <p>Прототип проверен на рабочих данных. Сейчас пилот у нескольких клиентов: агент формирует цели в реальном времени, а аналитик только проверяет результат. Весь поиск выведенных товаров и новинок делает агент.</p>
+        </div>
+      </div>
+      <p class="foot">Цифры приведены по данным автора. Оценка экономии на визит приблизительная.</p>
+    </section>
+</article>
+<div class="next"><span class="mono">Связанный агент</span><b>Агент контроля данных</b><a href="#agent-1">Открыть →</a></div>
+</main>
+
+<!-- ============ LAUNCH ============ -->
+<main class="view" id="launch" data-title="Как запускать продукты — Павел Попков" hidden>
+  <div class="crumbs"><a href="#home">← На главную</a></div>
+  <header class="hero">
+    <span class="mono">Как запускать продукты</span>
+    <h1>Пять правил запуска продукта из моего опыта</h1>
+    <p class="lead">От гипотезы без бюджета до команды и процессов, которые приносят миллионы выручки. Каждое правило подтверждено примером из моих кейсов.</p>
+  </header>
+  <section class="section"><span class="mono">Принцип 1</span><h2>Как настраивать себя</h2><p class="note">Новый продукт начинается с человека, который готов работать без готовых правил и смотреть на проблему глазами клиента.</p><div class="story"><div class="beat"><span class="mono">Кейс 02</span><h3>Перестроить себя под стартап</h3><p>Из Coca-Cola, где были процессы и поддержка, я пришёл в Trax, где не было ни того, ни другого. <b>Из ограничений был только бюджет.</b> Это давало возможность строить процессы с нуля, но сначала пришлось перестроить себя.</p></div><div class="beat"><span class="mono">Кейс 01</span><h3>Идти к клиенту самому</h3><p>Я просил отдел продаж направлять мне все новые лиды, ходил на звонки и сам презентовал новое решение. Так я выбрал клиента, которому важна скорость и который готов к небольшому риску.</p></div><div class="beat"><span class="mono">Кейс 01</span><h3>Говорить о рисках прямо</h3><p>Расчёт показывал 85% магазинов с данными, но гарантировать это мы не могли. Клиенту обещали 70%, получили 73%. <b>Честное обещание дороже красивой цифры.</b></p></div></div></section>
+    <section class="section"><span class="mono">Принцип 2</span><h2>Как проверять гипотезы до значительных инвестиций</h2><p class="note">Сначала дешёвая проверка самого рискованного допущения, и только потом клиенты, команда и бюджет.</p><div class="story"><div class="beat"><span class="mono">Кейс 01</span><h3>Расчёт до теста</h3><p>Главный риск был в том, что покупатели не обеспечат достаточно фотографий. Я построил расчёт вероятности получить фото из нужного магазина в нужную неделю.</p></div><div class="beat"><span class="mono">Кейс 01</span><h3>Тест без клиентов</h3><p><b>2 недели, 10 тыс. магазинов, 3 ритейлера, ни одного клиента.</b> Только после этого мы пошли искать первых клиентов.</p></div><div class="beat"><span class="mono">Кейс 01</span><h3>Сегмент до разработки</h3><p>Сегмент выбрали после 2–3 интервью ещё до разработки. Продукт собрали из трёх готовых активов компании, без отдельного бюджета и небольшой командой.</p></div><div class="beat"><span class="mono">Кейс 01</span><h3>Пилот с честной целью</h3><p>Первый клиент на $100 тыс. получил 73% магазинов с данными за 2 недели. Это снизило риск следующих инвестиций.</p></div><div class="beat"><span class="mono">Кейс 04</span><h3>Паттерн на истории и перекрёстная проверка</h3><p>Прежде чем строить агента, я проверил паттерн «товар ушёл из 80% магазинов» на исторических данных и исключил фрод: <b>90% ответов подтвердились.</b> Потом проверил агента на 5 000 магазинов и разобрал спорные случаи. Так нашлось недостающее правило сопоставления товаров по UPC/EAN и весу.</p></div></div></section>
+    <section class="section"><span class="mono">Принцип 3</span><h2>Почему так важна команда</h2><p class="note">Продукт растёт на людях, которые отвечают за результат клиента, а не за свой участок.</p><div class="story"><div class="beat"><span class="mono">Кейс 02</span><h3>Первый найм: ответственные за клиента</h3><p>В России я сначала нанял проектных менеджеров, которые отвечают за результат у клиента, и только потом строил продажи. Команда выросла с 2 до 10 человек и закрыла весь цикл: привлечение, внедрение, развитие клиентов, HR.</p></div><div class="beat"><span class="mono">Кейс 01</span><h3>Научить продавать новое</h3><p>Отдел продаж не знал, как продавать продукт, которого раньше не было. Я подготовил обучение, ввёл еженедельные разборы и ходил на звонки. <b>У всех трёх продавцов продажи пошли после одной успешной сделки с моей поддержкой.</b></p></div><div class="beat"><span class="mono">Кейс 01</span><h3>Команда на шесть стран</h3><p>Продажи в США, аналитики в Пуэрто-Рико, операции в Мексике, разработка в Будапеште, юрист и финансист в Сингапуре и Японии. Для операций было два еженедельных созвона по запускам и исполнению.</p></div></div></section>
+    <section class="section"><span class="mono">Принцип 4</span><h2>Системные процессы</h2><p class="note">Хороший результат один раз превращается в повторяемый процесс, чтобы он не зависел от одного человека.</p><div class="story"><div class="beat"><span class="mono">Кейс 02</span><h3>Порядок важнее скорости</h3><p>Сначала довольные клиенты, потом рост. В первые 30–90 дней я разбирал потребности каждого клиента, и только после этого расширял продажи.</p></div><div class="beat"><span class="mono">Кейс 02</span><h3>Три вопроса к любому запросу</h3><p>Как устроен процесс у клиента, какие требования объективные и как похожий процесс решают другие клиенты. Запросы оформлялись как бизнес-кейсы и складывались в общий список для продуктовой команды.</p></div><div class="beat"><span class="mono">Кейс 02</span><h3>Передача без потерь</h3><p>Потребность BAT потерялась при передаче клиента от продаж к операциям. Я ввёл <b>шаблоны вопросов для продаж и операций,</b> чтобы причина покупки доходила до исполнителя.</p></div><div class="beat"><span class="mono">Кейс 02</span><h3>Измерения вместо ощущений</h3><p>Опрос клиентов два раза в год и еженедельный дашборд: число обращений и выполнение обязательств по скорости и точности.</p></div></div></section>
+    <section class="section"><span class="mono">Принцип 5</span><h2>Скорость итераций</h2><p class="note">Чем быстрее цикл «попробовать, измерить, поправить», тем меньше стоит ошибка.</p><div class="story"><div class="beat"><span class="mono">Кейс 01</span><h3>Одна итерация в день</h3><p>Чтобы получить 73% покрытия в пилоте, мы сделали <b>больше 5 итераций мотивации покупателей за неделю, по одной в день.</b></p></div><div class="beat"><span class="mono">Кейс 02</span><h3>Решение из того, что уже есть</h3><p>Для BAT мы не стали ждать доработки продукта. Дополнительное соглашение и два оператора проверки подняли точность распознавания с 90% до 97%. <b>Менялись процессы, а не код.</b></p></div><div class="beat"><span class="mono">AI-агенты</span><h3>Прототип вместо долгого проекта</h3><p>Сегодня я применяю тот же подход к агентам: быстрый прототип проверяет гипотезу при ограниченных времени и ресурсах. Для следующего продукта я бы сразу собирал платформу с помощью vibecoding.</p></div></div></section>
+    <section class="section">
+    <span class="mono">Чему учиться дальше</span>
+    <div class="index">
+      <a href="https://career.habr.com/courses/4889-avtorskiy-trening-vani-zamesina" target="_blank" rel="noopener"><span class="mono">Курс</span><b>Авторский тренинг Вани Замесина</b><span class="d">Подход к созданию продуктов через Advanced JTBD. Если хотите системно разобрать методологию клиентских интервью и выбора сегмента.</span><span class="go">Открыть курс →</span></a>
+    </div>
+  </section>
+  <div class="next"><span class="mono">Посмотреть в деле</span><b>Кейсы, где я применил эти правила</b><a href="#home">На главную →</a></div>
+</main>
+
+<!-- ============ AGENTS INDEX ============ -->
+<main class="view" id="agents" data-title="AI-агенты — Павел Попков" hidden>
+  <div class="crumbs"><a href="#home">← На главную</a></div>
+  <header class="hero">
+    <span class="mono">AI-агенты</span>
+    <h1>Агенты, которым можно доверять цифры в отчётах</h1>
+    <p class="lead">Агенты проверяют мастер-данные ассортимента, разбирают причины невыполнения плана и адаптируют планограммы под каждый магазин. Меньше ручной сверки для KAM, полевых команд и аналитиков.</p>
+  </header>
+  <section class="acards" aria-label="Агенты">
+    <a class="acard" href="#agent-1">
+      <div><span class="mono">Агент 01</span><h3>Агент контроля данных</h3></div>
+      <div class="trio">
+        <dl><dt>Для кого</dt><dd>Производители и ритейлеры CPG с полевыми командами и KAM.</dd></dl>
+        <dl><dt>Какой процесс решает</dt><dd>Обновление списка товаров, которые должны стоять на полке в каждом магазине, по данным распознавания полки.</dd></dl>
+        <dl><dt>Результаты</dt><dd class="res">OOS ниже на 8–12% за счёт верных таргетов. До 5 минут экономии на каждом визите.</dd></dl>
+      </div>
+      <span class="go">Открыть агента →</span>
+    </a>
+    <a class="acard" href="#agent-2">
+      <div><span class="mono">Агент 02</span><h3>Диагностический агент</h3></div>
+      <div class="trio">
+        <dl><dt>Для кого</dt><dd>Аналитики и менеджеры в малых и средних командах.</dd></dl>
+        <dl><dt>Какой процесс решает</dt><dd>Разбор причин невыполнения KPI по дереву причин, сразу по всем срезам бренд × товар × канал × клиент.</dd></dl>
+        <dl><dt>Результаты</dt><dd class="res">5–8 часов в неделю экономии на диагностике. Решения быстрее.</dd></dl>
+      </div>
+      <span class="go">Открыть агента →</span>
+    </a>
+    <a class="acard" href="#agent-3">
+      <div><span class="mono">Агент 03</span><h3>Планограммный агент</h3></div>
+      <div class="trio">
+        <dl><dt>Для кого</dt><dd>Ритейлеры и категорийные команды CPG.</dd></dl>
+        <dl><dt>Какой процесс решает</dt><dd>Адаптация планограммы под реальное оборудование магазина по фото полок и данным продаж.</dd></dl>
+        <dl><dt>Результаты</dt><dd class="res">Соблюдение планограммы выросло с 30–40% до 70–80% по оценке менеджмента.</dd></dl>
+      </div>
+      <span class="go">Открыть агента →</span>
+    </a>
+    <a class="acard stub" href="#agent-4">
+      <div><span class="mono">Агент 04 · В разработке</span><h3>Агент сбора данных</h3></div>
+      <div class="trio">
+        <dl><dt>Для кого</dt><dd>Заполнить: команды, которым нужны данные из разных источников.</dd></dl>
+        <dl><dt>Какой процесс решает</dt><dd>Заполнить: какие данные и откуда собирает агент.</dd></dl>
+        <dl><dt>Результаты</dt><dd class="res">Появятся после запуска.</dd></dl>
+      </div>
+      <span class="go">Открыть агента →</span>
+    </a>
+    <a class="acard stub" href="#agent-5">
+      <div><span class="mono">Агент 05 · В разработке</span><h3>Агент планирования заказов</h3></div>
+      <div class="trio">
+        <dl><dt>Для кого</dt><dd>Заполнить: кто планирует и согласует заказы.</dd></dl>
+        <dl><dt>Какой процесс решает</dt><dd>Заполнить: как агент считает и предлагает заказ.</dd></dl>
+        <dl><dt>Результаты</dt><dd class="res">Появятся после запуска.</dd></dl>
+      </div>
+      <span class="go">Открыть агента →</span>
+    </a>
+  </section>
+</main>
+
+<!-- ============ AGENT 1 ============ -->
+<main class="view" id="agent-1" data-title="Агент контроля данных — Павел Попков" hidden>
+  <div class="crumbs"><a href="#home">← На главную</a><a href="#agent-2">Агент 02 →</a></div>
+  <header class="hero">
+    <span class="mono">Агент 01</span>
+    <h1>Агент контроля данных: держит таргеты ассортимента каждого магазина верными</h1>
+    <p class="lead">Отчёт по OOS точен ровно настолько, насколько точен список товаров, которые должны быть на полке. Список обновляют вручную, поэтому он устаревает. Агент обновляет его сам.</p>
+  </header>
+  <div class="meta">
+    <dl><dt>Для кого</dt><dd>Производители и ритейлеры CPG с полевыми командами и KAM</dd></dl>
+    <dl><dt>Данные</dt><dd>Распознавание полки по товару и по магазину</dd></dl>
+    <dl><dt>Метрика</dt><dd>Точность OOS и уровень OOS</dd></dl>
+  </div>
+
+  <figure>
+    <div class="scroll"><svg viewBox="0 0 760 270" role="img" aria-label="Схема агента: данные распознавания, три паттерна, три решения, точный отчёт по OOS">
+      <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--muted)"/></marker></defs>
+      <text class="t-h" x="10" y="16">ВХОД</text><text class="t-h" x="190" y="16">ЧТО ВИДИТ АГЕНТ</text><text class="t-h" x="430" y="16">ЧТО ДЕЛАЕТ</text><text class="t-h" x="630" y="16">РЕЗУЛЬТАТ</text>
+      <rect class="bx-d" x="10" y="30" width="130" height="210" rx="8"/>
+      <text class="t-b" x="75" y="112" text-anchor="middle">Распознавание</text><text class="t-b" x="75" y="130" text-anchor="middle">полки</text>
+      <text class="t-m" x="75" y="152" text-anchor="middle">товар × магазин</text>
+      <path class="ln" d="M140 58H190" marker-end="url(#ar)"/><path class="ln" d="M140 135H190" marker-end="url(#ar)"/><path class="ln" d="M140 212H190" marker-end="url(#ar)"/>
+      <rect class="bx-a" x="190" y="30" width="190" height="56" rx="8"/><text class="t-a" x="205" y="54">+ Появился новый товар</text><text class="t-m" x="205" y="72">на полке, но нет в таргетах</text>
+      <rect class="bx-w" x="190" y="107" width="190" height="56" rx="8"/><text class="t-w" x="205" y="131">− Товар исчез</text><text class="t-m" x="205" y="149">ритейлер вывел его из матрицы</text>
+      <rect class="bx" x="190" y="184" width="190" height="56" rx="8"/><text class="t-b" x="205" y="208">⇄ Сменился формат</text><text class="t-m" x="205" y="226">изменились полки и стеллажи</text>
+      <path class="ln" d="M380 58H430" marker-end="url(#ar)"/><path class="ln" d="M380 135H430" marker-end="url(#ar)"/><path class="ln" d="M380 212H430" marker-end="url(#ar)"/>
+      <rect class="bx-d" x="430" y="30" width="160" height="56" rx="8"/><text class="t-b" x="445" y="63">Добавить в таргеты</text>
+      <rect class="bx-d" x="430" y="107" width="160" height="56" rx="8"/><text class="t-b" x="445" y="140">Убрать из таргетов</text>
+      <rect class="bx-d" x="430" y="184" width="160" height="56" rx="8"/><text class="t-b" x="445" y="217">Пересчитать таргеты</text>
+      <path class="ln" d="M590 58L630 120" marker-end="url(#ar)"/><path class="ln" d="M590 135H630" marker-end="url(#ar)"/><path class="ln" d="M590 212L630 150" marker-end="url(#ar)"/>
+      <rect class="bx-a" x="630" y="30" width="120" height="210" rx="8"/>
+      <text class="t-a" x="690" y="106" text-anchor="middle">Точный</text><text class="t-a" x="690" y="124" text-anchor="middle">отчёт по OOS</text>
+      <text class="t-m" x="690" y="150" text-anchor="middle">нет пропущенных</text><text class="t-m" x="690" y="166" text-anchor="middle">дыр и ложных</text><text class="t-m" x="690" y="182" text-anchor="middle">причин</text>
+    </svg></div>
+    <figcaption>Агент сравнивает таргеты с тем, что реально видно на полке, и обновляет их сам.</figcaption>
+  </figure>
+
+  <section class="section">
+    <h2>Проблема</h2>
+    <div class="tiles">
+      <div class="tile"><b>Новый товар не попал в таргеты</b><span>KAM забыл его добавить. Если товара нет на полке, он не появится в отчёте по OOS.</span></div>
+      <div class="tile"><b>Выведенный товар остался в таргетах</b><span>Ритейлер решил убрать товар, но KAM не знал или не сообщил команде. Полевые сотрудники продолжают вносить причины для товара, которого быть не должно.</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Результаты</h2>
+    <div class="stat">
+      <div><strong>8–12%</strong><span>приблизительное снижение OOS от верных таргетов</span></div>
+      <div><strong>+5–8%</strong><span>дополнительное снижение за счёт доверия к данным, быстрого выявления OOS и диагностики, особенно на новинках</span></div>
+      <div><strong>~40%</strong><span>времени на ввод причин OOS уходило на товары, которые ритейлер уже вывел (два проекта)</span></div>
+      <div><strong>до 5 мин</strong><span>экономии полевой команды на каждом визите</span></div>
+    </div>
+    <p class="note">KAM начинают использовать данные, потому что отчёт по OOS перестаёт расходиться с реальностью. Доверие растёт, и использование тоже.</p>
+  </section>
+  <section class="section"><span class="mono">Подробный кейс</span><div class="index"><a href="#case-4"><span class="mono">Кейс 04</span><b>Агент корректировки целей: чистые цели вместо ответов «товар выведен»</b><span class="d">Как я нашёл проблему в данных, проверил точность на 5 000 магазинах и вывел агента в пилот.</span><span class="go">Читать →</span></a></div></section>
+  <div class="next"><span class="mono">Следующий агент</span><b>Диагностический агент</b><a href="#agent-2">Открыть →</a></div>
+</main>
+
+<!-- ============ AGENT 2 ============ -->
+<main class="view" id="agent-2" data-title="Диагностический агент — Павел Попков" hidden>
+  <div class="crumbs"><a href="#home">← На главную</a><a href="#agent-3">Агент 03 →</a></div>
+  <header class="hero">
+    <span class="mono">Агент 02</span>
+    <h1>Диагностический агент: разбирает весь портфель сразу</h1>
+    <p class="lead">Когда план не выполнен, аналитик идёт по цепочке связанных метрик. На большом портфеле перебрать вручную все сочетания бренда, товара, канала и клиента нереально. Агент следует той же логике, но параллельно.</p>
+  </header>
+  <div class="meta">
+    <dl><dt>Для кого</dt><dd>Аналитики и менеджеры в малых и средних командах</dd></dl>
+    <dl><dt>Задача</dt><dd>Диагностировать, почему KPI не достиг цели</dd></dl>
+    <dl><dt>Масштаб</dt><dd>Много брендов, SKU, каналов и клиентов</dd></dl>
+  </div>
+
+  <section class="section">
+    <h2>Одно дерево причин по правилам самого аналитика</h2>
+    <figure>
+      <div class="scroll"><svg id="big" viewBox="0 0 760 290" role="img" aria-label="Дерево причин невыполнения плана продаж: цена, дистрибуция, активация и спрос"></svg></div>
+      <figcaption>Агент проверяет метрики, связанные с KPI, ветка за веткой. Подсвечен путь к причине, которую он нашёл в этом срезе.</figcaption>
+    </figure>
+  </section>
+
+  <section class="section">
+    <h2>Много срезов по товару и клиенту, по дереву на каждый</h2>
+    <p class="note">Такое же дерево строится для каждого сочетания товар × клиент. До 100 копий агента работают параллельно, а выводы сводятся в один документ с рейтингом причин.</p>
+    <figure>
+      <div class="grid9" id="g9"></div>
+      <div class="legend"><span><i style="background:var(--accent)"></i>найдена корневая причина</span><span><i style="background:var(--accent-soft);border:1px solid var(--accent)"></i>ветка влияет</span><span><i style="background:var(--bg);border:1px solid var(--muted)"></i>проверено, проблем нет</span></div>
+      <figcaption>Иллюстрация: небольшая выборка срезов. В каждом причина оказывается в другом месте, и ручной разбор это пропускает.</figcaption>
+    </figure>
+  </section>
+
+  <section class="section">
+    <h2>Сводный рейтинг</h2>
+    <figure>
+      <div class="scroll"><svg viewBox="0 0 760 170" role="img" aria-label="Рейтинг причин невыполнения целей, иллюстрация">
+        <text class="t-h" x="10" y="16">ПРИЧИНЫ ПО ВКЛАДУ · ИЛЛЮСТРАЦИЯ</text>
+        <text x="10" y="50">Дистрибуция</text><rect class="bar" x="200" y="38" width="480" height="16" rx="3"/>
+        <text x="10" y="80">Цена к конкурентам</text><rect class="bar" x="200" y="68" width="330" height="16" rx="3"/>
+        <text x="10" y="110">Активация в магазине</text><rect class="bar2" x="200" y="98" width="210" height="16" rx="3"/>
+        <text x="10" y="140">Спрос и трафик</text><rect class="bar2" x="200" y="128" width="110" height="16" rx="3"/>
+      </svg></div>
+      <figcaption>Значения иллюстративные. Реальный результат ранжирует причины по вкладу в невыполнение.</figcaption>
+    </figure>
+  </section>
+
+  <section class="section">
+    <h2>Результаты</h2>
+    <div class="stat">
+      <div><strong>5–8 ч</strong><span>в неделю экономии на диагностике</span></div>
+      <div><strong>Быстрее</strong><span>решения: внимание уходит на исправление проблем, а не на их поиск</span></div>
+    </div>
+    <p class="note">Так работают большие консалтинговые команды. Тот же подход работает и для небольшой команды. Основная работа это калибровка логики на первых этапах и адаптация агента, когда меняется структура данных.</p>
+  </section>
+  <div class="next"><span class="mono">Следующий агент</span><b>Планограммный агент</b><a href="#agent-3">Открыть →</a></div>
+</main>
+
+<!-- ============ AGENT 3 ============ -->
+<main class="view" id="agent-3" data-title="Планограммный агент — Павел Попков" hidden>
+  <div class="crumbs"><a href="#home">← На главную</a><a href="#agent-4">Агент 04 →</a></div>
+  <header class="hero">
+    <span class="mono">Агент 03</span>
+    <h1>Планограммный агент: лучший ассортимент и выкладка для каждого магазина и категории</h1>
+    <p class="lead">Планограмму рисуют для идеального магазина. В реальных магазинах другое число полок и стеллажей. Агент смотрит на реальные фото, соединяет их с данными продаж и строит оптимальный ассортимент и выкладку для каждого магазина и каждой категории.</p>
+  </header>
+  <div class="meta">
+    <dl><dt>Для кого</dt><dd>Ритейлеры и категорийные команды CPG</dd></dl>
+    <dl><dt>Данные</dt><dd>Фото полок вместе с данными продаж</dd></dl>
+    <dl><dt>Метрика</dt><dd>Соблюдение планограммы</dd></dl>
+  </div>
+
+  <figure>
+    <div class="scroll"><svg viewBox="0 0 760 250" role="img" aria-label="Входы планограммного агента: фото, продажи, дерево решений покупателя, приоритеты ритейлера, договорённости с поставщиками, оборудование магазина. Результат: адаптированная планограмма для каждого магазина и категории">
+      <defs><marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--muted)"/></marker></defs>
+      <text class="t-h" x="10" y="16">ЧТО СОЕДИНЯЕТ АГЕНТ</text><text class="t-h" x="330" y="16">АГЕНТ</text><text class="t-h" x="520" y="16">РЕЗУЛЬТАТ</text>
+      <rect class="bx" x="10" y="30" width="270" height="34" rx="6"/><text x="24" y="52">Фото полок реального магазина</text>
+      <rect class="bx" x="10" y="72" width="270" height="34" rx="6"/><text x="24" y="94">Продажи по товару и магазину</text>
+      <rect class="bx" x="10" y="114" width="270" height="34" rx="6"/><text x="24" y="136">Дерево решений покупателя в категории</text>
+      <rect class="bx" x="10" y="156" width="270" height="34" rx="6"/><text x="24" y="178">Приоритеты и стратегия ритейлера</text>
+      <rect class="bx" x="10" y="198" width="270" height="34" rx="6"/><text x="24" y="220">Договорённости с поставщиками CPG</text>
+      <path class="ln" d="M280 130H330" marker-end="url(#ar3)"/>
+      <rect class="bx-d" x="330" y="70" width="150" height="120" rx="8"/>
+      <text class="t-b" x="405" y="122" text-anchor="middle">Планограммный</text><text class="t-b" x="405" y="140" text-anchor="middle">агент</text>
+      <text class="t-m" x="405" y="162" text-anchor="middle">+ реальное число</text><text class="t-m" x="405" y="177" text-anchor="middle">полок и стеллажей</text>
+      <path class="ln" d="M480 130H520" marker-end="url(#ar3)"/>
+      <rect class="bx-a" x="520" y="30" width="230" height="202" rx="8"/>
+      <text class="t-a" x="535" y="104">Адаптированная планограмма</text>
+      <text class="t-m" x="535" y="128">для каждого магазина</text><text class="t-m" x="535" y="144">и каждой категории</text>
+      <text class="t-m" x="535" y="170">оптимальный ассортимент и выкладка</text><text class="t-m" x="535" y="186">под оборудование на месте</text>
+    </svg></div>
+    <figcaption>Фото показывают, что есть в магазине на самом деле. Продажи, логика покупателя и коммерческие договорённости решают, что на этом оборудовании должно стоять.</figcaption>
+  </figure>
+
+  <section class="section">
+    <h2>Идеальная планограмма и реальный магазин</h2>
+    <figure>
+      <div class="scroll"><svg id="shelves" viewBox="0 0 760 200" role="img" aria-label="Три схемы полок: идеальная планограмма, реальный магазин с меньшим числом полок и стеллажей, адаптированная планограмма"></svg></div>
+      <figcaption>Иллюстрация. В реальном магазине полок и стеллажей меньше, чем в идеале. Агент перепланирует выкладку, а не пытается втиснуть исходную.</figcaption>
+    </figure>
+  </section>
+
+  <section class="section">
+    <h2>Проблема</h2>
+    <div class="tiles">
+      <div class="tile"><b>Оборудование отличается от идеала</b><span>Большинство проблем с планограммами это отклонения в числе полок и стеллажей.</span></div>
+      <div class="tile"><b>Ошибка накапливается</b><span>Одно отклонение запускает цепочку. Персонал перестаёт понимать выкладку, и исполнение на полке в этом магазине становится менее точным.</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Результаты</h2>
+    <div class="stat">
+      <div><strong>30–40% → 70–80%</strong><span>соблюдение планограммы по оценке менеджмента</span></div>
+      <div><strong>Готово к работе</strong><span>сотрудники магазина получают планограмму под свой магазин, а не общую</span></div>
+    </div>
+  </section>
+  <div class="next"><span class="mono">Следующий агент</span><b>Агент сбора данных</b><a href="#agent-4">Открыть →</a></div>
+</main>
+
+<!-- ============ AGENT 4 (stub) ============ -->
+<main class="view" id="agent-4" data-title="Агент сбора данных — Павел Попков" hidden>
+  <div class="crumbs"><a href="#home">← На главную</a><a href="#agent-5">Агент 05 →</a></div>
+  <header class="hero">
+    <span class="mono">Агент 04 · В разработке</span>
+    <h1>Агент сбора данных</h1>
+    <p class="lead">Страница в подготовке. Здесь будет описание агента, схема его работы и результаты.</p>
+  </header>
+  <div class="meta">
+    <dl><dt>Для кого</dt><dd>Будет добавлено</dd></dl>
+    <dl><dt>Данные</dt><dd>Будет добавлено</dd></dl>
+    <dl><dt>Метрика</dt><dd>Будет добавлено</dd></dl>
+  </div>
+  <section class="section">
+    <h2>Что будет на странице</h2>
+    <div class="tiles">
+      <div class="tile todo"><b>Проблема</b><span>Какую ручную работу по сбору данных заменяет агент.</span></div>
+      <div class="tile todo"><b>Схема работы</b><span>Источники, шаги агента и результат.</span></div>
+      <div class="tile todo"><b>Результаты</b><span>Время, точность и охват в цифрах.</span></div>
+    </div>
+  </section>
+  <div class="next"><span class="mono">Следующий агент</span><b>Агент планирования заказов</b><a href="#agent-5">Открыть →</a></div>
+</main>
+
+<!-- ============ AGENT 5 (stub) ============ -->
+<main class="view" id="agent-5" data-title="Агент планирования заказов — Павел Попков" hidden>
+  <div class="crumbs"><a href="#home">← На главную</a><a href="#agent-1">Агент 01 →</a></div>
+  <header class="hero">
+    <span class="mono">Агент 05 · В разработке</span>
+    <h1>Агент планирования заказов</h1>
+    <p class="lead">Страница в подготовке. Здесь будет описание агента, схема его работы и результаты.</p>
+  </header>
+  <div class="meta">
+    <dl><dt>Для кого</dt><dd>Будет добавлено</dd></dl>
+    <dl><dt>Данные</dt><dd>Будет добавлено</dd></dl>
+    <dl><dt>Метрика</dt><dd>Будет добавлено</dd></dl>
+  </div>
+  <section class="section">
+    <h2>Что будет на странице</h2>
+    <div class="tiles">
+      <div class="tile todo"><b>Проблема</b><span>Какую часть планирования заказов берёт на себя агент.</span></div>
+      <div class="tile todo"><b>Схема работы</b><span>Входные данные, расчёт и предложение заказа.</span></div>
+      <div class="tile todo"><b>Результаты</b><span>Влияние на остатки, доступность и время планирования.</span></div>
+    </div>
+  </section>
+  <div class="next"><span class="mono">Все агенты</span><b>Вернуться к списку агентов</b><a href="#agents">Открыть →</a></div>
+</main>
+
+<footer class="contact" id="contact">
+  <h2>Ищу роль Product Lead в B2B</h2>
+  <p>Запускаю продукты с нуля, строю аналитику и AI-агентов. Базируюсь в Будапеште. Напишите, если у вас похожая задача: где цифры не сходятся или на что аналитики тратят дни.</p>
+  <div class="mail"><code id="m">paulalexeevich@gmail.com</code><button id="cp" type="button">Копировать</button></div>
+</footer>
+</div>
+
+<script>
+/* router */
+(function () {
+  var views = Array.prototype.slice.call(document.querySelectorAll('main.view'));
+  var links = Array.prototype.slice.call(document.querySelectorAll('.bar nav a'));
+  function sec(id) { return id.indexOf('case') === 0 ? 'cases' : id.indexOf('agent') === 0 ? 'agents' : id; }
+  function show() {
+    var id = (location.hash || '#home').slice(1);
+    var target = views.filter(function (v) { return v.id === id; })[0] || views[0];
+    views.forEach(function (v) { v.hidden = v !== target; });
+    links.forEach(function (a) {
+      if (a.getAttribute('data-sec') === sec(target.id)) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+    });
+    document.title = target.getAttribute('data-title');
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener('hashchange', show);
+  show();
+})();
+
+/* cause tree */
+var BR = ['Цена', 'Дистрибуция', 'Активация', 'Спрос'];
+var LF = [['Цена SKU', 'К рынку'], ['Листинг', 'Нет на полке'], ['Выкладка', 'Промо'], ['Трафик', 'Тренд']];
+function tree(w, h, hot, mids, big) {
+  var s = '', rx = w / 2, ry = big ? 26 : 8, by = big ? 130 : 36, ly = big ? 225 : 68, r = big ? 9 : 3.2, rr = big ? 12 : 4.2;
+  var bx = [], lx = [], i, j, hb, mb, hl;
+  for (i = 0; i < 4; i++) { bx.push(w * (i * 2 + 1) / 8); lx.push([bx[i] - (big ? w * 0.06 : w * 0.07), bx[i] + (big ? w * 0.06 : w * 0.07)]); }
+  for (i = 0; i < 4; i++) {
+    hb = hot[0] === i;
+    s += '<path class="te' + (hb ? ' hot' : '') + '" d="M' + rx + ' ' + ry + 'C' + rx + ' ' + (ry + by) / 2 + ' ' + bx[i] + ' ' + (ry + by) / 2 + ' ' + bx[i] + ' ' + by + '"/>';
+    for (j = 0; j < 2; j++) {
+      hl = hb && hot[1] === j;
+      s += '<path class="te' + (hl ? ' hot' : '') + '" d="M' + bx[i] + ' ' + by + 'C' + bx[i] + ' ' + (by + ly) / 2 + ' ' + lx[i][j] + ' ' + (by + ly) / 2 + ' ' + lx[i][j] + ' ' + ly + '"/>';
+    }
+  }
+  s += '<circle class="tn root" cx="' + rx + '" cy="' + ry + '" r="' + rr + '"/>';
+  for (i = 0; i < 4; i++) {
+    hb = hot[0] === i; mb = hb || mids.indexOf(i) > -1;
+    s += '<circle class="tn' + (hb ? ' hot' : mb ? ' mid' : '') + '" cx="' + bx[i] + '" cy="' + by + '" r="' + r + '"/>';
+    for (j = 0; j < 2; j++) {
+      hl = hb && hot[1] === j;
+      s += '<circle class="tn' + (hl ? ' hot' : '') + '" cx="' + lx[i][j] + '" cy="' + ly + '" r="' + (r * 0.8) + '"/>';
+      if (big) s += '<text class="' + (hl ? 't-a' : 't-m') + '" x="' + lx[i][j] + '" y="' + (ly + 28) + '" text-anchor="middle">' + LF[i][j] + '</text>';
+    }
+    if (big) s += '<text class="' + (hb ? 't-a' : 't-b') + '" x="' + bx[i] + '" y="' + (by - 18) + '" text-anchor="middle">' + BR[i] + '</text>';
+  }
+  if (big) s += '<text class="t-b" x="' + rx + '" y="' + (ry - 10) + '" text-anchor="middle" style="font-size:13px">Продажи ниже плана</text>';
+  return s;
+}
+document.getElementById('big').innerHTML = tree(760, 290, [1, 1], [2], true);
+var cuts = [
+  ['Товар A × Клиент 1', [1, 1], [2]], ['Товар A × Клиент 2', [0, 1], []], ['Товар A × Клиент 3', [3, 0], [0]],
+  ['Товар B × Клиент 1', [2, 0], [1]], ['Товар B × Клиент 2', [1, 0], [0, 2]], ['Товар B × Клиент 3', [0, 0], []],
+  ['Товар C × Клиент 1', [1, 1], []], ['Товар C × Клиент 2', [2, 1], [3]], ['Товар C × Клиент 3', [3, 1], [1]]];
+var h = '';
+cuts.forEach(function (c) {
+  h += '<div class="cut"><svg viewBox="0 0 120 80" aria-hidden="true">' + tree(120, 80, c[1], c[2], false) + '</svg><div class="cap"><span>' + c[0] + '</span><b>' + BR[c[1][0]] + '</b></div></div>';
+});
+document.getElementById('g9').innerHTML = h;
+
+/* shelves */
+(function () {
+  var CW = 17, CH = 22;
+  function block(x, y, rows) {
+    var s = '';
+    rows.forEach(function (row, r) {
+      var cx = 0;
+      row.forEach(function (seg) {
+        s += '<rect class="shelf s' + seg[0] + '" x="' + (x + cx * CW) + '" y="' + (y + r * CH) + '" width="' + (seg[1] * CW) + '" height="' + (CH - 2) + '" rx="2"/>';
+        cx += seg[1];
+      });
+    });
+    return s;
+  }
+  var ideal = [[[0,4],[1,4],[2,4]],[[0,3],[1,3],[2,3],[3,3]],[[1,4],[2,4],[3,4]],[[0,3],[3,3],[2,3],[1,3]],[[3,6],[2,6]]];
+  var adapt = [[[0,3],[1,3],[2,2]],[[0,2],[1,2],[2,2],[3,2]],[[1,3],[2,3],[3,2]],[[0,2],[3,3],[2,3]]];
+  var s = '';
+  s += '<text class="t-h" x="20" y="16">ИДЕАЛЬНАЯ ПЛАНОГРАММА</text>' + block(20, 30, ideal);
+  s += '<text class="t-b" x="20" y="164">5 полок × 12 фейсингов</text>';
+  s += '<text class="t-h" x="270" y="16">РЕАЛЬНЫЙ МАГАЗИН</text>';
+  s += '<rect class="gap" x="270" y="30" width="' + (12 * CW - 2) + '" height="' + (5 * CH - 2) + '" rx="2"/>';
+  for (var r = 0; r < 4; r++) s += '<rect class="bx" x="270" y="' + (30 + r * CH) + '" width="' + (8 * CW - 2) + '" height="' + (CH - 2) + '" rx="2"/>';
+  s += '<text class="t-w" x="270" y="164">4 полки × 8 фейсингов</text>';
+  s += '<text class="t-m" x="270" y="181">недостающее место пунктиром</text>';
+  s += '<text class="t-h" x="520" y="16">АДАПТИРОВАННАЯ</text>' + block(520, 30, adapt);
+  s += '<text class="t-a" x="520" y="164">вписана в реальное оборудование</text>';
+  s += '<text class="t-m" x="520" y="181">приоритетные товары сохраняют место</text>';
+  document.getElementById('shelves').innerHTML = s;
+})();
+
+
+/* venn */
+(function () {
+  var svg = document.getElementById('vsvg'); if (!svg) return;
+  var C = { product: [180, 185], sales: [280, 185], data: [180, 285], ai: [280, 285] }, R = 125, M = [230, 235];
+  var groups = svg.querySelectorAll('.vc'), center = svg.querySelector('.vcenter');
+  var tabs = document.querySelectorAll('.vtabs button'), cards = document.querySelectorAll('.vcard');
+  function set(k) {
+    cards.forEach(function (c) { c.hidden = c.id !== 'vc-' + k; });
+    tabs.forEach(function (t) { t.setAttribute('aria-pressed', t.getAttribute('data-k') === k ? 'true' : 'false'); });
+    groups.forEach(function (g) { g.classList.toggle('active', g.getAttribute('data-k') === k); });
+    center.classList.toggle('active', k === 'center');
+  }
+  function pick(e) {
+    var r = svg.getBoundingClientRect(), x = (e.clientX - r.left) * 460 / r.width, y = (e.clientY - r.top) * 440 / r.height;
+    if (Math.hypot(x - M[0], y - M[1]) < 44) return 'center';
+    var best = null, bd = 1e9;
+    for (var k in C) { var d = Math.hypot(x - C[k][0], y - C[k][1]); if (d < bd) { bd = d; best = k; } }
+    return bd <= R ? best : null;
+  }
+  svg.addEventListener('pointermove', function (e) { var k = pick(e); if (k) set(k); });
+  svg.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('a')) return; var k = pick(e); if (k) set(k); });
+  tabs.forEach(function (t) { t.addEventListener('click', function () { set(t.getAttribute('data-k')); }); });
+  center.addEventListener('focus', function () { set('center'); });
+  set('product');
+})();
+
+/* copy email */
+document.getElementById('cp').addEventListener('click', function () {
+  var t = document.getElementById('m'), b = this;
+  function ok() { b.textContent = 'Скопировано'; setTimeout(function () { b.textContent = 'Копировать'; }, 1600); }
+  function sel() { var r = document.createRange(); r.selectNodeContents(t); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+  if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(t.textContent).then(ok, sel); } else sel();
+});
+</script>
+
+</body></html>

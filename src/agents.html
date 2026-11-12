@@ -1,0 +1,283 @@
+<!-- ============ AGENTS INDEX ============ -->
+<main class="view" id="agents" data-title="AI-агенты — Павел Попков" hidden>
+  <div class="crumbs"><a href="#home">← На главную</a></div>
+  <header class="hero">
+    <span class="mono">AI-агенты</span>
+    <h1>Агенты, которым можно доверять цифры в отчётах</h1>
+    <p class="lead">Агенты проверяют мастер-данные ассортимента, разбирают причины невыполнения плана и адаптируют планограммы под каждый магазин. Меньше ручной сверки для KAM, полевых команд и аналитиков.</p>
+  </header>
+  <section class="acards" aria-label="Агенты">
+    <a class="acard" href="#agent-1">
+      <div><span class="mono">Агент 01</span><h3>Агент контроля данных</h3></div>
+      <div class="trio">
+        <dl><dt>Для кого</dt><dd>Производители и ритейлеры CPG с полевыми командами и KAM.</dd></dl>
+        <dl><dt>Какой процесс решает</dt><dd>Обновление списка товаров, которые должны стоять на полке в каждом магазине, по данным распознавания полки.</dd></dl>
+        <dl><dt>Результаты</dt><dd class="res">OOS ниже на 8–12% за счёт верных таргетов. До 5 минут экономии на каждом визите.</dd></dl>
+      </div>
+      <span class="go">Открыть агента →</span>
+    </a>
+    <a class="acard" href="#agent-2">
+      <div><span class="mono">Агент 02</span><h3>Диагностический агент</h3></div>
+      <div class="trio">
+        <dl><dt>Для кого</dt><dd>Аналитики и менеджеры в малых и средних командах.</dd></dl>
+        <dl><dt>Какой процесс решает</dt><dd>Разбор причин невыполнения KPI по дереву причин, сразу по всем срезам бренд × товар × канал × клиент.</dd></dl>
+        <dl><dt>Результаты</dt><dd class="res">5–8 часов в неделю экономии на диагностике. Решения быстрее.</dd></dl>
+      </div>
+      <span class="go">Открыть агента →</span>
+    </a>
+    <a class="acard" href="#agent-3">
+      <div><span class="mono">Агент 03</span><h3>Планограммный агент</h3></div>
+      <div class="trio">
+        <dl><dt>Для кого</dt><dd>Ритейлеры и категорийные команды CPG.</dd></dl>
+        <dl><dt>Какой процесс решает</dt><dd>Адаптация планограммы под реальное оборудование магазина по фото полок и данным продаж.</dd></dl>
+        <dl><dt>Результаты</dt><dd class="res">Соблюдение планограммы выросло с 30–40% до 70–80% по оценке менеджмента.</dd></dl>
+      </div>
+      <span class="go">Открыть агента →</span>
+    </a>
+    <a class="acard stub" href="#agent-4">
+      <div><span class="mono">Агент 04 · В разработке</span><h3>Агент сбора данных</h3></div>
+      <div class="trio">
+        <dl><dt>Для кого</dt><dd>Заполнить: команды, которым нужны данные из разных источников.</dd></dl>
+        <dl><dt>Какой процесс решает</dt><dd>Заполнить: какие данные и откуда собирает агент.</dd></dl>
+        <dl><dt>Результаты</dt><dd class="res">Появятся после запуска.</dd></dl>
+      </div>
+      <span class="go">Открыть агента →</span>
+    </a>
+    <a class="acard stub" href="#agent-5">
+      <div><span class="mono">Агент 05 · В разработке</span><h3>Агент планирования заказов</h3></div>
+      <div class="trio">
+        <dl><dt>Для кого</dt><dd>Заполнить: кто планирует и согласует заказы.</dd></dl>
+        <dl><dt>Какой процесс решает</dt><dd>Заполнить: как агент считает и предлагает заказ.</dd></dl>
+        <dl><dt>Результаты</dt><dd class="res">Появятся после запуска.</dd></dl>
+      </div>
+      <span class="go">Открыть агента →</span>
+    </a>
+  </section>
+</main>
+
+<!-- ============ AGENT 1 ============ -->
+<main class="view" id="agent-1" data-title="Агент контроля данных — Павел Попков" hidden>
+  <div class="crumbs"><a href="#home">← На главную</a><a href="#agent-2">Агент 02 →</a></div>
+  <header class="hero">
+    <span class="mono">Агент 01</span>
+    <h1>Агент контроля данных: держит таргеты ассортимента каждого магазина верными</h1>
+    <p class="lead">Отчёт по OOS точен ровно настолько, насколько точен список товаров, которые должны быть на полке. Список обновляют вручную, поэтому он устаревает. Агент обновляет его сам.</p>
+  </header>
+  <div class="meta">
+    <dl><dt>Для кого</dt><dd>Производители и ритейлеры CPG с полевыми командами и KAM</dd></dl>
+    <dl><dt>Данные</dt><dd>Распознавание полки по товару и по магазину</dd></dl>
+    <dl><dt>Метрика</dt><dd>Точность OOS и уровень OOS</dd></dl>
+  </div>
+
+  <figure>
+    <div class="scroll"><svg viewBox="0 0 760 270" role="img" aria-label="Схема агента: данные распознавания, три паттерна, три решения, точный отчёт по OOS">
+      <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--muted)"/></marker></defs>
+      <text class="t-h" x="10" y="16">ВХОД</text><text class="t-h" x="190" y="16">ЧТО ВИДИТ АГЕНТ</text><text class="t-h" x="430" y="16">ЧТО ДЕЛАЕТ</text><text class="t-h" x="630" y="16">РЕЗУЛЬТАТ</text>
+      <rect class="bx-d" x="10" y="30" width="130" height="210" rx="8"/>
+      <text class="t-b" x="75" y="112" text-anchor="middle">Распознавание</text><text class="t-b" x="75" y="130" text-anchor="middle">полки</text>
+      <text class="t-m" x="75" y="152" text-anchor="middle">товар × магазин</text>
+      <path class="ln" d="M140 58H190" marker-end="url(#ar)"/><path class="ln" d="M140 135H190" marker-end="url(#ar)"/><path class="ln" d="M140 212H190" marker-end="url(#ar)"/>
+      <rect class="bx-a" x="190" y="30" width="190" height="56" rx="8"/><text class="t-a" x="205" y="54">+ Появился новый товар</text><text class="t-m" x="205" y="72">на полке, но нет в таргетах</text>
+      <rect class="bx-w" x="190" y="107" width="190" height="56" rx="8"/><text class="t-w" x="205" y="131">− Товар исчез</text><text class="t-m" x="205" y="149">ритейлер вывел его из матрицы</text>
+      <rect class="bx" x="190" y="184" width="190" height="56" rx="8"/><text class="t-b" x="205" y="208">⇄ Сменился формат</text><text class="t-m" x="205" y="226">изменились полки и стеллажи</text>
+      <path class="ln" d="M380 58H430" marker-end="url(#ar)"/><path class="ln" d="M380 135H430" marker-end="url(#ar)"/><path class="ln" d="M380 212H430" marker-end="url(#ar)"/>
+      <rect class="bx-d" x="430" y="30" width="160" height="56" rx="8"/><text class="t-b" x="445" y="63">Добавить в таргеты</text>
+      <rect class="bx-d" x="430" y="107" width="160" height="56" rx="8"/><text class="t-b" x="445" y="140">Убрать из таргетов</text>
+      <rect class="bx-d" x="430" y="184" width="160" height="56" rx="8"/><text class="t-b" x="445" y="217">Пересчитать таргеты</text>
+      <path class="ln" d="M590 58L630 120" marker-end="url(#ar)"/><path class="ln" d="M590 135H630" marker-end="url(#ar)"/><path class="ln" d="M590 212L630 150" marker-end="url(#ar)"/>
+      <rect class="bx-a" x="630" y="30" width="120" height="210" rx="8"/>
+      <text class="t-a" x="690" y="106" text-anchor="middle">Точный</text><text class="t-a" x="690" y="124" text-anchor="middle">отчёт по OOS</text>
+      <text class="t-m" x="690" y="150" text-anchor="middle">нет пропущенных</text><text class="t-m" x="690" y="166" text-anchor="middle">дыр и ложных</text><text class="t-m" x="690" y="182" text-anchor="middle">причин</text>
+    </svg></div>
+    <figcaption>Агент сравнивает таргеты с тем, что реально видно на полке, и обновляет их сам.</figcaption>
+  </figure>
+
+  <section class="section">
+    <h2>Проблема</h2>
+    <div class="tiles">
+      <div class="tile"><b>Новый товар не попал в таргеты</b><span>KAM забыл его добавить. Если товара нет на полке, он не появится в отчёте по OOS.</span></div>
+      <div class="tile"><b>Выведенный товар остался в таргетах</b><span>Ритейлер решил убрать товар, но KAM не знал или не сообщил команде. Полевые сотрудники продолжают вносить причины для товара, которого быть не должно.</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Результаты</h2>
+    <div class="stat">
+      <div><strong>8–12%</strong><span>приблизительное снижение OOS от верных таргетов</span></div>
+      <div><strong>+5–8%</strong><span>дополнительное снижение за счёт доверия к данным, быстрого выявления OOS и диагностики, особенно на новинках</span></div>
+      <div><strong>~40%</strong><span>времени на ввод причин OOS уходило на товары, которые ритейлер уже вывел (два проекта)</span></div>
+      <div><strong>до 5 мин</strong><span>экономии полевой команды на каждом визите</span></div>
+    </div>
+    <p class="note">KAM начинают использовать данные, потому что отчёт по OOS перестаёт расходиться с реальностью. Доверие растёт, и использование тоже.</p>
+  </section>
+  <section class="section"><span class="mono">Подробный кейс</span><div class="index"><a href="#case-4"><span class="mono">Кейс 04</span><b>Агент корректировки целей: чистые цели вместо ответов «товар выведен»</b><span class="d">Как я нашёл проблему в данных, проверил точность на 5 000 магазинах и вывел агента в пилот.</span><span class="go">Читать →</span></a></div></section>
+  <div class="next"><span class="mono">Следующий агент</span><b>Диагностический агент</b><a href="#agent-2">Открыть →</a></div>
+</main>
+
+<!-- ============ AGENT 2 ============ -->
+<main class="view" id="agent-2" data-title="Диагностический агент — Павел Попков" hidden>
+  <div class="crumbs"><a href="#home">← На главную</a><a href="#agent-3">Агент 03 →</a></div>
+  <header class="hero">
+    <span class="mono">Агент 02</span>
+    <h1>Диагностический агент: разбирает весь портфель сразу</h1>
+    <p class="lead">Когда план не выполнен, аналитик идёт по цепочке связанных метрик. На большом портфеле перебрать вручную все сочетания бренда, товара, канала и клиента нереально. Агент следует той же логике, но параллельно.</p>
+  </header>
+  <div class="meta">
+    <dl><dt>Для кого</dt><dd>Аналитики и менеджеры в малых и средних командах</dd></dl>
+    <dl><dt>Задача</dt><dd>Диагностировать, почему KPI не достиг цели</dd></dl>
+    <dl><dt>Масштаб</dt><dd>Много брендов, SKU, каналов и клиентов</dd></dl>
+  </div>
+
+  <section class="section">
+    <h2>Одно дерево причин по правилам самого аналитика</h2>
+    <figure>
+      <div class="scroll"><svg id="big" viewBox="0 0 760 290" role="img" aria-label="Дерево причин невыполнения плана продаж: цена, дистрибуция, активация и спрос"></svg></div>
+      <figcaption>Агент проверяет метрики, связанные с KPI, ветка за веткой. Подсвечен путь к причине, которую он нашёл в этом срезе.</figcaption>
+    </figure>
+  </section>
+
+  <section class="section">
+    <h2>Много срезов по товару и клиенту, по дереву на каждый</h2>
+    <p class="note">Такое же дерево строится для каждого сочетания товар × клиент. До 100 копий агента работают параллельно, а выводы сводятся в один документ с рейтингом причин.</p>
+    <figure>
+      <div class="grid9" id="g9"></div>
+      <div class="legend"><span><i style="background:var(--accent)"></i>найдена корневая причина</span><span><i style="background:var(--accent-soft);border:1px solid var(--accent)"></i>ветка влияет</span><span><i style="background:var(--bg);border:1px solid var(--muted)"></i>проверено, проблем нет</span></div>
+      <figcaption>Иллюстрация: небольшая выборка срезов. В каждом причина оказывается в другом месте, и ручной разбор это пропускает.</figcaption>
+    </figure>
+  </section>
+
+  <section class="section">
+    <h2>Сводный рейтинг</h2>
+    <figure>
+      <div class="scroll"><svg viewBox="0 0 760 170" role="img" aria-label="Рейтинг причин невыполнения целей, иллюстрация">
+        <text class="t-h" x="10" y="16">ПРИЧИНЫ ПО ВКЛАДУ · ИЛЛЮСТРАЦИЯ</text>
+        <text x="10" y="50">Дистрибуция</text><rect class="bar" x="200" y="38" width="480" height="16" rx="3"/>
+        <text x="10" y="80">Цена к конкурентам</text><rect class="bar" x="200" y="68" width="330" height="16" rx="3"/>
+        <text x="10" y="110">Активация в магазине</text><rect class="bar2" x="200" y="98" width="210" height="16" rx="3"/>
+        <text x="10" y="140">Спрос и трафик</text><rect class="bar2" x="200" y="128" width="110" height="16" rx="3"/>
+      </svg></div>
+      <figcaption>Значения иллюстративные. Реальный результат ранжирует причины по вкладу в невыполнение.</figcaption>
+    </figure>
+  </section>
+
+  <section class="section">
+    <h2>Результаты</h2>
+    <div class="stat">
+      <div><strong>5–8 ч</strong><span>в неделю экономии на диагностике</span></div>
+      <div><strong>Быстрее</strong><span>решения: внимание уходит на исправление проблем, а не на их поиск</span></div>
+    </div>
+    <p class="note">Так работают большие консалтинговые команды. Тот же подход работает и для небольшой команды. Основная работа это калибровка логики на первых этапах и адаптация агента, когда меняется структура данных.</p>
+  </section>
+  <div class="next"><span class="mono">Следующий агент</span><b>Планограммный агент</b><a href="#agent-3">Открыть →</a></div>
+</main>
+
+<!-- ============ AGENT 3 ============ -->
+<main class="view" id="agent-3" data-title="Планограммный агент — Павел Попков" hidden>
+  <div class="crumbs"><a href="#home">← На главную</a><a href="#agent-4">Агент 04 →</a></div>
+  <header class="hero">
+    <span class="mono">Агент 03</span>
+    <h1>Планограммный агент: лучший ассортимент и выкладка для каждого магазина и категории</h1>
+    <p class="lead">Планограмму рисуют для идеального магазина. В реальных магазинах другое число полок и стеллажей. Агент смотрит на реальные фото, соединяет их с данными продаж и строит оптимальный ассортимент и выкладку для каждого магазина и каждой категории.</p>
+  </header>
+  <div class="meta">
+    <dl><dt>Для кого</dt><dd>Ритейлеры и категорийные команды CPG</dd></dl>
+    <dl><dt>Данные</dt><dd>Фото полок вместе с данными продаж</dd></dl>
+    <dl><dt>Метрика</dt><dd>Соблюдение планограммы</dd></dl>
+  </div>
+
+  <figure>
+    <div class="scroll"><svg viewBox="0 0 760 250" role="img" aria-label="Входы планограммного агента: фото, продажи, дерево решений покупателя, приоритеты ритейлера, договорённости с поставщиками, оборудование магазина. Результат: адаптированная планограмма для каждого магазина и категории">
+      <defs><marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--muted)"/></marker></defs>
+      <text class="t-h" x="10" y="16">ЧТО СОЕДИНЯЕТ АГЕНТ</text><text class="t-h" x="330" y="16">АГЕНТ</text><text class="t-h" x="520" y="16">РЕЗУЛЬТАТ</text>
+      <rect class="bx" x="10" y="30" width="270" height="34" rx="6"/><text x="24" y="52">Фото полок реального магазина</text>
+      <rect class="bx" x="10" y="72" width="270" height="34" rx="6"/><text x="24" y="94">Продажи по товару и магазину</text>
+      <rect class="bx" x="10" y="114" width="270" height="34" rx="6"/><text x="24" y="136">Дерево решений покупателя в категории</text>
+      <rect class="bx" x="10" y="156" width="270" height="34" rx="6"/><text x="24" y="178">Приоритеты и стратегия ритейлера</text>
+      <rect class="bx" x="10" y="198" width="270" height="34" rx="6"/><text x="24" y="220">Договорённости с поставщиками CPG</text>
+      <path class="ln" d="M280 130H330" marker-end="url(#ar3)"/>
+      <rect class="bx-d" x="330" y="70" width="150" height="120" rx="8"/>
+      <text class="t-b" x="405" y="122" text-anchor="middle">Планограммный</text><text class="t-b" x="405" y="140" text-anchor="middle">агент</text>
+      <text class="t-m" x="405" y="162" text-anchor="middle">+ реальное число</text><text class="t-m" x="405" y="177" text-anchor="middle">полок и стеллажей</text>
+      <path class="ln" d="M480 130H520" marker-end="url(#ar3)"/>
+      <rect class="bx-a" x="520" y="30" width="230" height="202" rx="8"/>
+      <text class="t-a" x="535" y="104">Адаптированная планограмма</text>
+      <text class="t-m" x="535" y="128">для каждого магазина</text><text class="t-m" x="535" y="144">и каждой категории</text>
+      <text class="t-m" x="535" y="170">оптимальный ассортимент и выкладка</text><text class="t-m" x="535" y="186">под оборудование на месте</text>
+    </svg></div>
+    <figcaption>Фото показывают, что есть в магазине на самом деле. Продажи, логика покупателя и коммерческие договорённости решают, что на этом оборудовании должно стоять.</figcaption>
+  </figure>
+
+  <section class="section">
+    <h2>Идеальная планограмма и реальный магазин</h2>
+    <figure>
+      <div class="scroll"><svg id="shelves" viewBox="0 0 760 200" role="img" aria-label="Три схемы полок: идеальная планограмма, реальный магазин с меньшим числом полок и стеллажей, адаптированная планограмма"></svg></div>
+      <figcaption>Иллюстрация. В реальном магазине полок и стеллажей меньше, чем в идеале. Агент перепланирует выкладку, а не пытается втиснуть исходную.</figcaption>
+    </figure>
+  </section>
+
+  <section class="section">
+    <h2>Проблема</h2>
+    <div class="tiles">
+      <div class="tile"><b>Оборудование отличается от идеала</b><span>Большинство проблем с планограммами это отклонения в числе полок и стеллажей.</span></div>
+      <div class="tile"><b>Ошибка накапливается</b><span>Одно отклонение запускает цепочку. Персонал перестаёт понимать выкладку, и исполнение на полке в этом магазине становится менее точным.</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Результаты</h2>
+    <div class="stat">
+      <div><strong>30–40% → 70–80%</strong><span>соблюдение планограммы по оценке менеджмента</span></div>
+      <div><strong>Готово к работе</strong><span>сотрудники магазина получают планограмму под свой магазин, а не общую</span></div>
+    </div>
+  </section>
+  <div class="next"><span class="mono">Следующий агент</span><b>Агент сбора данных</b><a href="#agent-4">Открыть →</a></div>
+</main>
+
+<!-- ============ AGENT 4 (stub) ============ -->
+<main class="view" id="agent-4" data-title="Агент сбора данных — Павел Попков" hidden>
+  <div class="crumbs"><a href="#home">← На главную</a><a href="#agent-5">Агент 05 →</a></div>
+  <header class="hero">
+    <span class="mono">Агент 04 · В разработке</span>
+    <h1>Агент сбора данных</h1>
+    <p class="lead">Страница в подготовке. Здесь будет описание агента, схема его работы и результаты.</p>
+  </header>
+  <div class="meta">
+    <dl><dt>Для кого</dt><dd>Будет добавлено</dd></dl>
+    <dl><dt>Данные</dt><dd>Будет добавлено</dd></dl>
+    <dl><dt>Метрика</dt><dd>Будет добавлено</dd></dl>
+  </div>
+  <section class="section">
+    <h2>Что будет на странице</h2>
+    <div class="tiles">
+      <div class="tile todo"><b>Проблема</b><span>Какую ручную работу по сбору данных заменяет агент.</span></div>
+      <div class="tile todo"><b>Схема работы</b><span>Источники, шаги агента и результат.</span></div>
+      <div class="tile todo"><b>Результаты</b><span>Время, точность и охват в цифрах.</span></div>
+    </div>
+  </section>
+  <div class="next"><span class="mono">Следующий агент</span><b>Агент планирования заказов</b><a href="#agent-5">Открыть →</a></div>
+</main>
+
+<!-- ============ AGENT 5 (stub) ============ -->
+<main class="view" id="agent-5" data-title="Агент планирования заказов — Павел Попков" hidden>
+  <div class="crumbs"><a href="#home">← На главную</a><a href="#agent-1">Агент 01 →</a></div>
+  <header class="hero">
+    <span class="mono">Агент 05 · В разработке</span>
+    <h1>Агент планирования заказов</h1>
+    <p class="lead">Страница в подготовке. Здесь будет описание агента, схема его работы и результаты.</p>
+  </header>
+  <div class="meta">
+    <dl><dt>Для кого</dt><dd>Будет добавлено</dd></dl>
+    <dl><dt>Данные</dt><dd>Будет добавлено</dd></dl>
+    <dl><dt>Метрика</dt><dd>Будет добавлено</dd></dl>
+  </div>
+  <section class="section">
+    <h2>Что будет на странице</h2>
+    <div class="tiles">
+      <div class="tile todo"><b>Проблема</b><span>Какую часть планирования заказов берёт на себя агент.</span></div>
+      <div class="tile todo"><b>Схема работы</b><span>Входные данные, расчёт и предложение заказа.</span></div>
+      <div class="tile todo"><b>Результаты</b><span>Влияние на остатки, доступность и время планирования.</span></div>
+    </div>
+  </section>
+  <div class="next"><span class="mono">Все агенты</span><b>Вернуться к списку агентов</b><a href="#agents">Открыть →</a></div>
+</main>
+
