@@ -1,0 +1,7 @@
+{
+  "buildCommand": "python3 build.py",
+  "outputDirectory": ".",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/portfolio-pavel-popkov.html" }
+  ]
+}
