@@ -30,16 +30,19 @@
   --font-display: "Unbounded", "Onest", system-ui, sans-serif;
   --font-body: "Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --shadow-card: 0 1px 2px rgba(15, 26, 31, .04), 0 14px 28px -18px rgba(15, 26, 31, .22);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #0D1316; --surface: #151D21; --ink: #E8EEF0; --muted: #93A3AB; --line: #25323A;
     --accent: #7B9BFF; --accent-soft: #1A2542; --signal: #F5A63A; --signal-soft: #3A2A12; --ok: #4FD39A; --risk: #E8806C; --violet: #A58BFF; color-scheme: dark;
+    --shadow-card: 0 1px 0 rgba(0, 0, 0, .5), 0 16px 32px -18px rgba(0, 0, 0, .6);
   }
 }
 :root[data-theme="dark"] {
   --bg: #0D1316; --surface: #151D21; --ink: #E8EEF0; --muted: #93A3AB; --line: #25323A;
   --accent: #7B9BFF; --accent-soft: #1A2542; --signal: #F5A63A; --signal-soft: #3A2A12; --ok: #4FD39A; --risk: #E8806C; --violet: #A58BFF; color-scheme: dark;
+  --shadow-card: 0 1px 0 rgba(0, 0, 0, .5), 0 16px 32px -18px rgba(0, 0, 0, .6);
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -85,6 +88,28 @@ h1.long { font-size: clamp(22px, 4.6vw, 32px); line-height: 1.2; }
 .section { display: flex; flex-direction: column; gap: 16px; }
 .lead { font-size: 18px; line-height: 1.5; max-width: 62ch; }
 .hero { display: flex; flex-direction: column; gap: 20px; }
+#home .hero { position: relative; z-index: 0; }
+.bg-field {
+  position: absolute; top: -32px; left: 50%; width: 100vw; margin-left: -50vw;
+  height: clamp(360px, 48vw, 560px); overflow: hidden; pointer-events: none; z-index: -1;
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 97%);
+  mask-image: linear-gradient(to bottom, black 60%, transparent 97%);
+}
+@media (max-width: 859px) { .bg-field { display: none; } }
+.bg-scene {
+  position: absolute; top: clamp(8px, 3vw, 28px); right: clamp(16px, 5vw, 96px); width: clamp(240px, 24vw, 400px);
+  -webkit-mask-image: linear-gradient(110deg, transparent 0%, transparent 10%, black 42%);
+  mask-image: linear-gradient(110deg, transparent 0%, transparent 10%, black 42%);
+}
+.bg-table { background: var(--surface); border: 1px solid var(--line); border-radius: 7px; box-shadow: var(--shadow-card); font: 500 clamp(9.5px, .95vw, 12px) / 1.3 var(--font-mono); overflow: hidden; }
+.bg-row { display: grid; grid-template-columns: 1.3fr 1fr .8fr .8fr; }
+.bg-row + .bg-row { border-top: 1px solid var(--line); }
+.bg-row span { padding: 8px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bg-row.bg-head span { color: var(--ink); font-weight: 600; }
+.bg-insight { position: absolute; left: 58px; top: 96px; width: 150px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow-card); padding: 11px 13px; display: flex; flex-direction: column; gap: 6px; }
+.bg-insight svg { width: 15px; height: 15px; color: var(--accent); }
+.bg-insight p { margin: 0; font-size: 10px; line-height: 1.4; color: var(--muted); }
+.bg-insight p b { color: var(--ink); font-weight: 600; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip { font-size: 13px; padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--muted); }
 .chip b { color: var(--ink); font-weight: 500; }
@@ -96,21 +121,21 @@ h1.long { font-size: clamp(22px, 4.6vw, 32px); line-height: 1.2; }
 
 /* facts / metrics */
 .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
-.metric { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.metric { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; box-shadow: var(--shadow-card); padding: 16px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
 .metric .n { font-family: var(--font-display); font-weight: 600; font-size: 26px; line-height: 1.1; color: var(--accent); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
 .metric .l { font-size: 13px; color: var(--muted); line-height: 1.4; }
 
 /* section cards on start page and indexes */
-.index { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; }
-.index a { text-decoration: none; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
-.index a:hover { border-color: var(--accent); }
+.index { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; align-items: start; }
+.index a { text-decoration: none; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; box-shadow: var(--shadow-card); padding: 18px; display: flex; flex-direction: column; gap: 8px; min-width: 0; transition: transform .15s, border-color .15s; }
+.index a:hover { border-color: var(--accent); transform: translateY(-2px); }
 .index b { font-family: var(--font-display); font-weight: 600; font-size: 16px; line-height: 1.3; }
 .index .d { color: var(--muted); font-size: 14px; line-height: 1.45; }
 .go { color: var(--accent); font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; margin-top: auto; padding-top: 4px; }
 
 /* agent cards */
 .acards { display: flex; flex-direction: column; gap: 14px; }
-.acard { text-decoration: none; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 20px; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.acard { text-decoration: none; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; box-shadow: var(--shadow-card); padding: 20px; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
 .acard:hover { border-color: var(--accent); }
 .acard h3 { font-size: 18px; line-height: 1.3; }
 .acard.stub { border-style: dashed; }
@@ -119,7 +144,7 @@ h1.long { font-size: clamp(22px, 4.6vw, 32px); line-height: 1.2; }
 .trio dl { margin: 0; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 .trio dt { font: 400 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 .trio dd { margin: 0; font-size: 14px; line-height: 1.5; }
-.hero .trio { padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+.hero .trio { padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; box-shadow: var(--shadow-card); }
 .trio dd.res { color: var(--ink); font-weight: 500; }
 
 /* about */
@@ -142,7 +167,7 @@ h1.long { font-size: clamp(22px, 4.6vw, 32px); line-height: 1.2; }
 .tl b { display: block; font-weight: 600; }
 .tl span { color: var(--muted); font-size: 14px; }
 .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
-.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; box-shadow: var(--shadow-card); padding: 16px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
 .tile b { font-family: var(--font-display); font-size: 15px; font-weight: 600; line-height: 1.3; }
 .tile span { font-size: 14px; color: var(--muted); }
 .tile.todo { border-style: dashed; }
@@ -168,10 +193,10 @@ h1.long { font-size: clamp(22px, 4.6vw, 32px); line-height: 1.2; }
 .step span { color: var(--muted); font-size: 14px; }
 .step ul { margin: 6px 0 0; padding-left: 18px; color: var(--muted); font-size: 14px; display: flex; flex-direction: column; gap: 2px; }
 .branch { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-left: 40px; }
-.branch > div { border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px; background: var(--surface); font-size: 14px; }
+.branch > div { border: 1px solid var(--line); border-radius: 6px; box-shadow: var(--shadow-card); padding: 12px 14px; background: var(--surface); font-size: 14px; }
 .branch .tag { color: var(--signal); font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; display: block; margin-bottom: 4px; }
 .compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
-.compare > div { border: 1px solid var(--line); border-radius: 6px; padding: 16px; background: var(--surface); display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.compare > div { border: 1px solid var(--line); border-radius: 6px; box-shadow: var(--shadow-card); padding: 16px; background: var(--surface); display: flex; flex-direction: column; gap: 8px; min-width: 0; }
 .compare .pick { border-color: var(--accent); }
 .compare ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 14px; display: flex; flex-direction: column; gap: 4px; }
 .compare p { color: var(--muted); font-size: 14px; }
@@ -179,7 +204,7 @@ h1.long { font-size: clamp(22px, 4.6vw, 32px); line-height: 1.2; }
 .zones { display: flex; border-radius: 4px; overflow: hidden; height: 10px; }
 .zones i { flex: 1; }
 .zones .r { background: var(--risk); } .zones .y { background: var(--signal); } .zones .g { background: var(--ok); }
-.chart { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.chart { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; box-shadow: var(--shadow-card); padding: 16px; display: flex; flex-direction: column; gap: 12px; }
 .chart svg { width: 100%; height: auto; display: block; }
 .chart .grid { stroke: var(--line); stroke-width: 1; }
 .chart .axis { fill: var(--muted); font-family: var(--font-mono); font-size: 12px; }
@@ -212,7 +237,7 @@ details .body b { color: var(--ink); font-weight: 500; }
 .meta dt { font: 400 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 .meta dd { margin: 0; }
 figure { margin: 0; display: flex; flex-direction: column; gap: 8px; }
-.scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+.scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; box-shadow: var(--shadow-card); background: var(--surface); }
 .scroll svg { display: block; width: 100%; min-width: 640px; height: auto; }
 figcaption { font-size: 13px; color: var(--muted); }
 svg text { font-family: var(--font-body); fill: var(--ink); font-size: 13px; }
@@ -271,7 +296,7 @@ svg .tn.root { fill: var(--ink); stroke: var(--ink); }
 .vtabs { display: flex; flex-wrap: wrap; gap: 6px; }
 .vtabs button { background: var(--surface); color: var(--muted); border: 1px solid var(--line); padding: 6px 12px; font-size: 13px; }
 .vtabs button[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
-.vcard { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 20px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.vcard { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; box-shadow: var(--shadow-card); padding: 20px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
 .vcard[hidden] { display: none; }
 .vcard h3 { font-family: var(--font-body); font-size: 18px; font-weight: 600; line-height: 1.3; }
 .vcard ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; color: var(--muted); font-size: 14.5px; }
@@ -280,19 +305,18 @@ svg .tn.root { fill: var(--ink); stroke: var(--ink); }
 .vcard .proof { font-size: 13px; color: var(--muted); }
 .vcard .proof a { color: var(--accent); }
 
-/* arc + case cards */
-.arc { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
-.arc a { text-decoration: none; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
-.arc a:hover { border-color: var(--accent); }
-.arc b { font-family: var(--font-display); font-weight: 600; font-size: 15px; line-height: 1.3; }
-.arc .d { font-size: 14px; color: var(--muted); line-height: 1.45; }
-.arc .res { font-size: 13px; color: var(--accent); font-weight: 500; margin-top: auto; padding-top: 6px; }
+/* case cards */
 .arcline { max-width: 64ch; color: var(--muted); }
 .arcline b { color: var(--ink); font-weight: 500; }
-.index .cm { display: flex; gap: 8px 24px; flex-wrap: wrap; margin-top: 4px; }
+.index .cm-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 16px; margin-top: auto; }
+.index .cm-row .go { margin-top: 0; padding-top: 0; color: var(--muted); transition: color .15s; }
+.index a:hover .cm-row .go, .index a:focus-visible .cm-row .go { color: var(--accent); }
+@media (max-width: 480px) { .index .cm-row { flex-direction: column; align-items: flex-start; gap: 10px; } }
+.index .cm { display: flex; align-items: center; gap: 8px 14px; flex-wrap: wrap; }
 .index .cm span { display: flex; flex-direction: column; }
 .index .cm strong { font-family: var(--font-display); font-weight: 600; font-size: 22px; line-height: 1.15; color: var(--accent); }
 .index .cm em { font-style: normal; font-size: 12px; color: var(--muted); }
+.index .tag { font: 400 11px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
 .index div.cc { border: 1px dashed var(--line); border-radius: 6px; padding: 18px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
 .index div.cc b { color: var(--muted); }
 h1.name { font-size: clamp(36px, 8vw, 56px); line-height: 1.05; }
@@ -314,7 +338,6 @@ button { font: 500 14px var(--font-body); cursor: pointer; background: var(--acc
 html[lang="ru"] .en { display: none !important; }
 html[lang="en"] .ru { display: none !important; }
 .crumbs .en, .crumbs .ru, .acards .en, .acards .ru { display: contents; }
-.index .cm { flex-wrap: nowrap; }
 .index .cm span { min-width: 0; }
 h2.headline { font-size: clamp(22px, 4.6vw, 32px); line-height: 1.2; }
 .on-home .bar .brand { visibility: hidden; }
@@ -344,6 +367,21 @@ h2.headline { font-size: clamp(22px, 4.6vw, 32px); line-height: 1.2; }
 <!-- ============ HOME ============ -->
 <main class="view" id="home" data-title="Pavel Popkov — Product Lead, B2B AI" data-title-ru="Павел Попков — Product Lead, B2B AI">
   <header class="hero">
+    <div class="bg-field" aria-hidden="true">
+      <div class="bg-scene">
+        <div class="bg-table">
+          <div class="bg-row bg-head"><span>SKU</span><span>Store</span><span>Act.</span><span>Fcst</span></div>
+          <div class="bg-row"><span>Mouse</span><span>Store 1</span><span>102</span><span>125</span></div>
+          <div class="bg-row"><span>Watch</span><span>Store 2</span><span>340</span><span>410</span></div>
+          <div class="bg-row"><span>Stand</span><span>Store 3</span><span>520</span><span>630</span></div>
+          <div class="bg-row"><span>Hub</span><span>Store 4</span><span>78</span><span>95</span></div>
+        </div>
+        <div class="bg-insight">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c.7 4.6 2.2 7.3 6.8 8-4.6.7-6.1 3.4-6.8 8-.7-4.6-2.2-7.3-6.8-8 4.6-.7 6.1-3.4 6.8-8Z"/></svg>
+          <p><b>AI insight</b> Closing the forecast gap could lift Q4 revenue by <b>12–18%</b>.</p>
+        </div>
+      </div>
+    </div>
     <h1 class="name"><span class="ru">Павел Попков</span><span class="en">Pavel Popkov</span></h1>
     <p class="lead" style="color:var(--muted)"><span class="ru">У большинства компаний нет проблемы с AI. У них проблема с внедрением.</span><span class="en">Most companies don’t have an AI problem. They have an adoption problem.</span></p>
     <h2 class="headline"><span class="ru">Помогаю компаниям пройти AI-трансформацию и вырастить довольных платящих клиентов</span><span class="en">I help companies go through AI transformation to grow happy, paying customers</span></h2>
@@ -351,23 +389,13 @@ h2.headline { font-size: clamp(22px, 4.6vw, 32px); line-height: 1.2; }
     <div class="btns"><a class="btn pri" href="#contact"><span class="ru">Написать мне</span><span class="en">Contact me</span></a></div>
   </header>
 
-  <section class="section" aria-label="Path" data-al-ru="Траектория">
-    <span class="mono"><span class="ru">Траектория</span><span class="en">Path</span></span>
-    <nav class="arc">
-      <a href="#case-4"><span class="mono">01</span><b><span class="ru">Трансформация</span><span class="en">Transformation</span></b><span class="d"><span class="ru">Coca-Cola HBC: 4 000 полевых сотрудников перешли на computer vision</span><span class="en">Coca-Cola HBC: 4,000 field employees moved to computer vision</span></span></a>
-      <a href="#case-2"><span class="mono">02</span><b><span class="ru">Лидерство в продажах</span><span class="en">Sales leadership</span></b><span class="d"><span class="ru">Trax: 3 → 12 клиентов, NPS 70+ при среднем ниже 30</span><span class="en">Trax: 3 → 12 clients, NPS 70+ against an average below 30</span></span></a>
-      <a href="#case-1"><span class="mono">03</span><b><span class="ru">Продукт 0→1</span><span class="en">Product 0→1</span></b><span class="d"><span class="ru">Trax: от гипотезы до $6M выручки в год</span><span class="en">Trax: from a hypothesis to $6M of annual revenue</span></span></a>
-      <a href="#case-3"><span class="mono">04</span><b><span class="ru">Data + Agents</span><span class="en">Data + Agents</span></b><span class="d"><span class="ru">Сначала фундамент из данных, потом агенты, которыми реально пользуются в поле</span><span class="en">Data foundation first, then agents that the field actually uses</span></span></a>
-    </nav>
-  </section>
-
   <section class="section" aria-label="Cases" data-al-ru="Кейсы">
     <span class="mono"><span class="ru">Кейсы</span><span class="en">Cases</span></span>
     <nav class="index four" aria-label="Cases" data-al-ru="Кейсы">
-      <a href="#case-1"><b><span class="ru">Продукт с нуля до $6M за 2,5 года</span><span class="en">A product from zero to $6M in 2.5 years</span></b><span class="d"><span class="ru">Мерчандайзер едет в магазин, только когда там реальная проблема. Сигнал дают фото обычных покупателей.</span><span class="en">A merchandiser goes to a store only when there is a real problem. The signal comes from photos by ordinary shoppers.</span></span><span class="cm"><span><strong>$6M</strong><em><span class="ru">выручка в год</span><span class="en">annual revenue</span></em></span><span><strong>57%</strong><em><span class="ru">маржа</span><span class="en">margin</span></em></span></span><span class="go"><span class="ru">Читать →</span><span class="en">Read →</span></span></a>
-      <a href="#case-2"><b><span class="ru">Из 3 недовольных клиентов в 12 и $4M</span><span class="en">From 3 unhappy clients to 12 and $4M</span></b><span class="d"><span class="ru">Как разовый запрос клиента стал премиальным пакетом, который потом купили Diageo, P&amp;G и Coca-Cola Japan.</span><span class="en">How a one-off client request became a premium package later bought by Diageo, P&amp;G and Coca-Cola Japan.</span></span><span class="cm"><span><strong>3 → 12</strong><em><span class="ru">клиентов</span><span class="en">clients</span></em></span><span><strong>NPS 70+</strong><em><span class="ru">при среднем ниже 30</span><span class="en">against an average below 30</span></em></span></span><span class="go"><span class="ru">Читать →</span><span class="en">Read →</span></span></a>
-      <a href="#case-3"><b><span class="ru">Фундамент, на котором AI-агент работает у каждого следующего клиента</span><span class="en">The foundation that makes an AI agent work for every next customer</span></b><span class="d"><span class="ru">Демо-агента собрать легко. Я сначала построил платформу данных, а потом агента, которым реально пользуются аналитики и полевые команды.</span><span class="en">A demo agent is easy. I built the data platform first, then an agent that analysts and field teams actually use.</span></span><span class="cm"><span><strong>97% / 92%</strong><em>precision / recall</em></span><span><strong>90%</strong><em><span class="ru">доля принятых</span><span class="en">acceptance rate</span></em></span></span><span class="go"><span class="ru">Читать →</span><span class="en">Read →</span></span></a>
-      <a href="#case-4"><b><span class="ru">4 000 полевых сотрудников перешли на computer vision. Через 10 лет компания всё так же работает по этому процессу</span><span class="en">4,000 field employees moved to computer vision. Ten years later it is still how the company works</span></b><span class="d"><span class="ru">Рост продаж на 10%+ в подключённых точках и награда Coca-Cola System Innovation Award.</span><span class="en">Sales up 10%+ in connected outlets and the Coca-Cola System Innovation Award.</span></span><span class="cm"><span><strong>4,000+</strong><em><span class="ru">полевых сотрудников</span><span class="en">field employees</span></em></span><span><strong>+10%</strong><em><span class="ru">продаж в подключённых точках</span><span class="en">sales in connected outlets</span></em></span></span><span class="go"><span class="ru">Читать →</span><span class="en">Read →</span></span></a>
+      <a href="#case-1"><b><span class="ru">Продукт с нуля до $6M за 2,5 года</span><span class="en">A product from zero to $6M in 2.5 years</span></b><span class="cm-row"><span class="cm"><span class="tag"><span class="ru">Продукт</span><span class="en">Product</span></span><span><strong>$6M</strong><em><span class="ru">выручка в год</span><span class="en">annual revenue</span></em></span><span><strong>57%</strong><em><span class="ru">маржа</span><span class="en">margin</span></em></span></span><span class="go"><span class="ru">Читать →</span><span class="en">Read →</span></span></span></a>
+      <a href="#case-2"><b><span class="ru">Из 3 недовольных клиентов в 12 и $4M</span><span class="en">From 3 unhappy clients to 12 and $4M</span></b><span class="cm-row"><span class="cm"><span class="tag"><span class="ru">Продажи</span><span class="en">Sales</span></span><span><strong>3 → 12</strong><em><span class="ru">клиентов</span><span class="en">clients</span></em></span><span><strong>NPS 70+</strong><em><span class="ru">при среднем ниже 30</span><span class="en">against an average below 30</span></em></span></span><span class="go"><span class="ru">Читать →</span><span class="en">Read →</span></span></span></a>
+      <a href="#case-3"><b><span class="ru">Фундамент, на котором AI-агент работает у каждого следующего клиента</span><span class="en">The foundation that makes an AI agent work for every next customer</span></b><span class="cm-row"><span class="cm"><span class="tag"><span class="ru">Данные + AI</span><span class="en">Data + AI</span></span><span><strong>97% / 92%</strong><em>precision / recall</em></span><span><strong>90%</strong><em><span class="ru">доля принятых</span><span class="en">acceptance rate</span></em></span></span><span class="go"><span class="ru">Читать →</span><span class="en">Read →</span></span></span></a>
+      <a href="#case-4"><b><span class="ru">4 000 полевых сотрудников перешли на computer vision. Через 10 лет компания всё так же работает по этому процессу</span><span class="en">4,000 field employees moved to computer vision. Ten years later it is still how the company works</span></b><span class="cm-row"><span class="cm"><span class="tag"><span class="ru">Трансформация</span><span class="en">Transformation</span></span><span><strong>4,000+</strong><em><span class="ru">полевых сотрудников</span><span class="en">field employees</span></em></span><span><strong>+10%</strong><em><span class="ru">продаж в подключённых точках</span><span class="en">sales in connected outlets</span></em></span></span><span class="go"><span class="ru">Читать →</span><span class="en">Read →</span></span></span></a>
     </nav>
   </section>
 </main>
