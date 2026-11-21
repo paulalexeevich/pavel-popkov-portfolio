@@ -1,0 +1,574 @@
+<!-- ============ CASES INDEX ============ -->
+<main class="view" id="cases" data-title="Cases — Pavel Popkov" data-title-ru="Кейсы — Павел Попков" hidden>
+  <div class="crumbs"><a href="#home"><span class="ru">← На главную</span><span class="en">← Home</span></a></div>
+  <header class="hero">
+    <h1><span class="ru">Продукт, продажи, данные и агенты, трансформация</span><span class="en">Product, sales, data and agents, transformation</span></h1>
+    <p class="lead"><span class="ru">От нового продукта в Trax до изменения процесса во всей компании в Coca-Cola HBC. В каждом кейсе: проблема, что я сделал и результат в цифрах.</span><span class="en">From a new product at Trax to a company-wide change at Coca-Cola HBC. Each case: the problem, what I did and the result in numbers.</span></p>
+  </header>
+  <nav class="index four" aria-label="Cases" data-al-ru="Кейсы">
+      <a href="#case-1"><b><span class="ru">Продукт с нуля до $6M за 2,5 года</span><span class="en">A product from zero to $6M in 2.5 years</span></b><span class="d"><span class="ru">Мерчандайзер едет в магазин, только когда там реальная проблема. Сигнал дают фото обычных покупателей.</span><span class="en">A merchandiser goes to a store only when there is a real problem. The signal comes from photos by ordinary shoppers.</span></span><span class="cm"><span><strong>$6M</strong><em><span class="ru">выручка в год</span><span class="en">annual revenue</span></em></span><span><strong>57%</strong><em><span class="ru">маржа</span><span class="en">margin</span></em></span></span><span class="go"><span class="ru">Читать →</span><span class="en">Read →</span></span></a>
+      <a href="#case-2"><b><span class="ru">Из 3 недовольных клиентов в 12 и $4M</span><span class="en">From 3 unhappy clients to 12 and $4M</span></b><span class="d"><span class="ru">Как разовый запрос клиента стал премиальным пакетом, который потом купили Diageo, P&amp;G и Coca-Cola Japan.</span><span class="en">How a one-off client request became a premium package later bought by Diageo, P&amp;G and Coca-Cola Japan.</span></span><span class="cm"><span><strong>3 → 12</strong><em><span class="ru">клиентов</span><span class="en">clients</span></em></span><span><strong>NPS 70+</strong><em><span class="ru">при среднем ниже 30</span><span class="en">against an average below 30</span></em></span></span><span class="go"><span class="ru">Читать →</span><span class="en">Read →</span></span></a>
+      <a href="#case-3"><b><span class="ru">Фундамент, на котором AI-агент работает у каждого следующего клиента</span><span class="en">The foundation that makes an AI agent work for every next customer</span></b><span class="d"><span class="ru">Демо-агента собрать легко. Я сначала построил платформу данных, а потом агента, которым реально пользуются аналитики и полевые команды.</span><span class="en">A demo agent is easy. I built the data platform first, then an agent that analysts and field teams actually use.</span></span><span class="cm"><span><strong>97% / 92%</strong><em>precision / recall</em></span><span><strong>90%</strong><em><span class="ru">доля принятых</span><span class="en">acceptance rate</span></em></span></span><span class="go"><span class="ru">Читать →</span><span class="en">Read →</span></span></a>
+      <a href="#case-4"><b><span class="ru">4 000 полевых сотрудников перешли на computer vision. Через 10 лет компания всё так же работает по этому процессу</span><span class="en">4,000 field employees moved to computer vision. Ten years later it is still how the company works</span></b><span class="d"><span class="ru">Рост продаж на 10%+ в подключённых точках и награда Coca-Cola System Innovation Award.</span><span class="en">Sales up 10%+ in connected outlets and the Coca-Cola System Innovation Award.</span></span><span class="cm"><span><strong>4,000+</strong><em><span class="ru">полевых сотрудников</span><span class="en">field employees</span></em></span><span><strong>+10%</strong><em><span class="ru">продаж в подключённых точках</span><span class="en">sales in connected outlets</span></em></span></span><span class="go"><span class="ru">Читать →</span><span class="en">Read →</span></span></a>
+  </nav>
+</main>
+
+<main class="view" data-title="A product to $6M from zero — Pavel Popkov" data-title-ru="Продукт на $6M с нуля — Павел Попков" hidden="" id="case-1">
+<div class="crumbs"><span class="ru"><a href="#home">← На главную</a><a href="#case-2">Кейс 02 →</a></span><span class="en"><a href="#home">← Home</a><a href="#case-2">Case 02 →</a></span></div>
+<article class="view" style="padding-top:0">
+<header class="hero">
+<h1 class="long"><span class="ru">Перестали отправлять людей в магазины, где всё в порядке, и сделали на этом продукт на $6M</span><span class="en">We stopped sending people to stores where everything was fine, and built a $6M product on it</span></h1>
+<p class="byline"><span class="ru">Кейс 01 · Директор по стратегии продукта, Trax</span><span class="en">Case 01 · Director of Product Strategy, Trax</span></p>
+<div class="trio">
+<dl><dt><span class="ru">Проблема</span><span class="en">Problem</span></dt><dd><span class="ru">Бренды платят людям, которые ходят по магазинам и проверяют полки. Больше 40% таких визитов шли впустую: в магазине всё было в порядке.</span><span class="en">Brands pay people to walk through stores and check shelves. More than 40% of those visits were wasted: the store was fine.</span></dd></dl>
+<dl><dt><span class="ru">Что сделал</span><span class="en">What I did</span></dt><dd><span class="ru">Запустил продукт, где обычные покупатели фотографируют полки за баллы, а специалист едет только туда, где есть проблема.</span><span class="en">Launched a product where ordinary shoppers photograph shelves for points, and a specialist goes only where there is a problem.</span></dd></dl>
+<dl><dt><span class="ru">Результат</span><span class="en">Result</span></dt><dd class="res"><span class="ru">$6M годовой выручки за 2,5 года, маржа 57%. С нуля и без отдельного бюджета.</span><span class="en">$6M annual revenue in 2.5 years, 57% margin. From zero, without a dedicated budget.</span></dd></dl>
+</div>
+<div class="chips">
+<span class="chip"><span class="ru">Компания: <b>Trax, распознавание товаров на полках по фото</b></span><span class="en">Company: <b>Trax, shelf recognition from photos</b></span></span>
+<span class="chip"><span class="ru">Отрасль: <b>товары повседневного спроса, ритейл</b></span><span class="en">Industry: <b>consumer goods, retail</b></span></span>
+</div>
+</header>
+<section aria-label="Key results" class="metrics" data-al-ru="Ключевые результаты">
+<div class="metric"><span class="n">$3M → $6M</span><span class="l"><span class="ru">годовая выручка: через 1,5 года от старта и к концу 2-го года выделенной команды</span><span class="en">annual revenue: 1.5 years after launch, and by the end of the dedicated team’s second year</span></span></div>
+<div class="metric"><span class="n">57%+</span><span class="l"><span class="ru">маржа (у привычной модели с визитами 30–40%)</span><span class="en">margin (the usual visit-based model runs at 30–40%)</span></span></div>
+<div class="metric"><span class="n">73%</span><span class="l"><span class="ru">магазинов дали данные в пилоте: 2 тыс. магазинов за 2 недели</span><span class="en">of stores gave data in the pilot: 2,000 stores in 2 weeks</span></span></div>
+<div class="metric"><span class="n">$100K</span><span class="l"><span class="ru">первый контракт, клиент работал с нами 2,5 года</span><span class="en">first contract; the client stayed with us for 2.5 years</span></span></div>
+<div class="metric"><span class="n">+10%</span><span class="l"><span class="ru">продаж за квартал у первого клиента</span><span class="en">sales growth in a quarter at the first client</span></span></div>
+</section>
+<p class="lead"><span class="ru">Бренды вроде Coca-Cola платят мерчандайзерам. Это люди, которые ходят по магазинам и следят, чтобы товар стоял на полке. Больше 40% таких визитов были впустую: проблем в магазине не было. Я запустил продукт, в котором обычные покупатели фотографируют полки за баллы в приложении. Система находит пустые места, и мерчандайзер едет только туда, где бренд реально теряет продажи. За 2,5 года продукт вырос от гипотезы без бюджета до $6M годовой выручки с маржой 57%.</span><span class="en">Brands like Coca-Cola pay merchandisers. These are people who walk through stores and make sure the product is on the shelf. More than 40% of those visits were wasted: there were no problems in the store. I launched a product in which ordinary shoppers photograph shelves for points in an app. The system finds empty spots, and the merchandiser goes only where the brand is actually losing sales. In 2.5 years the product grew from a hypothesis with no budget to $6M of annual revenue at a 57% margin.</span></p>
+<section class="section">
+<span class="mono"><span class="ru">Как это было: пять шагов</span><span class="en">How it went: five steps</span></span>
+<div class="story">
+<div class="beat">
+<span class="mono"><span class="ru">1 · Проблема</span><span class="en">1 · Problem</span></span>
+<h3><span class="ru">Больше 40% визитов в магазины были впустую</span><span class="en">More than 40% of store visits were wasted</span></h3>
+<p><span class="ru">В Coca-Cola я измерял, насколько эффективны визиты мерчандайзеров. Они ходили по фиксированному маршруту, и значительная часть визитов не меняла ничего: <b>в этих магазинах в это время просто не было проблем.</b> Ту же картину я увидел в Trax. Меня подключили к проекту именно из-за этого опыта.</span><span class="en">At Coca-Cola I measured how effective merchandiser visits were. They followed a fixed route, and a large share of visits changed nothing: <b>there were simply no problems in those stores at that time.</b> I saw the same picture at Trax. I was brought into the project precisely because of that experience.</span></p>
+</div>
+<div class="beat">
+<span class="mono"><span class="ru">2 · Идея</span><span class="en">2 · Idea</span></span>
+<h3><span class="ru">Покупатели фотографируют полки, мерчандайзер едет только на проблему</span><span class="en">Shoppers photograph shelves, the merchandiser goes only to a problem</span></h3>
+<p><span class="ru">Trax купил приложение ShopKick: около 500 тыс. покупателей в США получают баллы за фото полок. Система находит на фото пустые места. Если потери продаж дороже стоимости визита, в магазин едет исполнитель. Три готовых актива компании сложились в продукт <b>без отдельного бюджета</b> и с небольшой командой.</span><span class="en">Trax bought the ShopKick app: about 500,000 shoppers in the US earn points for shelf photos. The system finds empty spots in the photos. If the lost sales cost more than the visit, a contractor goes to the store. Three assets the company already had came together into a product <b>without a dedicated budget</b> and with a small team.</span></p>
+</div>
+<div class="beat">
+<span class="mono"><span class="ru">3 · Главный риск и проверка</span><span class="en">3 · Main risk and test</span></span>
+<h3><span class="ru">Хватит ли фотографий, если покупатели ходят в магазин за покупками, а не за заданием</span><span class="en">Will there be enough photos if shoppers go to the store to shop, not to do a task?</span></h3>
+<p><span class="ru">Я построил расчёт вероятности получить фото из нужного магазина в нужную неделю. Он показал данные из 85% магазинов 2 раза в неделю. Потом мы проверили это на деле: <b>2 недели, 10 тыс. магазинов, 3 ритейлера и ни одного клиента.</b> Только после этого мы начали искать клиентов. Отдельная хитрость: если на полке нет нужного товара, фотографировать нечего, поэтому покупателей просили снимать соседние товары.</span><span class="en">I built a calculation of the probability of getting a photo from the right store in the right week. It showed data from 85% of stores twice a week. Then we tested it for real: <b>2 weeks, 10,000 stores, 3 retailers and no customers.</b> Only after that did we start looking for customers. One trick: if the product you need is not on the shelf, there is nothing to photograph, so shoppers were asked to shoot the neighboring products.</span></p>
+</div>
+<div class="beat">
+<span class="mono"><span class="ru">4 · Первый клиент</span><span class="en">4 · First customer</span></span>
+<h3><span class="ru">Обещали 70% магазинов за 2 недели, дали 73%</span><span class="en">We promised 70% of stores in 2 weeks and delivered 73%</span></h3>
+<p><span class="ru">Крупные бренды хотели экономию без потери качества, и экономика с ними не сходилась. Я искал клиента, которому <b>важна скорость и который готов к небольшому риску.</b> Им стал производитель шоколада на $100 тыс. Данные из 73% магазинов собрали покупатели, остальные 27% закрыли профессиональные проверяющие. Клиент проработал с нами 2,5 года.</span><span class="en">Large brands wanted savings without losing quality, and the economics did not work with them. I looked for a customer who <b>cares about speed and accepts a little risk.</b> It was a chocolate manufacturer at $100K. Shoppers collected data from 73% of stores, and professional auditors covered the other 27%. The client stayed with us for 2.5 years.</span></p>
+</div>
+<div class="beat">
+<span class="mono"><span class="ru">5 · Неожиданный результат</span><span class="en">5 · Unexpected result</span></span>
+<h3><span class="ru">Данные оказались ценнее самих визитов</span><span class="en">The data turned out to be worth more than the visits</span></h3>
+<p><span class="ru">В более чем половине магазинов не было товара для акционной выкладки: система автоматических заказов ритейлера не знала об акции. Бренд получил аргументы, ритейлер поправил заказы, и <b>продажи за квартал выросли более чем на 10%.</b> После этого клиенты стали покупать продукт как диагностику причин потерь.</span><span class="en">In more than half of the stores the product for the promo display was missing: the retailer’s automatic ordering system did not know about the promotion. The brand got arguments, the retailer fixed the orders, and <b>sales for the quarter grew by more than 10%.</b> After that, clients began buying the product as a diagnosis of why they lose sales.</span></p>
+</div>
+</div>
+</section>
+<section class="section">
+<span class="mono"><span class="ru">Как дошли до $6M</span><span class="en">How we got to $6M</span></span>
+<div class="story">
+<div class="beat">
+<span class="mono"><span class="ru">Команда</span><span class="en">Team</span></span>
+<h3><span class="ru">Шесть локаций, одна цель</span><span class="en">Six locations, one goal</span></h3>
+<p><span class="ru">Продажи в США, аналитики в Пуэрто-Рико, операции в Мексике, разработка в Будапеште, юрист и финансист в Сингапуре и Японии.</span><span class="en">Sales in the US, analysts in Puerto Rico, operations in Mexico, development in Budapest, a lawyer and a finance lead in Singapore and Japan.</span></p>
+</div>
+<div class="beat">
+<span class="mono"><span class="ru">Продажи</span><span class="en">Sales</span></span>
+<h3><span class="ru">Научил отдел продаж продавать продукт, которого раньше не было</span><span class="en">Taught the sales team to sell a product that did not exist before</span></h3>
+<p><span class="ru">Я подготовил обучение, ввёл еженедельные разборы клиентов и ходил на звонки. <b>У всех трёх продавцов продажи пошли после одной успешной сделки с моей поддержкой.</b></span><span class="en">I prepared training, introduced weekly client reviews and joined calls. <b>All three salespeople started selling after one successful deal with my support.</b></span></p>
+</div>
+<div class="beat">
+<span class="mono"><span class="ru">Операции</span><span class="en">Operations</span></span>
+<h3><span class="ru">За 3 месяца наладили ритм, и я вернулся к аналитике</span><span class="en">Found a rhythm in 3 months and went back to analytics</span></h3>
+<p><span class="ru">После подписания контракта нужно было одновременно собирать фото покупателей и отправлять исполнителей. Через 3 месяца работа вышла в стабильный ритм, и я занялся аналитикой: <b>клиенты называли её самой ценной частью продукта.</b></span><span class="en">After a contract was signed we had to collect shopper photos and dispatch contractors at the same time. Within 3 months the work settled into a steady rhythm and I moved on to analytics: <b>clients called it the most valuable part of the product.</b></span></p>
+</div>
+<div class="beat">
+<span class="mono"><span class="ru">Рост</span><span class="en">Growth</span></span>
+<h3><span class="ru">Скачок дали истории успеха и чёткий портрет клиента</span><span class="en">Success stories and a clear customer profile drove the jump</span></h3>
+<p><span class="ru">После кампании продаж и маркетинга пошли входящие запросы, которые хорошо превращались в сделки.</span><span class="en">After the sales and marketing campaign, inbound requests came in and converted well into deals.</span></p>
+</div>
+</div>
+</section>
+<section class="section">
+<span class="mono"><span class="ru">Годовая выручка по этапам</span><span class="en">Annual revenue by stage</span></span>
+<div class="rev-fig"><div id="revenue-illustration"></div>
+
+<div class="legend">
+<span><span class="ru">Месяцы 0–3: расчёты и проверка без клиентов</span><span class="en">Months 0–3: calculations and testing without customers</span></span>
+<span><span class="ru">Месяц 3: первый клиент (≈$100K). Месяц 9: $1M</span><span class="en">Month 3: first customer (≈$100K). Month 9: $1M</span></span>
+<span><span class="ru">Затем: ещё двое клиентов, выделенная команда</span><span class="en">Then: two more customers, a dedicated team</span></span>
+<span><span class="ru">Годовая выручка, оценка автора</span><span class="en">Annual revenue, author’s estimate</span></span>
+</div>
+</div>
+</section>
+<section class="section">
+<span class="mono"><span class="ru">Детали</span><span class="en">Details</span></span>
+<div class="more">
+<details>
+<summary><span class="ru">Как устроена цена</span><span class="en">How pricing works</span></summary>
+<div class="body">
+<p><span class="ru">Клиент платит за обслуживание магазина: сбор данных, диагностика, исправление проблем. Маржа выше, чем у привычной модели с визитами (30–40%), потому что покупатели и так находятся в магазине.</span><span class="en">The client pays for servicing the store: data collection, diagnosis, fixing problems. The margin is higher than in the usual visit-based model (30–40%) because shoppers are in the store anyway.</span></p>
+<p><span class="ru">Цену считали из <b>продаж, которые бренд терял из-за пустой полки.</b> Предложение и цену пересобирали пару раз по обратной связи.</span><span class="en">We priced from the <b>sales the brand lost because of an empty shelf.</b> We rebuilt the offer and the price a couple of times based on feedback.</span></p>
+</div>
+</details>
+<details>
+<summary><span class="ru">Что бы я сделал иначе</span><span class="en">What I would do differently</span></summary>
+<div class="body">
+<p><span class="ru">Продукт зависел от трёх частей, которые развивались с разной скоростью: приложение с покупателями, распознавание фото и исполнители в магазинах. Много ручной работы ограничивало рост и маржу.</span><span class="en">The product depended on three parts that developed at different speeds: the shopper app, photo recognition and contractors in stores. A lot of manual work limited growth and margin.</span></p>
+<p><span class="ru"><b>Сейчас я бы сразу согласовал бюджет на отдельную платформу,</b> которую можно собрать быстрее с помощью vibecoding.</span><span class="en"><b>Today I would agree a budget for a separate platform right away,</b> one that can be built faster with vibecoding.</span></p>
+</div>
+</details>
+</div>
+<p class="foot"><span class="ru">Цифры приведены по данным автора. Значения на графике приблизительные.</span><span class="en">Figures are the author’s. Chart values are approximate.</span></p>
+</section>
+</article>
+<div class="next"><span class="mono"><span class="ru">Следующий кейс</span><span class="en">Next case</span></span><b><span class="ru">Как я превратил 3 недовольных клиентов в 12 и $4M выручки</span><span class="en">How I turned 3 unhappy clients into 12 and $4M in revenue</span></b><a href="#case-2"><span class="ru">Читать →</span><span class="en">Read →</span></a></div>
+</main>
+<main class="view" data-title="3 clients to 12 and $4M — Pavel Popkov" data-title-ru="3 клиента в 12 и $4M — Павел Попков" hidden="" id="case-2">
+<div class="crumbs"><span class="ru"><a href="#home">← На главную</a><a href="#case-3">Кейс 03 →</a></span><span class="en"><a href="#home">← Home</a><a href="#case-3">Case 03 →</a></span></div>
+<article class="view" style="padding-top:0">
+<header class="hero">
+<h1 class="long"><span class="ru">Как я превратил 3 недовольных клиентов в 12 и $4M выручки</span><span class="en">How I turned 3 unhappy clients into 12 and $4M in revenue</span></h1>
+<p class="byline"><span class="ru">Кейс 02 · Директор по продажам и глава российского офиса, Trax Retail, 2018–2022</span><span class="en">Case 02 · Sales Director and Head of the Russian office, Trax Retail, 2018–2022</span></p>
+<div class="trio">
+<dl><dt><span class="ru">Проблема</span><span class="en">Problem</span></dt><dd><span class="ru">Российские клиенты Trax (Coca-Cola, BAT, Diageo) жаловались на качество сервиса, а это грозило глобальным контрактам. В офисе работали два человека.</span><span class="en">Trax’s Russian clients (Coca-Cola, BAT, Diageo) complained about service quality, which put global contracts at risk. The office had two people.</span></dd></dl>
+<dl><dt><span class="ru">Что сделал</span><span class="en">What I did</span></dt><dd><span class="ru">Сначала нанял людей, отвечающих за результат у каждого клиента, и только через 90 дней начал расширять продажи.</span><span class="en">First hired people accountable for results at each client, and only after 90 days started expanding sales.</span></dd></dl>
+<dl><dt><span class="ru">Результат</span><span class="en">Result</span></dt><dd class="res"><span class="ru">12 клиентов и $4M выручки к концу 2021 года, NPS 70+ при среднем ниже 30 по другим юнитам Trax.</span><span class="en">12 clients and $4M in revenue by the end of 2021, NPS 70+ against an average below 30 in other Trax units.</span></dd></dl>
+</div>
+<div class="chips">
+<span class="chip"><span class="ru">Роль: <b>директор по продажам и глава офиса, с конца 2021 также директор по стратегии продукта</b></span><span class="en">Role: <b>Sales Director and Head of the office; from late 2021 also Director of Product Strategy</b></span></span>
+<span class="chip"><span class="ru">Компания: <b>Trax Retail, 200–250 человек</b></span><span class="en">Company: <b>Trax Retail, 200–250 people</b></span></span>
+</div>
+</header>
+<section aria-label="Key results" class="metrics" data-al-ru="Ключевые результаты">
+<div class="metric"><span class="n">3 → 12</span><span class="l"><span class="ru">клиентов к концу 2021 года</span><span class="en">clients by the end of 2021</span></span></div>
+<div class="metric"><span class="n">$4M</span><span class="l"><span class="ru">выручка российского юнита к концу 2021 года</span><span class="en">revenue of the Russian unit by the end of 2021</span></span></div>
+<div class="metric"><span class="n">NPS 70+</span><span class="l"><span class="ru">индекс готовности рекомендовать, стабильно через 12 месяцев. В других юнитах ниже 30</span><span class="en">net promoter score, stable over 12 months. In other units below 30</span></span></div>
+<div class="metric"><span class="n">90 → 97%</span><span class="l"><span class="ru">точность распознавания рекламных материалов в магазинах у BAT Россия</span><span class="en">recognition accuracy for promo materials in stores at BAT Russia</span></span></div>
+<div class="metric"><span class="n">2 → 10</span><span class="l"><span class="ru">человек в команде, без учёта руководителя</span><span class="en">people on the team, not counting the manager</span></span></div>
+</section>
+<section class="section">
+<span class="mono"><span class="ru">Откуда взялись 12 клиентов</span><span class="en">Where the 12 clients came from</span></span>
+<div class="compare">
+<div><b><span class="ru">3 клиента на старте</span><span class="en">3 clients at the start</span></b><p>Coca-Cola, British American Tobacco, Diageo.</p></div>
+<div class="pick"><b><span class="ru">2 клиента из России</span><span class="en">2 clients from Russia</span></b><p><span class="ru">Beiersdorf и GSK (Haleon), которых я привлёк лично. Их контракты потом выросли до 40+ стран.</span><span class="en">Beiersdorf and GSK (Haleon), whom I won personally. Their contracts later grew to 40+ countries.</span></p></div>
+<div><b><span class="ru">7 международных контрактов</span><span class="en">7 international contracts</span></b><p><span class="ru">Запуск и поддержка после того, как Trax купил конкурента (Mondelez, JTI и другие).</span><span class="en">Launch and support after Trax acquired a competitor (Mondelez, JTI and others).</span></p></div>
+</div>
+</section>
+<section class="section">
+<span class="mono"><span class="ru">Как это было</span><span class="en">How it went</span></span>
+<div class="story">
+<div class="beat">
+<span class="mono"><span class="ru">Старт</span><span class="en">Start</span></span>
+<h3><span class="ru">Сильный продукт, которым российским клиентам было тяжело пользоваться</span><span class="en">A strong product that was hard for Russian clients to use</span></h3>
+<p><span class="ru">В 2018 году в России было два сотрудника и три клиента. Контракты заключались через головные офисы, и российские подразделения платили не напрямую. Они жаловались на качество, а это влияло на отношения с клиентами по всему миру. <b>Продукту нужна была сильная локальная настройка</b> и команда, которая переводит задачу бизнеса в настройку продукта.</span><span class="en">In 2018 Russia had two employees and three clients. Contracts were signed through head offices, and the Russian divisions did not pay directly. They complained about quality, and that affected relationships with clients worldwide. <b>The product needed strong local configuration</b> and a team that translates a business need into product settings.</span></p>
+</div>
+<div class="beat">
+<span class="mono"><span class="ru">Порядок действий</span><span class="en">Order of actions</span></span>
+<h3><span class="ru">Сначала довольные клиенты, потом рост</span><span class="en">Happy clients first, growth second</span></h3>
+<p><span class="ru">Первые 30–90 дней я разбирал потребности каждого клиента. Вывод определил порядок: <b>пока клиенты не довольны и не рекомендуют нас другим, расширять продажи рано.</b> Первым приоритетом найма стали проектные менеджеры, которые отвечают за результат у клиента.</span><span class="en">For the first 30–90 days I studied each client’s needs. The conclusion set the order: <b>until clients are satisfied and recommend us to others, it is too early to expand sales.</b> The first hiring priority was project managers who own the result at the client.</span></p>
+</div>
+<div class="beat">
+<span class="mono"><span class="ru">Как добился своего</span><span class="en">How I got my way</span></span>
+<h3><span class="ru">Запросы российских клиентов перестали теряться в головном офисе</span><span class="en">Russian clients’ requests stopped getting lost at head office</span></h3>
+<p><span class="ru">Продуктовая команда сидела в Тель-Авиве. Я оформлял требования как бизнес-кейсы, чтобы фича делалась не под одного заказчика, и вместе с руководителями других регионов собрал общий список пожеланий. Так мы начали влиять на план разработки, а обещанные функции стали доходить до клиентов.</span><span class="en">The product team sat in Tel Aviv. I framed requirements as business cases so a feature would not be built for a single client, and together with the heads of other regions I assembled a shared wish list. That is how we started influencing the development plan, and promised features began to reach clients.</span></p>
+</div>
+<div class="beat">
+<span class="mono"><span class="ru">Метод</span><span class="en">Method</span></span>
+<h3><span class="ru">Разбирать не фичу, а процесс клиента</span><span class="en">Analyze the client’s process, not the feature</span></h3>
+<p><span class="ru">На любой запрос я задавал команде три вопроса: <b>как устроен процесс у клиента, какие требования объективные и как похожий процесс решают другие клиенты.</b></span><span class="en">For any request I asked the team three questions: <b>how does the client’s process work, which requirements are objective, and how do other clients solve a similar process.</b></span></p>
+</div>
+</div>
+</section>
+<section class="section">
+<span class="mono"><span class="ru">Главная развилка: BAT</span><span class="en">The key fork: BAT</span></span>
+<h2><span class="ru">Отказать клиенту или собрать решение из того, что уже есть</span><span class="en">Refuse the client or assemble a solution from what already exists</span></h2>
+<div class="story">
+<div class="beat">
+<span class="mono"><span class="ru">Запрос</span><span class="en">Request</span></span>
+<h3><span class="ru">BAT просит отслеживать рекламные материалы в магазинах, а система не умеет их надёжно распознавать</span><span class="en">BAT asked to track promo materials in stores, and the system could not recognize them reliably</span></h3>
+<p><span class="ru">Для клиента это была главная ценность продукта.</span><span class="en">For the client this was the main value of the product.</span></p>
+</div>
+<div class="beat">
+<span class="mono"><span class="ru">Разговор</span><span class="en">Conversation</span></span>
+<h3><span class="ru">Мы спросили не «что доработать», а «зачем вы купили продукт»</span><span class="en">We asked not “what should we improve” but “why did you buy the product”</span></h3>
+<p><span class="ru">Реклама сигарет во многих странах запрещена, поэтому <b>рекламные материалы в магазинах остаются единственным местом, где можно представить новинку.</b> BAT платит магазинам за их размещение, и ему нужно было качество заметно выше текущего. За это он был готов платить. Этот вопрос потерялся при передаче клиента от продаж к операциям.</span><span class="en">Cigarette advertising is banned in many countries, so <b>promo materials in stores remain the only place to present a new product.</b> BAT pays stores for placing them, and it needed quality well above the current level. It was ready to pay for that. This question had been lost in the handover of the client from sales to operations.</span></p>
+</div>
+<div class="beat">
+<span class="mono"><span class="ru">Решение</span><span class="en">Solution</span></span>
+<h3><span class="ru">Дополнительное соглашение вместо стандартных условий сервиса</span><span class="en">An addendum instead of standard service terms</span></h3>
+<p><span class="ru">Доплата клиента пошла на двух операторов, которые проверяют и дообучают распознавание. Без существенных доработок продукта: менялись процессы, а не код. <b>Отказать значило бы, скорее всего, потерять клиента.</b></span><span class="en">The client’s extra payment funded two operators who check and retrain recognition. No significant product changes: processes changed, not code. <b>Refusing would most likely have meant losing the client.</b></span></p>
+</div>
+<div class="beat">
+<span class="mono"><span class="ru">Результат</span><span class="en">Result</span></span>
+<h3><span class="ru">Точность выросла с 90% до 97%, и это принесло $200K дополнительной выручки в год</span><span class="en">Accuracy rose from 90% to 97%, which brought $200K in additional revenue a year</span></h3>
+<p><span class="ru">BAT стал платить магазинам по нашим данным. Решение превратилось в премиальный пакет для клиентов, которым нужна точность выше 95%. Его купили Diageo, BAT в другой стране, Coca-Cola Japan и P&amp;G Japan. Я также ввёл для продаж и операций шаблон вопросов, чтобы потребность клиента выяснялась сразу, а не терялась по пути.</span><span class="en">BAT started paying stores based on our data. The solution became a premium package for clients who need accuracy above 95%. Diageo, BAT in another country, Coca-Cola Japan and P&amp;G Japan bought it. I also introduced a question template for sales and operations so that the client’s need is clarified immediately instead of getting lost along the way.</span></p>
+</div>
+</div>
+</section>
+<section class="section">
+<span class="mono"><span class="ru">Что я построил</span><span class="en">What I built</span></span>
+<h2><span class="ru">Три потока работ с понятной очерёдностью</span><span class="en">Three workstreams with a clear order</span></h2>
+<div class="flow">
+<div class="step"><span class="dot"></span><div><b><span class="ru">Первые 30–90 дней: довольные клиенты</span><span class="en">First 30–90 days: happy clients</span></b>
+<ul>
+<li><span class="ru">Глубинный разбор потребностей каждого клиента.</span><span class="en">A deep dive into each client’s needs.</span></li>
+<li><span class="ru">Проектные менеджеры, которые отвечают за результат и выводят клиента в «зелёную зону».</span><span class="en">Project managers who own the result and bring the client into the “green zone”.</span></li>
+</ul></div></div>
+<div class="step"><span class="dot"></span><div><b><span class="ru">Параллельно: офис и юрлицо</span><span class="en">In parallel: office and legal entity</span></b>
+<ul>
+<li><span class="ru">Открытие офиса и российского юридического лица.</span><span class="en">Opening the office and a Russian legal entity.</span></li>
+<li><span class="ru">Работа с российскими подразделениями клиентов через локальную компанию.</span><span class="en">Working with clients’ Russian divisions through a local company.</span></li>
+</ul></div></div>
+<div class="step"><span class="dot"></span><div><b><span class="ru">После 90 дней: рост продаж</span><span class="en">After 90 days: sales growth</span></b>
+<ul>
+<li><span class="ru">Расширение отдела продаж и построение воронки.</span><span class="en">Expanding the sales team and building the funnel.</span></li>
+<li><span class="ru">Личное привлечение крупных клиентов.</span><span class="en">Winning large clients personally.</span></li>
+</ul></div></div>
+<div class="step"><span class="dot sig"></span><div><b><span class="ru">Постоянно: регулярные процессы</span><span class="en">Ongoing: regular processes</span></b>
+<ul>
+<li><span class="ru">Разбор новых требований клиентов и новых лидов.</span><span class="en">Reviewing new client requirements and new leads.</span></li>
+<li><span class="ru">Согласование приоритетов с продуктовой командой в Тель-Авиве.</span><span class="en">Agreeing priorities with the product team in Tel Aviv.</span></li>
+</ul></div></div>
+</div>
+</section>
+<section class="section">
+<span class="mono"><span class="ru">Команда</span><span class="en">Team</span></span>
+<h2><span class="ru">10 человек на весь цикл работы с клиентом</span><span class="en">10 people for the whole client cycle</span></h2>
+<div class="compare">
+<div><b><span class="ru">Привлечение</span><span class="en">Acquisition</span></b><p><span class="ru">2 менеджера по продажам и маркетинг.</span><span class="en">2 sales managers and marketing.</span></p></div>
+<div><b><span class="ru">Внедрение</span><span class="en">Implementation</span></b><p><span class="ru">3 проектных менеджера и инженер, который переводит задачу бизнеса в настройку продукта.</span><span class="en">3 project managers and an engineer who translates a business need into product settings.</span></p></div>
+<div><b><span class="ru">Развитие клиентов</span><span class="en">Client growth</span></b><p><span class="ru">2 менеджера по работе с клиентами.</span><span class="en">2 account managers.</span></p></div>
+<div><b><span class="ru">Люди</span><span class="en">People</span></b><p><span class="ru">HR, чтобы команда росла вместе с портфелем.</span><span class="en">HR, so the team grows with the portfolio.</span></p></div>
+</div>
+</section>
+<section class="section">
+<span class="mono"><span class="ru">Как мы понимали, что клиент доволен</span><span class="en">How we knew the client was happy</span></span>
+<div aria-hidden="true" class="zones"><i class="r"></i><i class="y"></i><i class="g"></i></div>
+<div class="compare">
+<div><b><span class="ru">Опрос клиентов два раза в год</span><span class="en">Client survey twice a year</span></b><p><span class="ru">Готовность рекомендовать нас другим (NPS).</span><span class="en">Willingness to recommend us to others (NPS).</span></p></div>
+<div><b><span class="ru">Еженедельный дашборд</span><span class="en">Weekly dashboard</span></b><p><span class="ru">Число обращений и выполнение обязательств по скорости и точности.</span><span class="en">Number of requests and delivery against commitments on speed and accuracy.</span></p></div>
+</div>
+</section>
+<section class="section">
+<span class="mono"><span class="ru">Сложное решение</span><span class="en">A hard decision</span></span>
+<div class="story">
+<div class="beat">
+<span class="mono">2022</span>
+<h3><span class="ru">Реструктуризация команды</span><span class="en">Team restructuring</span></h3>
+<p><span class="ru">В конце 2021 года я перешёл в продуктовую роль, оставшись руководителем офиса: часть задач взяли на себя функциональные руководители. После начала событий между Россией и Украиной (часть клиентов была на Украине) команду пришлось перестраивать, а офис в России фактически закрылся.</span><span class="en">At the end of 2021 I moved into a product role while remaining head of the office: some tasks were taken over by functional leaders. After the events between Russia and Ukraine began (some clients were in Ukraine), the team had to be rebuilt, and the office in Russia effectively closed.</span></p>
+</div>
+</div>
+<p class="foot"><span class="ru">Цифры отражают состояние на конец 2021 года. Клиенты названы по публичным маркетинговым материалам Trax Retail.</span><span class="en">Figures reflect the state at the end of 2021. Clients are named based on Trax Retail’s public marketing materials.</span></p>
+</section>
+</article>
+<div class="next"><span class="mono"><span class="ru">Следующий кейс</span><span class="en">Next case</span></span><b><span class="ru">Data + Agents: фундамент, на котором AI-агент работает у каждого следующего клиента</span><span class="en">Data + Agents: the foundation that makes an AI agent work for every next customer</span></b><a href="#case-3"><span class="ru">Читать →</span><span class="en">Read →</span></a></div>
+</main>
+
+<!-- ============ CASE 3: DATA + AGENTS ============ -->
+<main class="view" id="case-3" data-title="Data + Agents — Pavel Popkov" data-title-ru="Data + Agents — Павел Попков" hidden>
+<div class="crumbs"><a href="#home"><span class="ru">← На главную</span><span class="en">← Home</span></a><a href="#case-4"><span class="ru">Кейс 04 →</span><span class="en">Case 04 →</span></a></div>
+<article class="view" style="padding-top:0">
+  <header class="hero">
+        <h1 class="long"><span class="ru">Демо-агента собрать легко. Я построил фундамент из данных, на котором агент работает и у следующего клиента</span><span class="en">A demo agent is easy. I built the data foundation that makes an agent work for the next customer too</span></h1>
+    <p class="byline"><span class="ru">Кейс 03 · Директор по стратегии продукта, Trax</span><span class="en">Case 03 · Director of Product Strategy, Trax</span></p>
+    <div class="trio">
+      <dl><dt><span class="ru">Проблема</span><span class="en">Problem</span></dt><dd><span class="ru">Данные покупателей, мерчандайзеров и клиентов лежали в разных системах и форматах. У одного товара было 5–6 названий, а аналитику собирали вручную для 5–10 клиентов.</span><span class="en">Data from shoppers, field staff and clients sat in different systems and formats. One product had 5–6 names, and analytics were assembled by hand for 5–10 clients.</span></dd></dl>
+      <dl><dt><span class="ru">Что сделал</span><span class="en">What I did</span></dt><dd><span class="ru">Собрал платформу данных (DataHub), агентов для сопоставления ~1 млн записей о товарах, семантический слой на open source dbt и data-агента в Slack. Поверх этого сделал полевого агента, который корректирует цели магазинов.</span><span class="en">Built a data platform (DataHub), agents that match ~1M product records, a semantic layer on open-source dbt and a data agent in Slack. On top of that, a field agent that corrects store targets.</span></dd></dl>
+      <dl><dt><span class="ru">Результат</span><span class="en">Result</span></dt><dd class="res"><span class="ru">Сопоставление товаров: precision 97%, recall 92%. Полевой агент: 9 из 10 рекомендаций приняты на тесте из 5 000 магазинов, экономия 3–5 минут на визите, пилот у нескольких клиентов.</span><span class="en">Product matching at 97% precision and 92% recall. Field agent: 9 of 10 recommendations accepted in a test on 5,000 stores, 3–5 minutes saved per visit, pilot with several clients.</span></dd></dl>
+    </div>
+    <div class="chips">
+      <span class="chip"><span class="ru">Компания: <b>Trax, четвёртое подразделение, объединившее три бизнеса</b></span><span class="en">Company: <b>Trax, the fourth division that merged three businesses</b></span></span>
+      <span class="chip"><span class="ru">Отрасль: <b>товары повседневного спроса, ритейл</b></span><span class="en">Industry: <b>consumer goods, retail</b></span></span>
+      <span class="chip"><span class="ru">Стадия: <b>полевой агент в пилоте</b></span><span class="en">Stage: <b>field agent in pilot</b></span></span>
+    </div>
+  </header>
+
+  <section class="metrics" aria-label="Key results" data-al-ru="Ключевые результаты">
+    <div class="metric"><span class="n">~1M</span><span class="l"><span class="ru">записей о товарах сопоставлено между системами</span><span class="en">product records matched across systems</span></span></div>
+    <div class="metric"><span class="n">97% / 92%</span><span class="l"><span class="ru">precision / recall сопоставления товаров агентами</span><span class="en">precision / recall of agent-based product matching</span></span></div>
+    <div class="metric"><span class="n">~90%</span><span class="l"><span class="ru">усилий ушло на то, чтобы данным можно было верить (оценка автора)</span><span class="en">of the effort went into making the data trustworthy (author’s estimate)</span></span></div>
+    <div class="metric"><span class="n">9 <span class="ru">из</span><span class="en">of</span> 10</span><span class="l"><span class="ru">рекомендаций приняты на тесте из 5 000 магазинов</span><span class="en">recommendations accepted in a test on 5,000 stores</span></span></div>
+    <div class="metric"><span class="n">3–5 <span class="ru">мин</span><span class="en">min</span></span><span class="l"><span class="ru">экономии на каждом визите в поле</span><span class="en">saved on every field visit</span></span></div>
+  </section>
+
+  <p class="lead"><span class="ru">Демо data-агента любой соберёт за несколько дней. Сделать так, чтобы он работал стабильно, точно и переносился от одного клиента к другому, это совсем другая работа. Для этого нужны чистые сопоставленные данные, семантический слой, который объясняет агенту термины компании, и evals: чёткие критерии, которые измеряют качество объективно, а не доверяют другой LLM оценивать ответы. Скопировать чужую инструкцию может каждый. Настоящая работа в том, чтобы знать, какой результат нужен, и уметь доказать, что агент его даёт.</span><span class="en">Anyone can assemble a demo data agent in a few days. Making it stable, accurate and portable from one customer to the next is a different job. It takes clean, matched data, a semantic layer that explains the company’s terms to the agent, and evals: clear criteria that measure quality objectively, instead of trusting another LLM to grade the answers. Copying someone’s instructions is easy. Knowing what output you need and how to prove the agent delivers it is the actual work.</span></p>
+
+  <section class="section">
+    <span class="mono"><span class="ru">Шаг первый: фундамент</span><span class="en">Step one: the foundation</span></span>
+    <div class="story">
+      <div class="beat">
+        <span class="mono"><span class="ru">1 · Идея</span><span class="en">1 · Vision</span></span>
+        <h3><span class="ru">Данные позволяют решать системные проблемы, а не точечные</span><span class="en">Data lets you fix systemic problems, not one-off ones</span></h3>
+        <p><span class="ru">Два примера. Товары периодически уходили в out-of-stock, потому что на системном уровне не был исправлен страховой запас. В начале промо-кампании в части штатов США не хватало остатков: у части ритейлеров коммерческая и логистическая функции обменивались информацией по e-mail, и она терялась. Запросы клиентов оказались стандартными, поэтому вместо дашбордов под каждого клиента я поставил задачу сделать единую data-платформу, которая выдаёт стандартные рекомендации по типам проблем.</span><span class="en">Two examples. Products kept going out of stock because safety stock had not been fixed at the system level. At the start of a promo campaign some US states ran short because at some retailers the commercial and logistics teams exchanged information by e-mail and it got lost. Client requests turned out to be standard, so instead of custom dashboards I set the goal of one data platform that gives standard recommendations by problem type.</span></p>
+      </div>
+      <div class="beat">
+        <span class="mono"><span class="ru">2 · Главная сложность</span><span class="en">2 · Hard part</span></span>
+        <h3><span class="ru">Сложить данные в одну базу было просто, сопоставить товары нет</span><span class="en">Putting data in one database was easy. Matching products was not</span></h3>
+        <p><span class="ru">Платформа покупателей, мерчандайзеры и каждый клиент заполняют данные о товарах и магазинах в своём формате, и валидация везде неполная. Магазины (десятки тысяч) сопоставили почти стандартными методами. Товары оказались задачей со звёздочкой: сотни тысяч товаров по 5–6 вариантов названия в каждой системе, около миллиона записей. Алгоритмы и люди закрывали часть задач, но долго и дорого. <b>Прорыв дал AI-агент:</b> он анализирует предгармонизированные данные, сопоставляет товары между источниками и складывает результат в базу: precision 97%, recall 92%. На рабочую дедупликацию ушёл почти год.</span><span class="en">Shoppers’ platform, merchandisers and every client keep product and store data in their own format, and validation is incomplete everywhere. Tens of thousands of stores were matched with nearly standard methods. Products were the hard part: hundreds of thousands of products with 5–6 name variants per system, about a million records. Algorithms and people covered part of it, but slowly and at high cost. <b>The breakthrough was an AI agent</b> that analyses pre-harmonized data, matches products across sources and writes the result to the database: precision 97%, recall 92%. Getting deduplication to really work took almost a year.</span></p>
+      </div>
+    </div>
+    <figure>
+      
+<div class="scroll"><svg aria-label="Diagram: data from shoppers, merchandisers and clients goes through harmonization and AI deduplication into DataHub with a semantic layer, which the data agent in Slack uses" data-al-ru="Схема: данные покупателей, мерчандайзеров и клиентов проходят гармонизацию и AI-дедупликацию, попадают в DataHub с семантическим слоем, откуда их использует data-агент в Slack" role="img" viewbox="0 0 760 250">
+<defs><marker id="ar3" markerheight="7" markerwidth="7" orient="auto" refx="9" refy="5" viewbox="0 0 10 10"><path d="M0 0L10 5L0 10z" style="fill:var(--muted)"></path></marker></defs>
+<text class="t-h" x="10" y="16"><tspan class="ru">ИСТОЧНИКИ</tspan><tspan class="en">SOURCES</tspan></text><text class="t-h" x="215" y="16"><tspan class="ru">ПОДГОТОВКА</tspan><tspan class="en">PREPARATION</tspan></text><text class="t-h" x="420" y="16">DATAHUB</text><text class="t-h" x="615" y="16"><tspan class="ru">ИСПОЛЬЗОВАНИЕ</tspan><tspan class="en">USE</tspan></text>
+<rect class="bx" height="56" rx="8" width="170" x="10" y="30"></rect><text class="t-b" x="24" y="54"><tspan class="ru">Покупатели</tspan><tspan class="en">Shoppers</tspan></text><text class="t-m" x="24" y="72"><tspan class="ru">фото и ответы</tspan><tspan class="en">photos and answers</tspan></text>
+<rect class="bx" height="56" rx="8" width="170" x="10" y="107"></rect><text class="t-b" x="24" y="131"><tspan class="ru">Мерчандайзеры</tspan><tspan class="en">Merchandisers</tspan></text><text class="t-m" x="24" y="149"><tspan class="ru">данные визитов</tspan><tspan class="en">visit data</tspan></text>
+<rect class="bx" height="56" rx="8" width="170" x="10" y="184"></rect><text class="t-b" x="24" y="208"><tspan class="ru">Данные клиентов</tspan><tspan class="en">Client data</tspan></text><text class="t-m" x="24" y="226"><tspan class="ru">продажи и остатки</tspan><tspan class="en">sales and stock</tspan></text>
+<path class="ln" d="M180 58H215" marker-end="url(#ar3)"></path><path class="ln" d="M180 135H215" marker-end="url(#ar3)"></path><path class="ln" d="M180 212H215" marker-end="url(#ar3)"></path>
+<rect class="bx-d" height="210" rx="8" width="170" x="215" y="30"></rect>
+<text class="t-b" text-anchor="middle" x="300" y="92"><tspan class="ru">Гармонизация</tspan><tspan class="en">Harmonization</tspan></text>
+<text class="t-m" text-anchor="middle" x="300" y="116"><tspan class="ru">единые форматы</tspan><tspan class="en">unified formats</tspan></text><text class="t-m" text-anchor="middle" x="300" y="132"><tspan class="ru">и проверки</tspan><tspan class="en">and checks</tspan></text>
+<text class="t-w" text-anchor="middle" x="300" y="170"><tspan class="ru">AI-дедупликация</tspan><tspan class="en">AI deduplication</tspan></text><text class="t-m" text-anchor="middle" x="300" y="190"><tspan class="ru">товар определён</tspan><tspan class="en">each product defined</tspan></text><text class="t-m" text-anchor="middle" x="300" y="206"><tspan class="ru">одинаково везде</tspan><tspan class="en">the same everywhere</tspan></text>
+<path class="ln" d="M385 85H420" marker-end="url(#ar3)"></path><path class="ln" d="M385 185H420" marker-end="url(#ar3)"></path>
+<rect class="bx-a" height="70" rx="8" width="160" x="420" y="50"></rect><text class="t-a" x="434" y="78"><tspan class="ru">Единая база</tspan><tspan class="en">Single database</tspan></text><text class="t-m" x="434" y="96"><tspan class="ru">товары и магазины</tspan><tspan class="en">products and stores</tspan></text><text class="t-m" x="434" y="110"><tspan class="ru">из всех систем</tspan><tspan class="en">from all systems</tspan></text>
+<rect class="bx-a" height="70" rx="8" width="160" x="420" y="150"></rect><text class="t-a" x="434" y="178"><tspan class="ru">Семантический слой</tspan><tspan class="en">Semantic layer</tspan></text><text class="t-m" x="434" y="196"><tspan class="ru">метрики и термины</tspan><tspan class="en">metrics and terms</tspan></text><text class="t-m" x="434" y="210"><tspan class="ru">на open source dbt</tspan><tspan class="en">on open-source dbt</tspan></text>
+<path class="ln" d="M580 85H615" marker-end="url(#ar3)"></path><path class="ln" d="M580 185H615" marker-end="url(#ar3)"></path>
+<rect class="bx-d" height="210" rx="8" width="135" x="615" y="30"></rect>
+<text class="t-a" text-anchor="middle" x="682" y="112"><tspan class="ru">Data-агент</tspan><tspan class="en">Data agent</tspan></text><text class="t-a" text-anchor="middle" x="682" y="130"><tspan class="ru">в Slack</tspan><tspan class="en">in Slack</tspan></text>
+<text class="t-m" text-anchor="middle" x="682" y="156"><tspan class="ru">и стандартные</tspan><tspan class="en">and standard</tspan></text><text class="t-m" text-anchor="middle" x="682" y="172"><tspan class="ru">рекомендации</tspan><tspan class="en">recommendations</tspan></text>
+</svg></div>
+<figcaption><span class="ru">Сначала гармонизация и дедупликация, потом семантика, и только после этого агент отвечает на вопросы.</span><span class="en">First harmonization and deduplication, then semantics, and only then does the agent answer questions.</span></figcaption>
+
+    </figure>
+  </section>
+
+  <section class="section">
+    <span class="mono"><span class="ru">Шаг второй: семантика и evals</span><span class="en">Step two: semantics and evals</span></span>
+    <div class="story">
+      <div class="beat">
+        <span class="mono"><span class="ru">3 · Семантический слой</span><span class="en">3 · Semantic layer</span></span>
+        <h3><span class="ru">Первый агент удивлял, но отвечал по-разному на один и тот же вопрос</span><span class="en">The first agent impressed, but answered the same question differently each time</span></h3>
+        <p><span class="ru">Первая версия была LLM, подключённым к DataHub. Причины нестабильности: негармонизированные данные (их закрыла дедупликация) и отсутствие семантического слоя. Агенту нужно объяснить термины компании, из каких подметрик собирается метрика и как считается. Платформу уровня Databricks мы отложили: спрос ещё нужно было подтвердить, а инвестиции были несоразмерны трекшну. Вместо этого с командой собрали семантический слой на open source dbt и задеплоили агента в Slack.</span><span class="en">The first version was an LLM connected to DataHub. Two causes: unharmonized data (closed by deduplication) and no semantic layer. An agent has to be told the company’s terms, which sub-metrics a metric is built from and how it is calculated. We postponed a Databricks-class platform: demand still had to be proven and the investment was out of proportion to traction. Instead, with the team I built a semantic layer on open-source dbt and deployed the agent in Slack.</span></p>
+      </div>
+      <div class="beat">
+        <span class="mono"><span class="ru">4 · Evals</span><span class="en">4 · Evals</span></span>
+        <h3><span class="ru">Агент отвечал уверенно, но иногда неверно</span><span class="en">The agent sounded confident and was sometimes wrong</span></h3>
+        <p><span class="ru">Процент неточных ответов оставался высоким. Агент мог уверенно заявить, что данных нет, хотя семантический слой просто пропустил таблицу: он обновлялся вручную. <b>Именно evaluation показал эти пробелы.</b> Около 90% усилий уходит на качество данных: валидация, гармонизация, актуальный семантический слой. Агенты, которые проверяют данные, дедуплицируют и обновляют семантику, это фундамент, на котором другим агентам можно доверять.</span><span class="en">The share of inaccurate answers stayed high. The agent could state with confidence that there was no data, when the semantic layer had simply skipped a table because it was updated by hand. <b>Evals exposed these gaps.</b> Around 90% of the effort goes into data quality: validation, harmonization, an up-to-date semantic layer. Agents that check data, deduplicate and update the semantics are the foundation that lets other agents be trusted.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <span class="mono"><span class="ru">Шаг третий: первый агент для клиентов, корректировка целей</span><span class="en">Step three: the first agent for customers, target correction</span></span>
+    <div class="stat">
+      <div><strong>&gt;50%</strong><span><span class="ru">причин отсутствия товара: «выведен» или «заблокирован»</span><span class="en">of “out of stock” reasons are “discontinued” or “blocked”</span></span></div>
+      <div><strong>10,000 / 20,000</strong><span><span class="ru">отсутствий в месяц у одного клиента приходились на уже выведенные товары</span><span class="en">monthly absences at one client were for already discontinued products</span></span></div>
+      <div><strong>~100,000 <span class="ru">с</span><span class="en">s</span></strong><span><span class="ru">в месяц уходило в поле на такие ответы (около 28 часов)</span><span class="en">of field time a month (about 28 hours) spent on such answers</span></span></div>
+    </div>
+    <div class="story">
+      <div class="beat">
+        <span class="mono"><span class="ru">Проблема</span><span class="en">Problem</span></span>
+        <h3><span class="ru">Сотрудники сообщают то, что система уже знает, а новинок в целях нет</span><span class="en">Field staff report what the system already knows, and new products are not in the targets</span></h3>
+        <p><span class="ru">Я разбирал причины отсутствия товара по сотням товаров и тысячам магазинов и увидел один паттерн у разных компаний и в разных странах. Один и тот же товар часто спрашивали несколько визитов подряд, а сотрудники жаловались, что их ответы не учитываются: товар оставался в цели.</span><span class="en">I went through the reasons for absence across hundreds of products and thousands of stores and saw one pattern at different companies and in different countries. The same product was often asked about at several visits in a row, and staff complained that their answers were ignored: the product stayed in the target.</span></p>
+      </div>
+      <div class="beat">
+        <span class="mono"><span class="ru">Причина</span><span class="en">Cause</span></span>
+        <h3><span class="ru">Процесс обновления целей не работает</span><span class="en">The process for updating targets does not work</span></h3>
+        <p><span class="ru">По замыслу сеть сообщает о каждом решении по магазину, КАМ передаёт аналитику, а аналитик 2–3 рабочих дня в месяц собирает и загружает новые цели. На практике сети информируют плохо, КАМы передают редко. Источником правды стали полевые сотрудники, но уже постфактум. Я провёл интервью с компаниями и показал им цифры.</span><span class="en">In theory the retailer reports every store decision, the key account manager passes it to the analyst, and the analyst spends 2–3 working days a month collecting and uploading new targets. In practice retailers inform poorly and account managers rarely pass it on, so field staff became the source of truth, but only after the fact. I interviewed companies and showed them the numbers.</span></p>
+      </div>
+      <div class="beat">
+        <span class="mono"><span class="ru">Два паттерна</span><span class="en">Two patterns</span></span>
+        <h3><span class="ru">Выведенный товар уходит из магазинов волной, а новинка не попадает в цели</span><span class="en">A discontinued product leaves in a wave, and a new product never reaches the targets</span></h3>
+        <p><span class="ru"><b>Вывод.</b> Если товар исчез примерно из 80% магазинов ритейлера, остальные 20% тоже выведены: там допродают остатки. Паттерн подтвердился на исторических данных, исключения редки. <b>Новинка.</b> КАМ согласовал товар, он уже виден на фото, но в цели его не внесли. По нему нет ни опроса, ни диагностики, ни сигнала, что его нет на полке, а это самые критичные для бизнеса позиции.</span><span class="en"><b>Discontinued.</b> If a product disappeared from about 80% of a retailer’s stores, the other 20% are discontinued too: they are selling off the remaining stock. The pattern held on historical data, and exceptions are rare. <b>New product.</b> The account manager agreed it and it is already visible in photos, but nobody added it to the targets. There is no survey, no diagnosis and no signal that it is missing, though these are the most business-critical items.</span></p>
+      </div>
+    </div>
+    <figure>
+      
+<div class="scroll"><svg aria-label="Diagram: availability history, staff answers and sales go into a classifier that confirms or rejects the status, then an analyst validates and uploads new targets" data-al-ru="Схема: история наличия, ответы сотрудников и продажи идут в классификатор, который подтверждает или опровергает статус, затем аналитик валидирует и загружает новые цели" role="img" viewbox="0 0 760 250">
+<defs><marker id="ar4" markerheight="7" markerwidth="7" orient="auto" refx="9" refy="5" viewbox="0 0 10 10"><path d="M0 0L10 5L0 10z" style="fill:var(--muted)"></path></marker></defs>
+<text class="t-h" x="10" y="16"><tspan class="ru">ВХОД</tspan><tspan class="en">INPUT</tspan></text><text class="t-h" x="215" y="16"><tspan class="ru">ЧТО ДЕЛАЕТ АГЕНТ</tspan><tspan class="en">WHAT THE AGENT DOES</tspan></text><text class="t-h" x="420" y="16"><tspan class="ru">ВЕРДИКТ</tspan><tspan class="en">VERDICT</tspan></text><text class="t-h" x="615" y="16"><tspan class="ru">ЧЕЛОВЕК</tspan><tspan class="en">HUMAN</tspan></text>
+<rect class="bx" height="56" rx="8" width="170" x="10" y="30"></rect><text class="t-b" x="24" y="54"><tspan class="ru">История наличия</tspan><tspan class="en">Availability history</tspan></text><text class="t-m" x="24" y="72"><tspan class="ru">по неделям</tspan><tspan class="en">by week</tspan></text>
+<rect class="bx" height="56" rx="8" width="170" x="10" y="107"></rect><text class="t-b" x="24" y="131"><tspan class="ru">Ответы сотрудников</tspan><tspan class="en">Staff answers</tspan></text><text class="t-m" x="24" y="149"><tspan class="ru">причины отсутствия</tspan><tspan class="en">reasons for absence</tspan></text>
+<rect class="bx" height="56" rx="8" width="170" x="10" y="184"></rect><text class="t-b" x="24" y="208"><tspan class="ru">Продажи</tspan><tspan class="en">Sales</tspan></text><text class="t-m" x="24" y="226"><tspan class="ru">если клиент делится</tspan><tspan class="en">if the client shares them</tspan></text>
+<path class="ln" d="M180 58H215" marker-end="url(#ar4)"></path><path class="ln" d="M180 135H215" marker-end="url(#ar4)"></path><path class="ln" d="M180 212H215" marker-end="url(#ar4)"></path>
+<rect class="bx-d" height="210" rx="8" width="170" x="215" y="30"></rect>
+<text class="t-b" text-anchor="middle" x="300" y="92"><tspan class="ru">Классификатор</tspan><tspan class="en">Classifier</tspan></text>
+<text class="t-m" text-anchor="middle" x="300" y="116"><tspan class="ru">график наличия</tspan><tspan class="en">availability curve</tspan></text><text class="t-m" text-anchor="middle" x="300" y="132"><tspan class="ru">против ответа</tspan><tspan class="en">against the staff</tspan></text><text class="t-m" text-anchor="middle" x="300" y="148"><tspan class="ru">сотрудника</tspan><tspan class="en">answer</tspan></text>
+<text class="t-w" text-anchor="middle" x="300" y="180"><tspan class="ru">+ сопоставление</tspan><tspan class="en">+ product matching</tspan></text><text class="t-m" text-anchor="middle" x="300" y="196"><tspan class="ru">товаров по UPC/EAN</tspan><tspan class="en">by UPC/EAN</tspan></text><text class="t-m" text-anchor="middle" x="300" y="212"><tspan class="ru">и весу</tspan><tspan class="en">and weight</tspan></text>
+<path class="ln" d="M385 85H420" marker-end="url(#ar4)"></path><path class="ln" d="M385 185H420" marker-end="url(#ar4)"></path>
+<rect class="bx-a" height="70" rx="8" width="160" x="420" y="50"></rect><text class="t-a" x="434" y="78"><tspan class="ru">Подтверждает</tspan><tspan class="en">Confirms</tspan></text><text class="t-m" x="434" y="96"><tspan class="ru">выведен или новинка:</tspan><tspan class="en">discontinued or new item:</tspan></text><text class="t-m" x="434" y="110"><tspan class="ru">цель меняется</tspan><tspan class="en">the target changes</tspan></text>
+<rect class="bx" height="70" rx="8" width="160" x="420" y="150"></rect><text class="t-b" x="434" y="178"><tspan class="ru">Опровергает</tspan><tspan class="en">Rejects</tspan></text><text class="t-m" x="434" y="196"><tspan class="ru">ошибка ответа:</tspan><tspan class="en">answer error:</tspan></text><text class="t-m" x="434" y="210"><tspan class="ru">цель остаётся</tspan><tspan class="en">the target stays</tspan></text>
+<path class="ln" d="M580 85H615" marker-end="url(#ar4)"></path><path class="ln" d="M580 185H615" marker-end="url(#ar4)"></path>
+<rect class="bx-d" height="210" rx="8" width="135" x="615" y="30"></rect>
+<text class="t-a" text-anchor="middle" x="682" y="112"><tspan class="ru">Аналитик</tspan><tspan class="en">Analyst</tspan></text><text class="t-a" text-anchor="middle" x="682" y="130"><tspan class="ru">валидирует</tspan><tspan class="en">validates</tspan></text>
+<text class="t-m" text-anchor="middle" x="682" y="156"><tspan class="ru">и загружает</tspan><tspan class="en">and uploads</tspan></text><text class="t-m" text-anchor="middle" x="682" y="172"><tspan class="ru">новые цели</tspan><tspan class="en">new targets</tspan></text>
+</svg></div>
+<figcaption><span class="ru">Агент делает поиск, аналитик принимает решение. Для выведенных товаров и новинок проверка идёт по одной схеме.</span><span class="en">The agent does the search, the analyst makes the decision. Discontinued items and new items are checked the same way.</span></figcaption>
+
+    </figure>
+    <div class="story">
+      <div class="beat">
+        <span class="mono"><span class="ru">Проверка</span><span class="en">Validation</span></span>
+        <h3><span class="ru">Проверил на 5 000 магазинов до масштабирования</span><span class="en">Tested on 5,000 stores before scaling</span></h3>
+        <p><span class="ru">Сначала я проверил паттерн на исторических данных и вместе с AI-аналитиком сделал перекрёстную проверку, чтобы исключить фрод и ошибки: около 10% ответов оказались ошибками сотрудников (товар потом появился в магазинах), 90% подтвердились. Затем проверил агента на 3 компаниях (1 рынок в Бразилии и 2 в Европе), по 300 товаров на компанию, Food и Non-food, 5 ритейлеров и 5 000 магазинов. <b>Принято 9 из 10 рекомендаций,</b> остальные я разобрал вручную.</span><span class="en">First I checked the pattern on historical data and, together with an AI analyst, cross-checked it to exclude fraud and mistakes: about 10% of answers were staff errors (the product later appeared in stores) and 90% were confirmed. Then I tested the agent on 3 companies (1 market in Brazil and 2 in Europe), 300 products each, Food and Non-food, 5 retailers and 5,000 stores. <b>9 of 10 recommendations were accepted,</b> and I went through the rest by hand.</span></p>
+      </div>
+      <div class="beat">
+        <span class="mono"><span class="ru">Находка</span><span class="en">Finding</span></span>
+        <h3><span class="ru">Старый и новый товар оказались одним продуктом</span><span class="en">The old and the new product turned out to be one product</span></h3>
+        <p><span class="ru">Разбор спорных товаров показал новое требование: нужно сопоставлять выведенный и новый товар. Часто это один и тот же продукт с новым UPC/EAN и новым весом. После добавления этого правила ошибок в рекомендациях не найдено.</span><span class="en">Reviewing the disputed items revealed a new requirement: match the discontinued and the new product. Often it is the same product with a new UPC/EAN and a new weight. After adding this rule no errors were found in the recommendations.</span></p>
+      </div>
+      <div class="beat">
+        <span class="mono"><span class="ru">Где настоящий эффект</span><span class="en">Real effect</span></span>
+        <h3><span class="ru">Не аналитик, а визиты полевых сотрудников</span><span class="en">Not the analyst, the field visits</span></h3>
+        <p><span class="ru">Аналитик освободит 2–3 рабочих дня в месяц, но компания не получит из этого прямой выгоды: он займётся другой задачей. <b>Выгода в поле:</b> сотрудники перестают отвечать на вопросы по выведенным товарам и экономят 3–5 минут на каждом визите. Это время идёт на выкладку и продажи, новинки попадают в опросы, а сотрудники видят, что их ответы учитываются. Верные цели также делают отчёт по OOS честным: оценка эффекта на OOS составляет 8–12% снижения (оценка автора).</span><span class="en">The analyst gets back 2–3 working days a month, but the company gets no direct gain from that: the analyst takes on another task. <b>The gain is in the field:</b> staff stop answering questions about discontinued products and save 3–5 minutes per visit. That time goes into shelving and selling, new products enter the surveys, and staff see that their answers count. Correct targets also keep the out-of-stock report honest; the estimated effect on out-of-stock is 8–12% lower (author’s estimate).</span></p>
+      </div>
+      <div class="beat">
+        <span class="mono"><span class="ru">Масштаб и стадия</span><span class="en">Scale and stage</span></span>
+        <h3><span class="ru">От 100 000 секунд в месяц у одного клиента до миллионов</span><span class="en">From 100,000 seconds a month at one client to millions</span></h3>
+        <p><span class="ru">Для одного клиента в одной стране это около 100 000 секунд в месяц. Агентом уже заинтересовались несколько компаний в нескольких странах, поэтому суммарная экономия считается в миллионах секунд. <b>Стадия: пилот.</b> Агент формирует цели у нескольких клиентов, а аналитик только проверяет результат.</span><span class="en">For one client in one country it is about 100,000 seconds a month. Several companies in several countries are interested, so the total saving is counted in millions of seconds. <b>Stage: pilot.</b> The agent prepares targets at several clients and the analyst only validates the result.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <span class="mono"><span class="ru">Почему агенты повторяются от клиента к клиенту</span><span class="en">Why agents repeat from customer to customer</span></span>
+    <div class="story">
+      <div class="beat"><span class="mono"><span class="ru">Сначала результат</span><span class="en">Output first</span></span><h3><span class="ru">Определить результат до первой инструкции</span><span class="en">Define the result before the first instruction</span></h3><p><span class="ru">Понять, какой результат нужен и какие критерии его подтверждают. Без этого агент остаётся демо, которое никто не может ни принять, ни отклонить.</span><span class="en">Know what output you need and which criteria prove it. Without that, an agent is a demo that nobody can accept or reject.</span></p></div>
+      <div class="beat"><span class="mono">Evals</span><h3><span class="ru">Измерять качество объективно</span><span class="en">Measure quality objectively</span></h3><p><span class="ru">Использовать явные проверки: долю рекомендаций, которые принимает аналитик, и ручной разбор спорных случаев. <b>Не доверять LLM оценивать качество другой LLM.</b></span><span class="en">Use explicit checks: the share of recommendations an analyst accepts and a hand review of disputed cases. <b>Do not trust an LLM to grade an LLM.</b></span></p></div>
+      <div class="beat"><span class="mono"><span class="ru">Сначала данные</span><span class="en">Data first</span></span><h3><span class="ru">Гармонизировать данные, потом добавить семантику</span><span class="en">Harmonize the data, then add semantics</span></h3><p><span class="ru">Дедуплицировать и привести данные к одному виду, затем дать агенту семантический слой, который поддерживается актуальным. Эта часть переносится от клиента к клиенту.</span><span class="en">Deduplicate and align the data, then give the agent a semantic layer that is kept up to date. This is the part that moves from one customer to the next.</span></p></div>
+      <div class="beat"><span class="mono"><span class="ru">Человек в контуре</span><span class="en">Human in the loop</span></span><h3><span class="ru">Агент ищет, аналитик решает</span><span class="en">The agent searches, the analyst decides</span></h3><p><span class="ru">Держать человека в контуре, пока не заработано доверие, и позволять спорным случаям формировать следующее правило. Так появилось правило по UPC/EAN и весу.</span><span class="en">Keep a person in the loop until trust is earned, and let the disputed cases write the next rule. That is how the UPC/EAN and weight rule appeared.</span></p></div>
+    </div>
+    <p class="arcline"><span class="ru">Цепочка, которую я повторяю: <b>данные, семантический слой, агент, evals, пилот, масштаб.</b></span><span class="en">The chain I reuse: <b>data, semantic layer, agent, evals, pilot, scale.</b></span></p>
+  </section>
+
+  <section class="section">
+    <span class="mono"><span class="ru">Другие агенты, которых я запускал</span><span class="en">More agents I shipped</span></span>
+    <div class="acards">
+      <a class="acard" href="#agent-1">
+        <div><span class="mono"><span class="ru">Агент 01</span><span class="en">Agent 01</span></span><h3><span class="ru">Агент контроля данных: держит таргеты ассортимента каждого магазина верными</span><span class="en">Data control agent: keeps every store’s assortment targets correct</span></h3></div>
+        <div class="trio">
+          <dl><dt><span class="ru">Для кого</span><span class="en">For</span></dt><dd><span class="ru">Производители и ритейлеры CPG с полевыми командами и KAM</span><span class="en">CPG manufacturers and retailers with field teams and key account managers</span></dd></dl>
+          <dl><dt><span class="ru">Главная фишка</span><span class="en">Key trick</span></dt><dd><span class="ru">Сравнивает таргеты с тем, что реально видно на полке, и сам добавляет новинки, убирает выведенные товары и пересчитывает таргеты.</span><span class="en">Compares targets with what is actually visible on the shelf, then adds new products, removes discontinued ones and recalculates targets itself.</span></dd></dl>
+          <dl><dt><span class="ru">Результат</span><span class="en">Result</span></dt><dd class="res"><span class="ru">OOS ниже на 8–12% за счёт верных таргетов (оценка автора). До 5 минут экономии на каждом визите.</span><span class="en">Out-of-stock lower by 8–12% thanks to correct targets (author’s estimate). Up to 5 minutes saved per visit.</span></dd></dl>
+        </div>
+        <span class="go"><span class="ru">Открыть агента →</span><span class="en">Open the agent →</span></span>
+      </a>
+      <a class="acard" href="#agent-2">
+        <div><span class="mono"><span class="ru">Агент 02</span><span class="en">Agent 02</span></span><h3><span class="ru">Диагностический агент: разбирает весь портфель сразу</span><span class="en">Diagnostic agent: analyzes the whole portfolio at once</span></h3></div>
+        <div class="trio">
+          <dl><dt><span class="ru">Для кого</span><span class="en">For</span></dt><dd><span class="ru">Аналитики и менеджеры в малых и средних командах</span><span class="en">Analysts and managers in small and mid-size teams</span></dd></dl>
+          <dl><dt><span class="ru">Главная фишка</span><span class="en">Key trick</span></dt><dd><span class="ru">Идёт по дереву причин самого аналитика, запускает до 100 копий параллельно по срезам бренд × товар × канал × клиент и сводит выводы в один документ с рейтингом причин.</span><span class="en">Follows the analyst’s own cause tree, runs up to 100 copies in parallel across brand × SKU × channel × client and merges the findings into one document with a ranked list of causes.</span></dd></dl>
+          <dl><dt><span class="ru">Результат</span><span class="en">Result</span></dt><dd class="res"><span class="ru">5–8 часов в неделю экономии на диагностике</span><span class="en">5–8 hours a week saved on diagnosis</span></dd></dl>
+        </div>
+        <span class="go"><span class="ru">Открыть агента →</span><span class="en">Open the agent →</span></span>
+      </a>
+      <a class="acard" href="#agent-3">
+        <div><span class="mono"><span class="ru">Агент 03</span><span class="en">Agent 03</span></span><h3><span class="ru">Планограммный агент: лучший ассортимент и выкладка для каждого магазина</span><span class="en">Planogram agent: the right assortment and layout for every store</span></h3></div>
+        <div class="trio">
+          <dl><dt><span class="ru">Для кого</span><span class="en">For</span></dt><dd><span class="ru">Ритейлеры и категорийные команды CPG</span><span class="en">Retailers and category teams in CPG</span></dd></dl>
+          <dl><dt><span class="ru">Главная фишка</span><span class="en">Key trick</span></dt><dd><span class="ru">Адаптирует идеальную планограмму под реальное оборудование по фото полок и данным продаж, а не втискивает исходную в магазин, где полок меньше.</span><span class="en">Adapts the ideal planogram to the real fixtures using shelf photos and sales data, instead of squeezing the original into a store that has fewer shelves.</span></dd></dl>
+          <dl><dt><span class="ru">Результат</span><span class="en">Result</span></dt><dd class="res"><span class="ru">Соблюдение планограммы выросло с 30–40% до 70–80% (оценка менеджмента)</span><span class="en">Planogram compliance from 30–40% to 70–80% (management’s estimate)</span></dd></dl>
+        </div>
+        <span class="go"><span class="ru">Открыть агента →</span><span class="en">Open the agent →</span></span>
+      </a>
+    </div>
+    <p class="btns"><a class="btn" href="#agents"><span class="ru">Все агенты →</span><span class="en">All agents →</span></a></p>
+    <p class="foot"><span class="ru">Цифры приведены по данным автора. «Около 90%» усилий и эффект на OOS это оценки автора. Полевой агент находится в пилоте.</span><span class="en">Figures are the author’s. “About 90%” of the effort and the effect on out-of-stock are the author’s estimates. The field agent is in pilot.</span></p>
+  </section>
+</article>
+<div class="next"><span class="mono"><span class="ru">Следующий кейс</span><span class="en">Next case</span></span><b><span class="ru">4 000 полевых сотрудников перешли на computer vision в Coca-Cola HBC</span><span class="en">4,000 field employees moved to computer vision at Coca-Cola HBC</span></b><a href="#case-4"><span class="ru">Читать →</span><span class="en">Read →</span></a></div>
+</main>
+
+<!-- ============ CASE 4: COCA-COLA TRANSFORMATION ============ -->
+<main class="view" id="case-4" data-title="Computer vision for 4,000 field employees — Pavel Popkov" data-title-ru="Computer vision для 4 000 сотрудников — Павел Попков" hidden>
+<div class="crumbs"><a href="#home"><span class="ru">← На главную</span><span class="en">← Home</span></a><a href="#cases"><span class="ru">Все кейсы →</span><span class="en">All cases →</span></a></div>
+<article class="view" style="padding-top:0">
+  <header class="hero">
+        <h1 class="long"><span class="ru">Мы перевели 4 000 полевых сотрудников на computer vision. Через десять лет компания всё так же работает по этому процессу</span><span class="en">We moved 4,000 field employees to computer vision. Ten years later it is still how the company works</span></h1>
+    <p class="byline"><span class="ru">Кейс 04 · Руководитель проекта, Coca-Cola HBC, 2013–2014</span><span class="en">Case 04 · Project lead, Coca-Cola HBC, 2013–2014</span></p>
+    <div class="trio">
+      <dl><dt><span class="ru">Проблема</span><span class="en">Problem</span></dt><dd><span class="ru">Полевые сотрудники вручную вносили данные о визитах. Компании нужны были метрики без ручной работы, а технология была совсем новой: первая известная сеть для распознавания изображений появилась всего за год до этого.</span><span class="en">Field employees filled in visit data by hand. The company wanted the metrics without manual work, and the technology was brand new: the first well-known image-recognition network appeared only a year before.</span></dd></dl>
+      <dl><dt><span class="ru">Что сделал</span><span class="en">What I did</span></dt><dd><span class="ru">Продал идею CEO боттлера живой демонстрацией в магазине, перешёл в боттлер, чтобы вести проект, доказал результат на пилоте с контрольными городами и раскатал решение на 100+ городов примерно за полтора года.</span><span class="en">Sold the idea to the bottler’s CEO with a live demo in a store, moved to the bottler to lead the project, proved it in a pilot with control cities and rolled it out across 100+ cities in about a year and a half.</span></dd></dl>
+      <dl><dt><span class="ru">Результат</span><span class="en">Result</span></dt><dd class="res"><span class="ru">4 000+ полевых сотрудников (~5 000 с руководителями) перешли на новый процесс. Рост продаж на 10%+ в подключённых точках, пустые полки с 15% до 5% и награда Coca-Cola System Innovation Award в конце 2014 года. Процесс работает до сих пор, спустя десять лет.</span><span class="en">4,000+ field employees (~5,000 with managers) switched to the new process. Sales up 10%+ in connected outlets, out-of-stock from 15% to 5%, and the Coca-Cola System Innovation Award at the end of 2014. The process still runs ten years later.</span></dd></dl>
+    </div>
+    <div class="chips">
+      <span class="chip"><span class="ru">Компания: <b>Coca-Cola HBC, боттлер в системе Coca-Cola</b></span><span class="en">Company: <b>Coca-Cola HBC, a bottler in the Coca-Cola system</b></span></span>
+      <span class="chip"><span class="ru">Масштаб: <b>около половины из ~10 000 сотрудников компании</b></span><span class="en">Scale: <b>about half of the company’s ~10,000 employees</b></span></span>
+    </div>
+  </header>
+
+  <section class="metrics" aria-label="Key results" data-al-ru="Ключевые результаты">
+    <div class="metric"><span class="n">4,000+</span><span class="l"><span class="ru">полевых сотрудников перешли на новый процесс (~5 000 с руководителями)</span><span class="en">field employees moved to the new process (~5,000 with managers)</span></span></div>
+    <div class="metric"><span class="n">100+</span><span class="l"><span class="ru">городов по стране, объединённых в регионы со своими руководителями</span><span class="en">cities across the country, grouped into regions with their own leaders</span></span></div>
+    <div class="metric"><span class="n">+10%</span><span class="l"><span class="ru">рост продаж в точках, подключённых к программе</span><span class="en">sales growth in outlets connected to the program</span></span></div>
+    <div class="metric"><span class="n">15% → 5%</span><span class="l"><span class="ru">доля пустых полок за два года</span><span class="en">share of empty shelves over two years</span></span></div>
+    <div class="metric"><span class="n">2014</span><span class="l"><span class="ru">Coca-Cola System Innovation Award, лучший execution-процесс</span><span class="en">Coca-Cola System Innovation Award, best execution process</span></span></div>
+  </section>
+
+  <p class="lead"><span class="ru">В таком масштабе технология была более лёгкой половиной задачи. Сложной половиной были люди: 4 000 полевых сотрудников, их руководители и руководители руководителей в 100+ городах, и каждому нужно было поверить, что новый процесс поможет. Программа охватывала сотни тысяч визитов в месяц (больше миллиона в год) и сотни миллионов фотографий в год. Это был первый случай использования computer vision в таком масштабе в системе Coca-Cola, и другие страны потом переняли подход.</span><span class="en">At that scale the technology was the easier half. The hard half was people: 4,000 field employees, their managers and their managers’ managers in 100+ cities, each of whom had to believe that the new process would help. The program ran hundreds of thousands of visits a month (over a million a year) and hundreds of millions of photos a year. It was the first use of computer vision at that scale in the Coca-Cola system, and other countries later copied the approach.</span></p>
+
+  <section class="section">
+    <span class="mono"><span class="ru">Как это было: пять шагов</span><span class="en">How it went: five steps</span></span>
+    <div class="story">
+      <div class="beat">
+        <span class="mono"><span class="ru">1 · Проблема</span><span class="en">1 · Problem</span></span>
+        <h3><span class="ru">Данные о визитах вносили вручную, и я мог измерить, сколько визитов ничего не меняли</span><span class="en">Visit data was typed in by hand, and I could measure how many visits changed nothing</span></h3>
+        <p><span class="ru">Работая коммерческим аналитиком в The Coca-Cola Company, я изучал эффективность route to market: насколько хорошо компания доводит товары до магазинов, от доставки до сбора заказов. Замеры полевых визитов показали, сколько усилий уходит впустую. Задача проекта: перевести более 4 000 полевых сотрудников с ручного ввода информации во время визита на новую технологию.</span><span class="en">As a commercial analyst at The Coca-Cola Company I studied route-to-market efficiency: how well the company gets products to stores, from delivery to collecting orders. Measuring field visits showed how much effort went nowhere. The project’s task was to move more than 4,000 field employees from entering information by hand during a visit to a new technology.</span></p>
+      </div>
+      <div class="beat">
+        <span class="mono"><span class="ru">2 · Демо и условие</span><span class="en">2 · Demo and condition</span></span>
+        <h3><span class="ru">Сначала нужно было продать идею, и CEO поставил одно условие</span><span class="en">I had to sell the idea first, and the CEO set one condition</span></h3>
+        <p><span class="ru">В 2013 году распознавание изображений нейросетями только зарождалось, и к нам пришёл стартап с продуктом, который обрабатывает фотографии торгового представителя или мерчандайзера в магазине. Coca-Cola это две системы: The Coca-Cola Company, где я работал, и боттлеры в разных странах. Вместе с руководителем мы подготовили живую демонстрацию в магазине для совместного визита CEO боттлеров. Репетиции проваливались раз за разом, обычно не из-за технологии, а потому что демо требует столько подготовки. <b>Демонстрация прошла хорошо.</b> CEO одобрил и попросил результаты пилота. Его условие: проект должен вести тот, кто показывал. Поэтому я перешёл из The Coca-Cola Company в боттлер.</span><span class="en">Image recognition by neural networks was brand new in 2013, and a startup came to us with a product that reads the photos a sales rep or merchandiser takes in a store. Coca-Cola is two systems: The Coca-Cola Company, where I worked, and the bottlers in different countries. With my manager I prepared a live demo in a store for a joint visit of the bottlers’ CEOs. Rehearsals failed again and again, usually not because of the technology but because a demo needs that much preparation. <b>The live demo went well.</b> The CEO approved and asked for pilot results. His condition: the person who showed it must lead it. So I moved from The Coca-Cola Company to the bottler.</span></p>
+      </div>
+      <div class="beat">
+        <span class="mono"><span class="ru">3 · Пилот</span><span class="en">3 · Pilot</span></span>
+        <h3><span class="ru">Пилот строили, чтобы убрать рискованные допущения</span><span class="en">The pilot was built to remove the risky assumptions</span></h3>
+        <p><span class="ru">Я адаптировал команду, которая вела старый процесс, под новый. Выгоды должны были быть чётко понятны хотя бы на бумаге, сформулированные как гипотезы для проверки. Задача пилота: не только проверить, что технология работает, но и отбросить рисковые допущения и закрыть все риски для раскатки, потому что раскатка не имеет смысла, если есть непреодолимый барьер. В тестовых городах я оставлял старый процесс и запускал новые территории рядом, сравнивая продажи, результаты магазинов, время и удобство.</span><span class="en">I adapted the team that ran the old process to the new one. The benefits had to be clear on paper, written as hypotheses to test. The pilot’s job was not only to prove that the technology works, but to discard the risky assumptions and close every risk for the rollout, because a rollout makes no sense if there is a barrier that cannot be overcome. In test cities I kept the old process and launched new territories next to it, and compared sales, store results, time and convenience.</span></p>
+      </div>
+      <div class="beat">
+        <span class="mono"><span class="ru">4 · Раскатка</span><span class="en">4 · Rollout</span></span>
+        <h3><span class="ru">100+ городов, руководитель за руководителем</span><span class="en">100+ cities, one leader at a time</span></h3>
+        <p><span class="ru">В полевой структуре у каждого города есть руководители, города объединены в регионы, и у регионов свои руководители. Каждому нужно было продать идею и убедить, что это поможет, при том что решение само было сырым, как у любого стартапа. Раскатка заняла около полутора лет. <b>Результат первого года после запуска дал очень сильный прирост продаж,</b> результат второго года тоже был значительным. Каждый год мы повышали планку и усложняли процесс, пока не дошли до пределов системы.</span><span class="en">The field force has managers in every city, cities form regions, and each region has its own leaders. I had to sell the idea to each of them and convince them that it would help, while the solution itself was still raw, like any startup’s. It took about a year and a half. <b>The first year after rollout gave a very strong sales uplift,</b> and the second year was significant too. Each year we raised the bar and added complexity, until we reached the limits of the system.</span></p>
+      </div>
+      <div class="beat">
+        <span class="mono"><span class="ru">5 · Результат</span><span class="en">5 · Result</span></span>
+        <h3><span class="ru">Продажи выросли, процесс получил глобальную награду, и другие страны приехали учиться</span><span class="en">Sales grew, the process won a global award and other countries came to learn</span></h3>
+        <p><span class="ru">Продажи выросли более чем на 10% в точках, подключённых к программе, а доля пустых полок за два года упала с 15% до 5%. В конце 2014 года процесс получил Coca-Cola System Innovation Award, глобальную награду за лучший execution-процесс. Делегации из других стран приезжали перенимать метод, и в следующие три года computer vision распространился в большинстве крупных стран, а основной ссылкой был наш кейс. <b>Спустя десять лет</b> я говорил с бывшими коллегами: процесс по-прежнему фундаментальный. Возможно, поменялся поставщик, но компания перестроилась на этот процесс и без него не видит возможности управлять полевой структурой.</span><span class="en">Sales grew by more than 10% in outlets connected to the program, and out-of-stock fell from 15% to 5% over two years. At the end of 2014 the process won the Coca-Cola System Innovation Award, a global award for the best execution process. Delegations from other countries came to adopt the method, and over the next three years computer vision spread to most large countries, with our case as the main reference. <b>Ten years later</b> I spoke with former colleagues: the process is still fundamental. The vendor may have changed, but the company has rebuilt itself around the process and no longer sees a way to manage its field force without it.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <span class="mono"><span class="ru">Чему я научился про изменения</span><span class="en">What I learned about change</span></span>
+    <div class="story">
+      <div class="beat"><span class="mono"><span class="ru">Видение</span><span class="en">Vision</span></span><h3><span class="ru">Руководство должно почувствовать результат до запуска</span><span class="en">Leaders must feel the end result before launch</span></h3><p><span class="ru">Любой трансформации нужна поддержка сверху, и не просто поддержка: руководство должно увидеть финальную картину, как всё будет работать. То же видение объясняет людям, которые меняются, какой будет их роль. <b>Основной блокер это страх:</b> как я буду работать после этого и буду ли вообще работать. У некоторых он превращается в прямое отторжение.</span><span class="en">Every transformation needs support from the top, and not just support: leadership has to see the final picture of how it will work. The same vision tells the people who are changing what their role will be. <b>The main blocker is fear:</b> how will I work after this, will I still have work. In some people it turns into outright rejection.</span></p></div>
+      <div class="beat"><span class="mono"><span class="ru">Начать с малого</span><span class="en">Start small</span></span><h3><span class="ru">Начать с простого и найти амбассадоров</span><span class="en">Start with low-hanging fruit and find ambassadors</span></h3><p><span class="ru">Начать с простых шагов и искать энейблеров, которые заразятся видением и будут решать массу неизбежных проблем в начале. Затем найти для каждого сотрудника, менеджера и директора подход, который раскроет его сильные стороны.</span><span class="en">Begin with simple steps and look for the enablers who catch the vision and will solve the many problems that inevitably appear at the start. Then find an approach for every employee, manager and director that brings out their own strengths.</span></p></div>
+      <div class="beat"><span class="mono"><span class="ru">Команда</span><span class="en">Team</span></span><h3><span class="ru">Трансформацию нельзя делать в одиночку</span><span class="en">You cannot transform alone</span></h3><p><span class="ru">До этого проекта я часто пытался вытаскивать вещи единолично, и когда получалось, чувствовал себя героем. Это не только рискованно, это вредит трансформации: она про людей, про объяснение видения, про коммуникацию и работу с проблемами как команда.</span><span class="en">Before this project I often tried to pull things through alone, and when it worked I felt like a hero. That is not only risky, it damages a transformation: it is about people, explaining the vision, communication and working through problems as a team.</span></p></div>
+      <div class="beat"><span class="mono"><span class="ru">Стили</span><span class="en">Styles</span></span><h3><span class="ru">Подбирать стиль лидерства под ситуацию</span><span class="en">Match the leadership style to the situation</span></h3><p><span class="ru">Я видел директивный, соревновательный и коучинговый стили, и нет лучшего среди них. Директивный выигрывает, когда нужны быстрые результаты. На дистанции в год-два почти всегда побеждал коучинг, потому что такие руководители вкладывались в команду, а не занимались микроменеджментом. Это ситуативное лидерство: понимать, какой стиль подходит моменту.</span><span class="en">I saw directive, competitive and coaching styles, and none is the best one. A directive style wins when you need results fast. Over a year or two the coaching style almost always won, because those leaders invested in the team instead of micromanaging. This is situational leadership: knowing which style fits the moment.</span></p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <span class="mono"><span class="ru">Детали</span><span class="en">Details</span></span>
+    <div class="more">
+      <details>
+        <summary><span class="ru">Регион, который не хотел меняться</span><span class="en">The region that did not want to change</span></summary>
+        <div class="body">
+          <p><span class="ru">Один регион относился скептически: он был лучшим среди всех регионов по старому процессу, много в него вложил и видел много рисков в переходе. Я понимал, что мотивирует людей, которые выстроили хороший процесс: они хотят быть лучшими и в новом. Мы объявили соревнование между регионами, кто первым достигнет заданных результатов, и <b>победить мог не отдельный человек, а только вся региональная команда.</b></span><span class="en">One region was skeptical: it was the best of all regions at the old process, had invested heavily in it and saw many risks in switching. I understood what drives people who build a good process: they want to be the best in the new one too. We framed it as a competition between regions for who would reach set results first, and <b>no individual could win, only the whole regional team.</b></span></p>
+          <p><span class="ru">Цель была поставлена на три месяца, а команда достигла её за два. Они делились приёмами друг с другом. Они первыми нашли, как правильно фотографировать холодильник, с помощью лёгкой пластиковой заглушки, которая используется при транспортировке холодильников, и раздали её каждому торговому представителю и мерчандайзеру. Холодильник занимал около 10 секунд вместо минуты.</span><span class="en">The goal was set for three months, and the team reached it in two. They shared tricks with each other. They were the first to find how to photograph a cooler properly, using a light plastic stopper that is used when transporting coolers, and they gave one to every rep and merchandiser. A cooler took about 10 seconds instead of up to a minute.</span></p>
+        </div>
+      </details>
+      <details>
+        <summary><span class="ru">Колени и селфи</span><span class="en">Knees and selfies</span></summary>
+        <div class="body">
+          <p><span class="ru">Поначалу люди фотографировали то, чего никто не ждал: свои колени по дороге между магазинами, селфи с продавцами на фоне холодильника. Мы срочно доделали функцию, которая определяет человека на фото и размывает его, потому что это попадает под правила о персональных данных. <b>Жизнь постоянно вносила правки в продукт.</b></span><span class="en">Early on people photographed things nobody expected: their knees on the way between stores, selfies with shop assistants in front of the cooler. We urgently built a function that detects a person in a photo and blurs them, because it fell under personal data rules. <b>The field kept changing the product.</b></span></p>
+        </div>
+      </details>
+      <details>
+        <summary><span class="ru">Почему демо потребовало десяти попыток</span><span class="en">Why the demo needed ten tries</span></summary>
+        <div class="body">
+          <p><span class="ru">Любая живая демонстрация требует огромной подготовки. Первые пять из десяти попыток проваливались, следующие шли немного не так, и на десятой всё получилось. Подводила не технология. CEO, который видит финальный результат в реальном магазине, убеждается гораздо легче, чем при чтении слайда.</span><span class="en">Every live demo needs a huge amount of preparation. The first five of ten attempts failed, the next few went a little wrong, and by the tenth it worked. It was not the technology that failed. A CEO who sees the end result in a real store is far easier to convince than one reading a slide.</span></p>
+        </div>
+      </details>
+    </div>
+    <p class="foot"><span class="ru">Цифры приведены по данным автора. Объёмы визитов и фотографий приблизительные.</span><span class="en">Figures are the author’s. The visit and photo volumes are approximate.</span></p>
+  </section>
+</article>
+<div class="next"><span class="mono"><span class="ru">Все кейсы</span><span class="en">All cases</span></span><b><span class="ru">Вернуться к списку кейсов</span><span class="en">Back to the list of cases</span></b><a href="#cases"><span class="ru">Открыть →</span><span class="en">Open →</span></a></div>
+</main>
+
